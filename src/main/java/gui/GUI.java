@@ -6,15 +6,15 @@ import com.mxgraph.swing.mxGraphComponent;
 
 import javax.swing.*;
 
+import entities.DynamicNetwork;
 import entities.WeightedEdge;
-import org.jgrapht.*;
 import org.jgrapht.ext.JGraphXAdapter;
 
 public class GUI extends JFrame {
 
     private static final long serialVersionUID = -2707712944901661771L;
 
-    public GUI(String name, Graph<Integer, WeightedEdge> network) {
+    public GUI(String name, DynamicNetwork network) {
         super(name);
 
         JGraphXAdapter<Integer, WeightedEdge> graphAdapter =

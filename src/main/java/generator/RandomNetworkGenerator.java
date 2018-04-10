@@ -1,8 +1,7 @@
 package generator;
 
+import entities.DynamicNetwork;
 import entities.WeightedEdge;
-import org.jgrapht.Graph;
-import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +11,13 @@ import java.util.stream.IntStream;
 
 public class RandomNetworkGenerator {
 
-    public SimpleDirectedWeightedGraph<Integer, WeightedEdge> generate(
+    public DynamicNetwork generate(
         int vertices, int edges, int source, int weightLowerBound, int weightUpperBound
     ) throws Exception {
 
         validate(vertices, edges, source, weightLowerBound, weightUpperBound);
 
-        SimpleDirectedWeightedGraph<Integer, WeightedEdge> network
-            = new SimpleDirectedWeightedGraph<>(WeightedEdge.class);
+        DynamicNetwork network = new DynamicNetwork();
 
         addAllVertices(network, vertices);
         randomlyConnectVertices(network, source, vertices);
@@ -29,7 +27,7 @@ public class RandomNetworkGenerator {
         return network;
     }
 
-    private void addAllVertices(Graph<Integer, WeightedEdge> network, int vertices) {
+    private void addAllVertices(DynamicNetwork network, int vertices) {
         List<Integer> sequence = IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList());
 
         for(Integer vertex: sequence) {
@@ -38,9 +36,7 @@ public class RandomNetworkGenerator {
 
     }
 
-    private void randomlyConnectVertices(
-        Graph<Integer, WeightedEdge> network, Integer source, int vertices
-    ) {
+    private void randomlyConnectVertices(DynamicNetwork network, Integer source, int vertices) {
 
         Random rand = new Random();
         List<Integer> notConnected = IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList());
@@ -59,7 +55,7 @@ public class RandomNetworkGenerator {
 
     }
 
-    private void addRemainingEdges(Graph<Integer, WeightedEdge> network, int vertices, int edges) {
+    private void addRemainingEdges(DynamicNetwork network, int vertices, int edges) {
 
         Random rand = new Random();
         int vertexTo, vertexFrom;
@@ -77,13 +73,14 @@ public class RandomNetworkGenerator {
 
     }
 
-    private void addWeights(
-        Graph<Integer, WeightedEdge> network, int weightLowerBound, int weightUpperBound
-    ) {
+    private void addWeights(DynamicNetwork network, int weightLowerBound, int weightUpperBound) {
         Random rand = new Random();
 
         for(WeightedEdge edge: network.edgeSet()) {
-            network.setEdgeWeight(edge, rand.nextInt(weightUpperBound) + weightLowerBound);
+            network.setEdgeWeight(
+                edge,
+                rand.nextInt(weightUpperBound - weightLowerBound) + weightLowerBound
+            );
         }
 
     }
