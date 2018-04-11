@@ -21,15 +21,7 @@ public class RandomUpdateGenerator {
 
     public Update generateFor(DynamicNetwork network) throws Exception {
 
-        if(network.vertexSet().size() <= 1) {
-            throw new Exception("Empty network");
-        }
-
-        if(network.edgeSet().isEmpty()) {
-            throw new Exception("Edgeless network");
-        }
-
-        switch(UpdateType.random()) {
+        switch(UpdateType.random(network.possibleUpdates())) {
             case ADD_VERTEX:
                 return new AddVertex(getRandomVertex(network), new Random().nextBoolean());
             case REMOVE_VERTEX:

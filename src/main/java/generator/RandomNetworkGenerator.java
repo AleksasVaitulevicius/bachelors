@@ -12,63 +12,37 @@ import java.util.stream.IntStream;
 public class RandomNetworkGenerator {
 
     public DynamicNetwork generate(
-        int vertices, int edges, int source, int weightLowerBound, int weightUpperBound
+        int vertices, int edges, int weightLowerBound, int weightUpperBound
     ) throws Exception {
 
-        validate(vertices, edges, source, weightLowerBound, weightUpperBound);
+        validate(vertices, edges, weightLowerBound, weightUpperBound);
 
         DynamicNetwork network = new DynamicNetwork();
-
-        addAllVertices(network, vertices);
-        randomlyConnectVertices(network, source, vertices);
-        addRemainingEdges(network, vertices, edges - vertices + 1);
+        network.putVertices(IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList()));
+        addEdges(network, vertices, edges);
         addWeights(network, weightLowerBound, weightUpperBound);
 
         return network;
     }
 
-    private void addAllVertices(DynamicNetwork network, int vertices) {
-        List<Integer> sequence = IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList());
-
-        for(Integer vertex: sequence) {
-            network.addVertex(vertex);
-        }
-
-    }
-
-    private void randomlyConnectVertices(DynamicNetwork network, Integer source, int vertices) {
+    private void addEdges(DynamicNetwork network, int vertices, int edges) {
 
         Random rand = new Random();
-        List<Integer> notConnected = IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList());
-        List<Integer> connected = new ArrayList<>();
-        connected.add(source);
-        notConnected.remove(source);
+        List<Integer> verticesFrom = new ArrayList<>();
+        List<Integer> verticesTo = new ArrayList<>();
 
-        while(!notConnected.isEmpty()) {
-            int index = rand.nextInt(notConnected.size());
-            int vertexTo = notConnected.remove(index);
-            index = rand.nextInt(connected.size());
-            int vertexFrom = connected.get(index);
-            network.addEdge(vertexFrom, vertexTo);
-            connected.add(vertexTo);
+        for(int row = 1; row <= vertices; row++) {
+            for(int column = 1; column <= vertices; column++) {
+                if(row != column) {
+                    verticesFrom.add(row);
+                    verticesTo.add(column);
+                }
+            }
         }
-
-    }
-
-    private void addRemainingEdges(DynamicNetwork network, int vertices, int edges) {
-
-        Random rand = new Random();
-        int vertexTo, vertexFrom;
 
         for(int it = 0; it < edges; it++) {
-            do {
-                vertexTo = rand.nextInt(vertices) + 1;
-                do {
-                    vertexFrom = rand.nextInt(vertices) + 1;
-                } while (vertexFrom == vertexTo);
-            } while(network.containsEdge(vertexFrom, vertexTo));
-
-            network.addEdge(vertexFrom, vertexTo);
+            int index = rand.nextInt(verticesFrom.size());
+            network.addEdge(verticesFrom.remove(index), verticesTo.remove(index));
         }
 
     }
@@ -85,26 +59,20 @@ public class RandomNetworkGenerator {
 
     }
 
-    private void validate(
-        int vertices, int edges, int source, int weightLowerBound, int weightUpperBound
-    ) throws Exception {
+    private void validate(int vertices, int edges, int weightLowerBound, int weightUpperBound) throws Exception {
 
-        if(vertices <= 1) {
-            throw new Exception("Vertices cannot be 0 or negative:" + vertices);
+        if(vertices < 0) {
+            throw new Exception("Vertices cannot be negative:" + vertices);
         }
 
-        if(edges <= 1) {
-            throw new Exception("Edges cannot be 0 or negative:" + edges);
+        if(edges < 0) {
+            throw new Exception("Edges cannot be negative:" + edges);
         }
 
-        if(edges < vertices + 1 || edges > vertices * (vertices - 1)) {
+        if(edges > vertices * (vertices - 1)) {
             throw new Exception("Cannot generate network with " +
                 vertices + " vertices and "
                 + edges + " edges");
-        }
-
-        if(source > vertices || source < 0) {
-            throw new Exception("Illegal source value:" + source);
         }
 
         if(weightLowerBound < 1 || weightLowerBound > weightUpperBound) {

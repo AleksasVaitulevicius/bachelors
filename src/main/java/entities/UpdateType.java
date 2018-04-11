@@ -9,7 +9,7 @@ public enum UpdateType {
 
     private static final List<UpdateType> VALUES = Collections.unmodifiableList(List.of(values()));
 
-    public static UpdateType random()  {
-        return VALUES.get(new Random().nextInt(VALUES.size()));
+    public static UpdateType random(List<UpdateType> values)  {
+        return values.get(new Random().nextInt(values.size()));
     }
 }
