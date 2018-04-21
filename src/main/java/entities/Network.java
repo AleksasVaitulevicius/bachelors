@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class DynamicNetwork extends SimpleDirectedWeightedGraph<Integer, WeightedEdge> {
+public class Network extends SimpleDirectedWeightedGraph<Integer, WeightedEdge> {
 
-    public DynamicNetwork() {
+    public Network() {
         super(WeightedEdge.class);
     }
 
@@ -49,4 +49,5 @@ public class DynamicNetwork extends SimpleDirectedWeightedGraph<Integer, Weighte
 
         return result;
     }
+
 }

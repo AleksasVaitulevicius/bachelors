@@ -1,6 +1,6 @@
 package entities.update;
 
-import entities.DynamicNetwork;
+import entities.Network;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -10,7 +10,7 @@ public class AddVertex implements Update {
     private final Boolean directedIntoVertex;
 
     @Override
-    public void applyTo(DynamicNetwork network) throws Exception {
+    public void applyTo(Network network) throws Exception {
 
         Integer newVertex = network.vertexSet()
             .stream().mapToInt(value -> value).max().orElseThrow(Exception::new) + 1;

@@ -1,6 +1,6 @@
 package entities.update;
 
-import entities.DynamicNetwork;
+import entities.Network;
 import entities.WeightedEdge;
 import lombok.AllArgsConstructor;
 
@@ -10,7 +10,7 @@ public class RemoveEdge implements Update {
     private final WeightedEdge edge;
 
     @Override
-    public void applyTo(DynamicNetwork network) throws Exception {
+    public void applyTo(Network network) throws Exception {
 
         if(!network.containsEdge(edge)) {
             throw new Exception("Network does not contain vertex");

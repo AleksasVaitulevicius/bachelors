@@ -1,6 +1,6 @@
 package generator;
 
-import entities.DynamicNetwork;
+import entities.Network;
 import entities.WeightedEdge;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.stream.IntStream;
 
 public class RandomNetworkGenerator {
 
-    public DynamicNetwork generate(
+    public Network generate(
         int vertices, int edges, int weightLowerBound, int weightUpperBound
     ) throws Exception {
 
         validate(vertices, edges, weightLowerBound, weightUpperBound);
 
-        DynamicNetwork network = new DynamicNetwork();
+        Network network = new Network();
         network.putVertices(IntStream.rangeClosed(1, vertices).boxed().collect(Collectors.toList()));
         addEdges(network, vertices, edges);
         addWeights(network, weightLowerBound, weightUpperBound);
@@ -25,7 +25,7 @@ public class RandomNetworkGenerator {
         return network;
     }
 
-    private void addEdges(DynamicNetwork network, int vertices, int edges) {
+    private void addEdges(Network network, int vertices, int edges) {
 
         Random rand = new Random();
         List<Integer> verticesFrom = new ArrayList<>();
@@ -47,7 +47,7 @@ public class RandomNetworkGenerator {
 
     }
 
-    private void addWeights(DynamicNetwork network, int weightLowerBound, int weightUpperBound) {
+    private void addWeights(Network network, int weightLowerBound, int weightUpperBound) {
         Random rand = new Random();
 
         for(WeightedEdge edge: network.edgeSet()) {

@@ -1,7 +1,7 @@
 package entities.update;
 
-import entities.DynamicNetwork;
+import entities.Network;
 
 public interface Update {
-    void applyTo(DynamicNetwork network) throws Exception;
+    void applyTo(Network network) throws Exception;
 }

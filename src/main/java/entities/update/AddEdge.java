@@ -1,6 +1,6 @@
 package entities.update;
 
-import entities.DynamicNetwork;
+import entities.Network;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -10,7 +10,7 @@ public class AddEdge implements Update {
     private final Integer vertexTo;
 
     @Override
-    public void applyTo(DynamicNetwork network) throws Exception {
+    public void applyTo(Network network) throws Exception {
 
         if(!network.containsVertex(vertexFrom)) {
             throw new Exception("Network does not contain vertex " + vertexFrom);

@@ -1,6 +1,6 @@
 package generator;
 
-import entities.DynamicNetwork;
+import entities.Network;
 import entities.UpdateType;
 import entities.WeightedEdge;
 import entities.update.*;
@@ -19,7 +19,7 @@ public class RandomUpdateGenerator {
     private int weightLowerBound;
     private int weightUpperBound;
 
-    public Update generateFor(DynamicNetwork network) throws Exception {
+    public Update generateFor(Network network) throws Exception {
 
         switch(UpdateType.random(network.possibleUpdates())) {
             case ADD_VERTEX:
@@ -38,7 +38,7 @@ public class RandomUpdateGenerator {
 
     }
 
-    private AddEdge addEdge(DynamicNetwork network) {
+    private AddEdge addEdge(Network network) {
         int vertexFrom = getRandomVertex(network);
         int vertexTo;
         do {
@@ -48,18 +48,18 @@ public class RandomUpdateGenerator {
         return new AddEdge(vertexFrom, vertexTo);
     }
 
-    private UpdateWeight updateWeight(DynamicNetwork network) {
+    private UpdateWeight updateWeight(Network network) {
         int weight = new Random().nextInt(weightUpperBound - weightLowerBound) + weightLowerBound;
         return new UpdateWeight(getRandomEdge(network), weight);
     }
 
-    private Integer getRandomVertex(DynamicNetwork network) {
+    private Integer getRandomVertex(Network network) {
         List<Integer> vertices = new ArrayList<>(network.vertexSet());
         Random rand = new Random();
 
         return vertices.get(rand.nextInt(vertices.size()));
     }
-    private WeightedEdge getRandomEdge(DynamicNetwork network) {
+    private WeightedEdge getRandomEdge(Network network) {
         List<WeightedEdge> edges = new ArrayList<>(network.edgeSet());
         Random rand = new Random();
 
