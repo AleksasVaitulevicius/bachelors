@@ -27,7 +27,7 @@ public class RandomNetworkGeneratorTests {
     }
 
     @Test(expected = Exception.class)
-    public void generate_ShouldThrow_WithrNegativeVertices() throws Exception {
+    public void generate_ShouldThrow_WithNegativeVertices() throws Exception {
         randomNetworkGenerator.generate(-1, 6, 1, 20);
     }
 
