@@ -1,8 +1,8 @@
 package generator;
 
-import entities.Network;
+import entities.network.Network;
 import entities.UpdateType;
-import entities.WeightedEdge;
+import entities.network.WeightedEdge;
 import entities.update.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

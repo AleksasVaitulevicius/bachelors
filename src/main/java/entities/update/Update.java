@@ -1,6 +1,6 @@
 package entities.update;
 
-import entities.Network;
+import entities.network.Network;
 
 public interface Update {
     void applyTo(Network network) throws Exception;

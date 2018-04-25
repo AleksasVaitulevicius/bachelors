@@ -1,7 +1,7 @@
 package generator;
 
-import entities.Network;
-import entities.WeightedEdge;
+import entities.network.Network;
+import entities.network.WeightedEdge;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,8 @@
 package fulkerson;
 
-import entities.Network;
-import entities.WeightedEdge;
+import entities.network.Network;
+import entities.network.WeightedEdge;
+import gui.GUI;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -12,12 +13,21 @@ public class FordFulkerson {
 
     private final BFS bfs;
     @Getter
-    private Network maxFlow;
-    @Getter
     private final Map<Integer, Double> maxFlowValues = new HashMap<>();
+    @Getter
+    public Network maxFlow;
 
     public FordFulkerson(BFS bfs) {
         this.bfs = bfs;
+        this.maxFlow = new Network();
+    }
+
+    public void printMaxFlow(int width, int height) {
+        new GUI("max flow", this.maxFlow).display(width, height);
+    }
+
+    public void reset() {
+        this.maxFlow = new Network();
     }
 
     public Map<Integer, Double> maxFlow(Network network, List<Integer> sources, List<Integer> sinks) {
@@ -42,8 +52,6 @@ public class FordFulkerson {
 
         }
 
-        this.maxFlow = residual;
-
         return this.maxFlowValues;
     }
 
@@ -51,12 +59,33 @@ public class FordFulkerson {
         sinks.forEach(sink -> maxFlowValues.put(sink, 0.0));
     }
 
+    private void updateMaxFlow(int source, int target, double weight) {
+
+        if(!this.maxFlow.containsVertex(source)) {
+            this.maxFlow.addVertex(source);
+        }
+
+        if(!this.maxFlow.containsVertex(target)) {
+            this.maxFlow.addVertex(target);
+        }
+
+        if(!this.maxFlow.containsEdge(source, target)) {
+            this.maxFlow.addEdge(source, target);
+            this.maxFlow.setEdgeWeight(this.maxFlow.getEdge(source, target), 0);
+        }
+
+        WeightedEdge edge = this.maxFlow.getEdge(source, target);
+        this.maxFlow.setEdgeWeight(edge, this.maxFlow.getEdgeWeight(edge) + weight);
+    }
+
     private Network updateResidual(
             Map<Integer, Integer> flow, Network network, double pathFlow, List<Integer> sources, Integer vertex
     ) {
-        for(int next = flow.get(vertex); !sources.contains(next); next = flow.get(vertex)) {
+        for(int next; !sources.contains(vertex); vertex = next) {
+            next = flow.get(vertex);
             WeightedEdge edge = network.getEdge(next, vertex);
             double currentWeight = network.getEdgeWeight(edge);
+            updateMaxFlow(next, vertex, pathFlow);
 
             if(currentWeight - pathFlow != 0) {
                 network.setEdgeWeight(edge, currentWeight - pathFlow);
@@ -64,7 +93,6 @@ public class FordFulkerson {
             else {
                 network.removeEdge(edge);
             }
-            vertex = next;
         }
         return network;
     }
@@ -74,9 +102,9 @@ public class FordFulkerson {
     ) {
         double pathFlow = Double.MAX_VALUE;
 
-        for(int next = flow.get(vertex); !sources.contains(next); next = flow.get(vertex)) {
+        for(int next; !sources.contains(vertex); vertex = next) {
+            next = flow.get(vertex);
             pathFlow = Double.min(pathFlow, network.getEdgeWeight(network.getEdge(next, vertex)));
-            vertex = next;
         }
 
         return pathFlow;

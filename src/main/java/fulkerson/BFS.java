@@ -1,6 +1,6 @@
 package fulkerson;
 
-import entities.Network;
+import entities.network.Network;
 
 import java.util.*;
 

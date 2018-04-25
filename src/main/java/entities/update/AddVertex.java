@@ -1,6 +1,6 @@
 package entities.update;
 
-import entities.Network;
+import entities.network.Network;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

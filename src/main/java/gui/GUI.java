@@ -6,8 +6,8 @@ import com.mxgraph.swing.mxGraphComponent;
 
 import javax.swing.*;
 
-import entities.Network;
-import entities.WeightedEdge;
+import entities.network.Network;
+import entities.network.WeightedEdge;
 import org.jgrapht.ext.JGraphXAdapter;
 
 public class GUI extends JFrame {

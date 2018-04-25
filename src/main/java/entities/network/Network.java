@@ -1,5 +1,6 @@
-package entities;
+package entities.network;
 
+import entities.UpdateType;
 import lombok.Getter;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 

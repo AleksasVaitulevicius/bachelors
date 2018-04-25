@@ -1,7 +1,6 @@
 package generator;
 
-import entities.WeightedEdge;
-import generator.RandomNetworkGenerator;
+import entities.network.WeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 import org.junit.Before;
 import org.junit.Test;

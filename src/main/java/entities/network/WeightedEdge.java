@@ -1,4 +1,4 @@
-package entities;
+package entities.network;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
 

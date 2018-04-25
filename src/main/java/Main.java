@@ -1,4 +1,4 @@
-import entities.Network;
+import entities.network.Network;
 import fulkerson.BFS;
 import fulkerson.FordFulkerson;
 import gui.GUI;
@@ -8,7 +8,6 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        BFS bfs = new BFS();
 
         Network network = new Network();
         network.putVertices(List.of(0, 1, 2, 3, 4, 5));
@@ -57,9 +56,9 @@ public class Main {
         List<Integer> sources = List.of(0);
         List<Integer> sinks = List.of(5);
         FordFulkerson fulkerson = new FordFulkerson(new BFS());
+
         System.out.println("maxFlow:" + fulkerson.maxFlow(network, sources, sinks));
-        new GUI("after update", fulkerson.getMaxFlow()).display(900, 900);
-        System.out.println(bfs.bfs(network, sources, sinks));
+        fulkerson.printMaxFlow(900, 900);
     }
 
 }

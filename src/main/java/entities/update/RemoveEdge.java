@@ -1,7 +1,7 @@
 package entities.update;
 
-import entities.Network;
-import entities.WeightedEdge;
+import entities.network.Network;
+import entities.network.WeightedEdge;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
