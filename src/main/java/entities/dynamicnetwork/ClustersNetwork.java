@@ -9,8 +9,4 @@ public class ClustersNetwork extends SimpleDirectedWeightedGraph<DynamicNetwork,
         super(WeightedEdge.class);
     }
 
-    public void intoClusters(DynamicNetwork network) {
-
-    }
-
 }

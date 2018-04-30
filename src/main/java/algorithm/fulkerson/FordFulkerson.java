@@ -1,4 +1,4 @@
-package fulkerson;
+package algorithm.fulkerson;
 
 import entities.network.Network;
 import entities.network.WeightedEdge;
@@ -15,7 +15,7 @@ public class FordFulkerson {
     @Getter
     private final Map<Integer, Double> maxFlowValues = new HashMap<>();
     @Getter
-    public Network maxFlow;
+    private Network maxFlow;
 
     public FordFulkerson(BFS bfs) {
         this.bfs = bfs;

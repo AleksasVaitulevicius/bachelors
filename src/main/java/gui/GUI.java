@@ -6,9 +6,12 @@ import com.mxgraph.swing.mxGraphComponent;
 
 import javax.swing.*;
 
+import entities.EulerCycleWarps;
 import entities.network.Network;
 import entities.network.WeightedEdge;
 import org.jgrapht.ext.JGraphXAdapter;
+
+import java.util.List;
 
 public class GUI extends JFrame {
 
@@ -18,6 +21,19 @@ public class GUI extends JFrame {
         super(name);
 
         JGraphXAdapter<Integer, WeightedEdge> graphAdapter =
+                new JGraphXAdapter<>(network);
+
+        mxIGraphLayout layout = new mxCircleLayout(graphAdapter);
+        layout.execute(graphAdapter.getDefaultParent());
+
+        this.add(new mxGraphComponent(graphAdapter));
+        this.pack();
+    }
+
+    public GUI(String name, EulerCycleWarps network) {
+        super(name);
+
+        JGraphXAdapter<List<Integer>, org.jgrapht.graph.DefaultEdge> graphAdapter =
                 new JGraphXAdapter<>(network);
 
         mxIGraphLayout layout = new mxCircleLayout(graphAdapter);

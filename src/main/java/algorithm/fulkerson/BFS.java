@@ -1,4 +1,4 @@
-package fulkerson;
+package algorithm.fulkerson;
 
 import entities.network.Network;
 
