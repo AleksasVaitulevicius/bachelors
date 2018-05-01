@@ -3,9 +3,6 @@ package algorithm.clustering;
 import entities.EulerCycleWarps;
 import entities.dynamicnetwork.ClustersNetwork;
 import entities.dynamicnetwork.DynamicNetwork;
-import gui.GUI;
-import lombok.Getter;
-import lombok.Setter;
 import org.jgrapht.graph.DefaultEdge;
 
 import java.util.*;
@@ -13,32 +10,125 @@ import java.util.*;
 
 public class DividerToClusters {
 
-    @Getter @Setter
-    private int nonEulerCycleClusterMaxSize = 4;
-
     public ClustersNetwork divideToClusters(DynamicNetwork network) {
         EulerCycleWarps warps = new EulerCycleWarps();
         warps.constructFrom(network);
-        new GUI("Dynamic Network", network).display(900, 900);
 
         network.getSources().forEach(source -> warpEulerCycles(warps, source));
+        ClustersNetwork clusters = new ClustersNetwork();
+        network.getSources().forEach(source -> divideToClusters(clusters, warps, source, network));
+        addRestOfVertices(clusters, warps, network);
+        wireClusters(clusters);
 
-        new GUI("warps", warps).display(900, 900);
-
-
-
-        return null;
+        return clusters;
     }
 
-//    private ClustersNetwork divideToClusters(DynamicNetwork network, EulerCycleWarps warps) {
-//
-//        List<Integer> clusterVertices = new ArrayList<>();
-//
-//        network.getSources().forEach(source -> {
-//
-//        });
-//
-//    }
+    private void addRestOfVertices(
+        ClustersNetwork clusters, EulerCycleWarps warps, DynamicNetwork networkToCluster
+    ) {
+        DynamicNetwork network = new DynamicNetwork();
+        warps.vertexSet().forEach(network::putVertices);
+        addEdges(network, networkToCluster);
+        clusters.addVertex(network);
+    }
+
+    private void wireClusters(ClustersNetwork clusters) {
+        Set<DynamicNetwork> vertices = new HashSet<>(clusters.vertexSet());
+
+        vertices.forEach(network ->
+            network.getSources().forEach(source -> vertices.stream()
+                .filter(vertex -> vertex.getSinks().contains(source))
+                    .forEach(target -> {
+                        if (!target.equals(network)) {
+                            clusters.addEdge(target, network);
+                        }
+                    }))
+        );
+    }
+
+    private void addEdges(DynamicNetwork network, DynamicNetwork networkToCluster) {
+        Set<Integer> vertices = new HashSet<>(network.vertexSet());
+        vertices.forEach(vertex -> {
+            networkToCluster.outgoingEdgesOf(vertex).forEach(edge -> {
+                Integer target = networkToCluster.getEdgeTarget(edge);
+                if(!network.containsVertex(target)) {
+                    network.addVertex(target);
+                    network.addSink(target);
+                }
+                network.addEdge(vertex, target, edge);
+            });
+            networkToCluster.incomingEdgesOf(vertex).forEach(edge -> {
+                Integer source = networkToCluster.getEdgeSource(edge);
+                if(!network.containsVertex(source)) {
+                    network.addSource(vertex);
+                }
+                else {
+                    network.addEdge(source, vertex, edge);
+                }
+            });
+        });
+    }
+
+    private void divideToClusters(
+        ClustersNetwork clusters, EulerCycleWarps warps, Integer source, DynamicNetwork networkToCluster
+    ) {
+
+        List<Integer> vertex = warps.vertexSet().stream()
+            .filter(vertexIterator -> vertexIterator.contains(source))
+            .findFirst().orElse(null);
+        DynamicNetwork network = new DynamicNetwork();
+        Stack<List<Integer>> branches = new Stack<>();
+        Set<List<Integer>> verticesToRemove = new HashSet<>();
+        Stack<List<Integer>> forNextCluster = new Stack<>();
+        forNextCluster.push(vertex);
+
+
+        while (!forNextCluster.isEmpty()) {
+
+            vertex = forNextCluster.pop();
+            branches.push(vertex);
+
+            if(vertex == null) {
+                continue;
+            }
+
+            if (vertex.size() > 1) {
+                network.putVertices(vertex);
+                if (vertex.contains(source)) {
+                    network.addSource(source);
+                }
+                addEdges(network, networkToCluster);
+                clusters.addVertex(network);
+                network = new DynamicNetwork();
+            } else {
+                network.putVertices(vertex);
+            }
+
+            while (!branches.isEmpty()) {
+                vertex = branches.pop();
+                for (List<Integer> vertexIterator : getAllOutgoingVertices(warps, vertex)) {
+                    if (vertexIterator != null && vertexIterator.size() > 1) {
+                        forNextCluster.push(vertexIterator);
+                    } else {
+                        network.putVertices(vertexIterator);
+                        branches.push(vertexIterator);
+                    }
+                }
+                verticesToRemove.add(vertex);
+            }
+            if(!network.vertexSet().isEmpty()) {
+                if(vertex != null && vertex.contains(source)) {
+                    network.addSource(source);
+                }
+                addEdges(network, networkToCluster);
+                clusters.addVertex(network);
+                network = new DynamicNetwork();
+            }
+
+        }
+
+        warps.removeAllVertices(verticesToRemove);
+    }
 
     private void warpEulerCycles(EulerCycleWarps warps, Integer source) {
         Map<List<Integer>, List<List<Integer>>> branches = new HashMap<>();

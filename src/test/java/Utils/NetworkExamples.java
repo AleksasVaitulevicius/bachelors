@@ -42,7 +42,7 @@ public class NetworkExamples {
         network.addEdge(5, 4);
         network.addEdge(4, 0);
 
-        network.setSources(List.of(3, 0));
+        network.addSource(0);
         return network;
     }
 }

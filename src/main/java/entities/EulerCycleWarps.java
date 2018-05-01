@@ -3,6 +3,7 @@ package entities;
 import entities.network.Network;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
+
 import java.util.List;
 import java.util.Set;
 
@@ -49,4 +50,5 @@ public class EulerCycleWarps extends SimpleDirectedGraph<List<Integer>, DefaultE
         }
 
     }
+
 }
