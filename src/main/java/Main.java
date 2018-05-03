@@ -1,4 +1,7 @@
+import algorithm.MaxFlowInDynamicNetworkFinder;
 import algorithm.clustering.DividerToClusters;
+import algorithm.fulkerson.BFS;
+import algorithm.fulkerson.FordFulkerson;
 import entities.dynamicnetwork.DynamicNetwork;
 
 import java.util.List;
@@ -38,8 +41,11 @@ public class Main {
 //        network.addEdge(6, 3);
 
         network.addSource(0);
+        network.addSink(5);
 //        network.addSource(3);
-        new DividerToClusters().divideToClusters(network);
+        MaxFlowInDynamicNetworkFinder finder = new MaxFlowInDynamicNetworkFinder(new DividerToClusters(), new FordFulkerson(new BFS()));
+        finder.init(network);
+        System.out.println(finder.getCurrentMaxFlow());
 
 //        new GUI("before update", network).display(900, 900);
 //

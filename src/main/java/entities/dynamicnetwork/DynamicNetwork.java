@@ -2,11 +2,20 @@ package entities.dynamicnetwork;
 
 import entities.network.Network;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DynamicNetwork extends Network {
+
+    public boolean source = false;
+    public boolean sink = false;
+    public boolean path = true;
+    @Getter @Setter
+    private Network network;
+    @Getter @Setter
+    private Integer maxflow;
     @Getter
     private List<Integer> sources = new ArrayList<>();
     @Getter
