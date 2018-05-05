@@ -97,39 +97,22 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         List<DynamicNetwork> affectedNetworks = new ArrayList<>();
         determineAffectedClusters(vertex)
             .forEach(cluster -> {
-                System.out.println("cluster:" + cluster);
-                System.out.println(cluster.getMaxFlows());
-                cluster.getSinks().stream()
-                    .filter(sink -> cluster.containsEdge(vertex, sink))
-                    .forEach(target -> clusters.vertexSet().stream()
-                        .filter(sinkCluster -> sinkCluster.containsEdge(-target, target))
-                        .forEach(sinkCluster -> {
-                            System.out.println("sinkCluster:" + sinkCluster);
-                            WeightedEdge edge = sinkCluster.getEdge(-target, target);
-                            double edgeWeight = sinkCluster.getEdgeWeight(edge);
-                            System.out.println(edgeWeight);
-                            if(edgeWeight < cluster.getMaxFlows().get(target)) {
-                                sinkCluster.setEdgeWeight(
-                                    edge,
-                                    cluster.getMaxFlows().get(target) - edgeWeight
-                                );
-                            }
-                            else {
-                                cluster.removeSink(target);
-                                cluster.removeVertex(-target);
-                            }
-                            affectedNetworks.add(cluster);
-                        }));
-                cluster.removeVertexSafely(vertex);
+                cluster.removeVertex(vertex);
                 affectedNetworks.add(cluster);
             });
-        System.out.println(affectedNetworks);
     }
 
     public void addEdge(Integer source, Integer target, double weight) {
         network.addEdge(source, target);
         network.setEdgeWeight(network.getEdge(source, target), weight);
 
+        List<DynamicNetwork> affectedNetworks = clusters.vertexSet().stream()
+            .filter(cluster ->
+                (cluster.containsVertex(target) && !cluster.getSinks().contains(target))
+                ||
+                (cluster.containsVertex(source)) && !cluster.getSinks().contains(source)
+            )
+            .collect(Collectors.toList());
     }
 
     public void removeEdge(Integer source, Integer target) {
@@ -139,22 +122,22 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
             .forEach(cluster -> {
                 if(cluster.containsVertex(source)) {
                     cluster.removeEdge(source, target);
-                    if(cluster.getSinks().contains(target) && !network.getSinks().contains(target)) {
-                        cluster.removeVertex(target);
-                        cluster.removeSink(target);
-                    }
-                }
-                else {
-                    cluster.removeVertex(-target);
-                    cluster.removeSource(target);
                 }
                 affectedNetworks.add(cluster);
             });
     }
 
-    public void changeWeight(Integer source, Integer target, int weight) {
+    public void changeWeight(Integer source, Integer target, double weight) {
         network.setEdgeWeight(network.getEdge(source, target), weight);
 
+        List<DynamicNetwork> affectedNetworks = clusters.vertexSet().stream()
+                .filter(cluster ->
+                    (cluster.containsVertex(target) && !cluster.getSinks().contains(target))
+                    ||
+                    (cluster.containsVertex(source)) && !cluster.getSinks().contains(source)
+                )
+                .collect(Collectors.toList());
+        System.out.println(affectedNetworks);
     }
 
     private List<DynamicNetwork> determineAffectedClusters(Integer source, Integer target) {
