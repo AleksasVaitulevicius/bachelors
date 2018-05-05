@@ -1,8 +1,9 @@
-import algorithm.MaxFlowInDynamicNetworkFinder;
+import algorithm.DynamicNetworkWithMaxFlowAlgorithm;
 import algorithm.clustering.DividerToClusters;
 import algorithm.fulkerson.BFS;
 import algorithm.fulkerson.FordFulkerson;
 import entities.dynamicnetwork.DynamicNetwork;
+import gui.GUI;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         DynamicNetwork network = new DynamicNetwork();
-        network.putVertices(List.of(0, 1, 2, 3, 4, 5, 6));
+        network.putVertices(List.of(0, 1, 2, 3, 4, 5));
         network.addEdge(0, 1);
         network.addEdge(0, 2);
         network.addEdge(1, 3);
@@ -43,11 +44,14 @@ public class Main {
         network.addSource(0);
         network.addSink(5);
 //        network.addSource(3);
-        MaxFlowInDynamicNetworkFinder finder = new MaxFlowInDynamicNetworkFinder(new DividerToClusters(), new FordFulkerson(new BFS()));
+        DynamicNetworkWithMaxFlowAlgorithm finder = new DynamicNetworkWithMaxFlowAlgorithm(new DividerToClusters(), new FordFulkerson(new BFS()));
         finder.init(network);
+        finder.removeEdge(1, 3);
+//        finder.addEdge(1, 7, 11.0);
         System.out.println(finder.getCurrentMaxFlow());
 
-//        new GUI("before update", network).display(900, 900);
+        new GUI("network", network).display(900, 900);
+        new GUI("clusters", finder.getClusters()).display(900, 900);
 //
 //        List<Integer> sources = List.of(0);
 //        List<Integer> sinks = List.of(5);

@@ -2,24 +2,28 @@ package entities.dynamicnetwork;
 
 import entities.network.Network;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DynamicNetwork extends Network {
 
     public boolean source = false;
     public boolean sink = false;
     public boolean path = true;
-    @Getter @Setter
-    private Network network;
-    @Getter @Setter
-    private Integer maxflow;
+
     @Getter
     private List<Integer> sources = new ArrayList<>();
     @Getter
     private List<Integer> sinks = new ArrayList<>();
+    @Getter
+    private Map<Integer, Double> maxFlows = new HashMap<>();
+
+    public void addMaxFlow(Integer key, Double value) {
+        maxFlows.put(key, value);
+    }
 
     public boolean addSource(Integer source) {
         return !sources.contains(source) && this.vertexSet().contains(source) && sources.add(source);
@@ -34,7 +38,18 @@ public class DynamicNetwork extends Network {
     }
 
     public boolean removeSink(Integer sink) {
-        return sources.remove(sink);
+        return sinks.remove(sink);
+    }
+
+    public void removeVertexSafely(Integer vertex) {
+        this.removeVertex(vertex);
+        if(this.getSources().contains(vertex)) {
+            this.removeSource(vertex);
+            this.removeVertex(-1 * vertex);
+        }
+        if(this.getSinks().contains(vertex)) {
+            this.removeSink(vertex);
+        }
     }
 
     @Override

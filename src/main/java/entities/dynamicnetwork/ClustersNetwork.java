@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClustersNetwork extends SimpleDirectedWeightedGraph<DynamicNetwork, WeightedEdge> {
