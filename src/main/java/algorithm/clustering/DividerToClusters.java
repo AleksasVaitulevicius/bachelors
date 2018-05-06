@@ -26,6 +26,9 @@ public class DividerToClusters {
     private void addRestOfVertices(
         ClustersNetwork clusters, EulerCycleWarps warps, DynamicNetwork networkToCluster
     ) {
+        if(warps.vertexSet().isEmpty()) {
+            return;
+        }
         DynamicNetwork network = new DynamicNetwork();
         network.path = false;
         warps.vertexSet().forEach(network::putVertices);
@@ -103,9 +106,6 @@ public class DividerToClusters {
 
             if (vertex.size() > 1) {
                 network.putVertices(vertex);
-//                if (vertex.contains(source)) {
-//                    network.addSource(source);
-//                }
                 addEdges(network, networkToCluster);
                 clusters.addVertex(network);
                 network = new DynamicNetwork();

@@ -21,7 +21,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     @Getter
     private DynamicNetwork network;
     @Getter
-    private List<Double> currentMaxFlow = new ArrayList<>();
+    private Map<Integer, Double> currentMaxFlow = new HashMap<>();
 
     public DynamicNetworkWithMaxFlowAlgorithm(DividerToClusters divider, FordFulkerson fulkerson) {
         this.divider = divider;
@@ -74,8 +74,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
                     calculated.add(cluster);
                 });
         }
-
-        network.getSinks().forEach(sink -> currentMaxFlow.add(localMaxFlows.get(sink)));
+        network.getSinks().forEach(sink -> currentMaxFlow.put(sink, localMaxFlows.get(sink)));
     }
 
     public void addVertex(Integer vertex) {
@@ -98,8 +97,69 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         determineAffectedClusters(vertex)
             .forEach(cluster -> {
                 cluster.removeVertex(vertex);
+                if(cluster.containsVertex(-vertex)) {
+                    cluster.removeVertex(-vertex);
+                }
                 affectedNetworks.add(cluster);
             });
+        List<DynamicNetwork> toRecalculate = determineFirstToCalculate(affectedNetworks);
+        Map<Integer, Double> maxFlowChanges = new HashMap<>();
+
+        while(!toRecalculate.isEmpty()) {
+            toRecalculate.forEach(cluster -> {
+                Map<Integer, Double> maxFlowChangesInCluster;
+                if (cluster.source) {
+                    maxFlowChangesInCluster = fulkerson.maxFlow(cluster, cluster.getSources(), cluster.getSinks());
+                } else {
+                    maxFlowChangesInCluster = fulkerson.maxFlow(
+                            cluster,
+                            cluster.getSources().stream()
+                                .map(source -> source * (-1))
+                                .collect(Collectors.toList()),
+                            cluster.getSinks()
+                    );
+                }
+                maxFlowChangesInCluster.forEach((key, value) -> {
+                    if (!cluster.getMaxFlows().get(key).equals(value)) {
+                        putValue(maxFlowChanges, key, value - cluster.getMaxFlows().get(key));
+                        if (value == 0) {
+                            cluster.removeSink(key);
+                            cluster.removeVertex(key);
+                        } else {
+                            cluster.addMaxFlow(key, value);
+                        }
+                    }
+                });
+                maxFlowChangesInCluster.clear();
+            });
+            toRecalculate.clear();
+            maxFlowChanges.forEach((changedVertex, change) -> {
+                clusters.vertexSet().stream()
+                    .filter(cluster -> cluster.getSources().contains(changedVertex))
+                    .forEach(cluster -> {
+                        if(cluster.containsEdge(-changedVertex, changedVertex)) {
+                            double newFlow =
+                                cluster.getEdgeWeight(cluster.getEdge(-changedVertex, changedVertex)) + change;
+                            if(newFlow == 0) {
+                                cluster.removeVertex(-changedVertex);
+                                cluster.removeSource(changedVertex);
+                            }
+                            else {
+                                cluster.setEdgeWeight(cluster.getEdge(-changedVertex, changedVertex), newFlow);
+                            }
+                        }
+                        else {
+                            cluster.removeSource(changedVertex);
+                        }
+                        if(!toRecalculate.contains(cluster)) {
+                            toRecalculate.add(cluster);
+                        }
+                    });
+            });
+            maxFlowChanges.clear();
+        }
+
+        setNewMaxFlow();
     }
 
     public void addEdge(Integer source, Integer target, double weight) {
@@ -137,7 +197,24 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
                     (cluster.containsVertex(source)) && !cluster.getSinks().contains(source)
                 )
                 .collect(Collectors.toList());
-        System.out.println(affectedNetworks);
+    }
+
+    private void setNewMaxFlow() {
+        clusters.vertexSet().stream()
+            .filter(cluster -> cluster.sink)
+            .forEach(cluster -> cluster.getMaxFlows().forEach((key, value) -> {
+                network.addMaxFlow(key, value);
+                currentMaxFlow.put(key, value);
+            }));
+    }
+
+    private List<DynamicNetwork> determineFirstToCalculate(List<DynamicNetwork> networks) {
+        return networks.stream()
+            .filter(cluster ->
+                getAllIncomingVertices(clusters, cluster).stream()
+                    .noneMatch(networks::contains)
+            )
+            .collect(Collectors.toList());
     }
 
     private List<DynamicNetwork> determineAffectedClusters(Integer source, Integer target) {
@@ -156,29 +233,36 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     }
 
     private void putValues(Map<Integer, Double> localMaxFlows, Map<Integer, Double> flows) {
-        flows.forEach((key, value) -> {
-            if ((!localMaxFlows.containsKey(key))) {
-                localMaxFlows.put(key, value);
-            }
-            else {
-                localMaxFlows.put(key, localMaxFlows.get(key) + value);
-            }
-        });
+        flows.forEach((key, value) -> putValue(localMaxFlows, key, value));
         flows.clear();
+    }
+
+    private void putValue(Map<Integer, Double> localMaxFlows, Integer key, Double value) {
+        if ((!localMaxFlows.containsKey(key))) {
+            localMaxFlows.put(key, value);
+        }
+        else {
+            localMaxFlows.put(key, localMaxFlows.get(key) + value);
+        }
     }
 
     private List<DynamicNetwork> getAllIncomingVertices(ClustersNetwork network, DynamicNetwork vertex) {
         List<DynamicNetwork> branchesFromVertex = new ArrayList<>();
+        Set<WeightedEdge> edges;
+        try {
+            edges = network.incomingEdgesOf(vertex);
+        }
+        catch(Exception e) {
+            edges = network.edgeSet().stream()
+                    .filter(edge -> network.getEdgeTarget(edge).equals(vertex))
+                    .collect(Collectors.toSet());
+        }
 
-        for (WeightedEdge edge : network.incomingEdgesOf(vertex)) {
+        for (WeightedEdge edge : edges) {
             branchesFromVertex.add(network.getEdgeSource(edge));
         }
 
         return branchesFromVertex;
-    }
-
-    private void removeVertexFromDynamicNetwork() {
-
     }
 
 }

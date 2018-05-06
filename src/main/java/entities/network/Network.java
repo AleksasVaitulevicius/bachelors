@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -19,7 +20,7 @@ public class Network extends SimpleDirectedWeightedGraph<Integer, WeightedEdge> 
      * @param vertices - vertices to add
      * @return how many vertices were added
      */
-    public int putVertices(List<Integer> vertices) {
+    public int putVertices(Collection<Integer> vertices) {
 
         int added = 0;
 
@@ -49,6 +50,22 @@ public class Network extends SimpleDirectedWeightedGraph<Integer, WeightedEdge> 
         }
 
         return result;
+    }
+
+    @Override
+    public Network clone() {
+        Network clone = new Network();
+
+        clone.putVertices(this.vertexSet());
+        this.edgeSet().forEach(edge -> {
+            clone.addEdge(this.getEdgeSource(edge), this.getEdgeTarget(edge));
+            clone.setEdgeWeight(
+                clone.getEdge(this.getEdgeSource(edge), this.getEdgeTarget(edge)),
+                this.getEdgeWeight(edge)
+            );
+        });
+
+        return clone;
     }
 
 }

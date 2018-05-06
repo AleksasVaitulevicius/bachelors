@@ -31,7 +31,7 @@ public class FordFulkerson {
     }
 
     public Map<Integer, Double> maxFlow(Network network, List<Integer> sources, List<Integer> sinks) {
-        Network residual = (Network) network.clone();
+        Network residual = network.clone();
         initMaxFlowValues(sinks);
 
         boolean containsSink = true;
