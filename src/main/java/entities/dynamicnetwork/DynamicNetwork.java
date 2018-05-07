@@ -12,17 +12,20 @@ public class DynamicNetwork extends Network {
 
     public boolean source = false;
     public boolean sink = false;
-    public boolean path = true;
 
     @Getter
-    private List<Integer> sources = new ArrayList<>();
+    private final List<Integer> sources = new ArrayList<>();
     @Getter
-    private List<Integer> sinks = new ArrayList<>();
+    private final List<Integer> sinks = new ArrayList<>();
     @Getter
-    private Map<Integer, Double> maxFlows = new HashMap<>();
+    private final Map<Integer, Double> maxFlows = new HashMap<>();
 
     public void addMaxFlow(Integer key, Double value) {
         maxFlows.put(key, value);
+    }
+
+    public void removeMaxFlow(int key) {
+        maxFlows.remove(key);
     }
 
     public boolean addSource(Integer source) {
@@ -72,7 +75,6 @@ public class DynamicNetwork extends Network {
         this.getMaxFlows().forEach(clone::addMaxFlow);
         this.getSources().forEach(clone::addSource);
         this.getSinks().forEach(clone::addSink);
-        clone.path = this.path;
         clone.source = this.source;
         clone.sink = this.sink;
 

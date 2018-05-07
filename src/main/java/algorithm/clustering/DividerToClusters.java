@@ -30,7 +30,6 @@ public class DividerToClusters {
             return;
         }
         DynamicNetwork network = new DynamicNetwork();
-        network.path = false;
         warps.vertexSet().forEach(network::putVertices);
         addEdges(network, networkToCluster);
         clusters.addVertex(network);

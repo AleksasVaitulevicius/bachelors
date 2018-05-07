@@ -46,7 +46,9 @@ public class Main {
 //        network.addSource(3);
         DynamicNetworkWithMaxFlowAlgorithm finder = new DynamicNetworkWithMaxFlowAlgorithm(new DividerToClusters(), new FordFulkerson(new BFS()));
         finder.init(network);
-        finder.removeVertex(1);
+        finder.removeVertex(4);
+//        finder.changeWeight(1, 3, 13);
+//        finder.removeEdge(4, 5);
 //        finder.addEdge(1, 7, 11.0);
         System.out.println(finder.getCurrentMaxFlow());
 //        new GUI("network", network).display(900, 900);
