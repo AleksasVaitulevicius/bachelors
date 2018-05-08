@@ -12,7 +12,8 @@ public class Main {
     public static void main(String[] args) {
 
         DynamicNetwork network = new DynamicNetwork();
-        network.putVertices(List.of(0, 1, 2, 3, 4, 5));
+//        network.putVertices(List.of(0, 1, 2, 3, 4, 5));
+        network.putVertices(List.of(0, 1, 2, 3, 4, 5, 6, 7));
         network.addEdge(0, 1);
         network.addEdge(0, 2);
         network.addEdge(1, 3);
@@ -23,6 +24,11 @@ public class Main {
         network.addEdge(3, 5);
         network.addEdge(4, 3);
         network.addEdge(4, 5);
+        network.addEdge(6, 1);
+        network.addEdge(0, 7);
+        network.addEdge(7, 6);
+        network.addEdge(6, 7);
+        network.addEdge(0, 7);
         network.setEdgeWeight(network.getEdge(0,1), 16);
         network.setEdgeWeight(network.getEdge(0,2), 13);
         network.setEdgeWeight(network.getEdge(1,3), 12);
@@ -46,10 +52,11 @@ public class Main {
 //        network.addSource(3);
         DynamicNetworkWithMaxFlowAlgorithm finder = new DynamicNetworkWithMaxFlowAlgorithm(new DividerToClusters(), new FordFulkerson(new BFS()));
         finder.init(network);
-        finder.removeVertex(4);
+//        finder.removeEdge(1, 3);
+//        finder.removeVertex(1);
+//        finder.removeVertex(2);
 //        finder.changeWeight(1, 3, 13);
-//        finder.removeEdge(4, 5);
-//        finder.addEdge(1, 7, 11.0);
+        finder.addEdge(1, 7, 11.0);
         System.out.println(finder.getCurrentMaxFlow());
 //        new GUI("network", network).display(900, 900);
 //        FordFulkerson fulkerson = new FordFulkerson(new BFS());
@@ -58,7 +65,12 @@ public class Main {
 //        fulkerson.printMaxFlow(900, 900);
 //
 //        System.out.println(result);
-        new GUI("clusters", finder.getClusters()).display(900, 900);
+        new GUI("network", network).display(900, 900);
+
+        finder.getClusters().vertexSet().forEach(cluster ->
+            new GUI("" + cluster, cluster).display(900, 900)
+        );
+
 //
 //        List<Integer> sources = List.of(0);
 //        List<Integer> sinks = List.of(5);

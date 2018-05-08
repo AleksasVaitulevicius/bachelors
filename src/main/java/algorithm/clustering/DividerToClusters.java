@@ -18,7 +18,7 @@ public class DividerToClusters {
         ClustersNetwork clusters = new ClustersNetwork();
         network.getSources().forEach(source -> divideToClusters(clusters, warps, source, network));
         addRestOfVertices(clusters, warps, network);
-        wireClusters(clusters);
+//        wireClusters(clusters);
 
         return clusters;
     }
@@ -33,20 +33,6 @@ public class DividerToClusters {
         warps.vertexSet().forEach(network::putVertices);
         addEdges(network, networkToCluster);
         clusters.addVertex(network);
-    }
-
-    private void wireClusters(ClustersNetwork clusters) {
-        Set<DynamicNetwork> vertices = new HashSet<>(clusters.vertexSet());
-
-        vertices.forEach(network ->
-            network.getSources().forEach(source -> vertices.stream()
-                .filter(vertex -> vertex.getSinks().contains(source))
-                .forEach(target -> {
-                    if (!target.equals(network)) {
-                        clusters.addEdge(target, network);
-                    }
-                }))
-        );
     }
 
     private void addEdges(DynamicNetwork network, DynamicNetwork networkToCluster) {

@@ -28,6 +28,7 @@ public class FordFulkerson {
 
     public void reset() {
         this.maxFlow = new Network();
+        getMaxFlowValues().clear();
     }
 
     public Map<Integer, Double> maxFlow(Network network, List<Integer> sources, List<Integer> sinks) {

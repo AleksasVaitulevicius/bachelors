@@ -1,21 +1,32 @@
 package entities.dynamicnetwork;
 
-import entities.network.WeightedEdge;
-import lombok.Getter;
-import lombok.Setter;
-import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+import java.util.*;
+import java.util.stream.Collectors;
 
-import java.util.List;
+public class ClustersNetwork {
 
-public class ClustersNetwork extends SimpleDirectedWeightedGraph<DynamicNetwork, WeightedEdge> {
+    private Set<DynamicNetwork> vertices = new HashSet<>();
 
-    @Getter @Setter
-    private List<Integer> sources;
-    @Getter @Setter
-    private List<Integer> sinks;
+    public void addVertex(DynamicNetwork network) {
+        if(!vertices.contains(network)) {
+            vertices.add(network);
+        }
+    }
 
-    public ClustersNetwork() {
-        super(WeightedEdge.class);
+    public Set<DynamicNetwork> vertexSet() {
+        return vertices;
+    }
+
+    public void removeVertex(DynamicNetwork network) {
+        vertices = vertices.stream()
+            .filter(cluster -> !cluster.equals(network))
+            .collect(Collectors.toSet());
+    }
+
+    public void clearEmpty() {
+        vertices = vertices.stream()
+            .filter(cluster -> !cluster.vertexSet().isEmpty())
+            .collect(Collectors.toSet());
     }
 
 }

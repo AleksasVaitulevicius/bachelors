@@ -7,8 +7,6 @@ import com.mxgraph.swing.mxGraphComponent;
 import javax.swing.*;
 
 import entities.EulerCycleWarps;
-import entities.dynamicnetwork.ClustersNetwork;
-import entities.dynamicnetwork.DynamicNetwork;
 import entities.network.Network;
 import entities.network.WeightedEdge;
 import org.jgrapht.ext.JGraphXAdapter;
@@ -37,19 +35,6 @@ public class GUI extends JFrame {
         super(name);
 
         JGraphXAdapter<List<Integer>, DefaultEdge> graphAdapter =
-                new JGraphXAdapter<>(network);
-
-        mxIGraphLayout layout = new mxCircleLayout(graphAdapter);
-        layout.execute(graphAdapter.getDefaultParent());
-
-        this.add(new mxGraphComponent(graphAdapter));
-        this.pack();
-    }
-
-    public GUI(String name, ClustersNetwork network) {
-        super(name);
-
-        JGraphXAdapter<DynamicNetwork, WeightedEdge> graphAdapter =
                 new JGraphXAdapter<>(network);
 
         mxIGraphLayout layout = new mxCircleLayout(graphAdapter);
