@@ -76,16 +76,41 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     public void addEdge(Integer source, Integer target, double weight) {
         network.addEdge(source, target);
         network.setEdgeWeight(network.getEdge(source, target), weight);
+        List<Integer> eulerCycleVertices = detectEulerCycle(source, target);
 
-        List<DynamicNetwork> affectedNetworks = clusters.vertexSet().stream()
-            .filter(cluster ->
-                (cluster.containsVertex(target) && !cluster.getSinks().contains(target))
-                ||
-                (cluster.containsVertex(source)) && !cluster.getSinks().contains(source)
-            )
-            .collect(Collectors.toList());
+        if(!eulerCycleVertices.isEmpty()) {
+            List<DynamicNetwork> affectedNetworks = clusters.vertexSet().stream()
+                .filter(cluster -> cluster.vertexSet().stream().anyMatch(vertex ->
+                        eulerCycleVertices.contains(vertex) && !cluster.getSinks().contains(vertex)
+                ))
+                .collect(Collectors.toList());
+            DynamicNetwork cluster = mergeNetworks(affectedNetworks);
+            cluster.addEdge(source, target);
+            cluster.setEdgeWeight(cluster.getEdge(source, target), weight);
+            clusters.addVertex(cluster);
+            adjustAllAffectedClusters(new ArrayList<>(List.of(cluster)), null);
 
-        mergeNetworks(affectedNetworks);
+        }
+        else {
+            List<DynamicNetwork> affectedNetworks = new ArrayList<>();
+            clusters.vertexSet().stream()
+                .filter(cluster -> cluster.containsVertex(source) && !cluster.getSinks().contains(source)
+                )
+                .forEach(cluster -> {
+                    if(!cluster.containsVertex(target)) {
+                        cluster.addVertex(target);
+                        cluster.addSink(target);
+                        cluster.addMaxFlow(target, 0.0);
+                    }
+                    cluster.addEdge(source, target);
+                    cluster.setEdgeWeight(cluster.getEdge(source, target), weight);
+                    affectedNetworks.add(cluster);
+                });
+
+            adjustAllAffectedClusters(affectedNetworks, null);
+        }
+        clusters.clearEmpty();
+        setNewMaxFlow();
     }
 
     public void removeEdge(Integer source, Integer target) {
@@ -102,6 +127,36 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         adjustAllAffectedClusters(affectedNetworks, null);
         clusters.clearEmpty();
         setNewMaxFlow();
+    }
+
+    private List<Integer> detectEulerCycle(Integer source, Integer target) {
+
+        Stack<List<Integer>> possibleCycles = new Stack<>();
+        possibleCycles.push(List.of(source, target));
+        List<Integer> verticesOfCycles = new ArrayList<>();
+
+        while (!possibleCycles.isEmpty()) {
+            List<Integer> possibleCycle = possibleCycles.pop();
+            this.network.outgoingEdgesOf(possibleCycle.get(possibleCycle.size() - 1)).forEach(edge -> {
+                Integer edgeTarget = network.getEdgeTarget(edge);
+                if (edgeTarget.equals(source)) {
+                    verticesOfCycles.addAll(
+                        possibleCycle.stream()
+                            .filter(vertex -> !verticesOfCycles.contains(vertex))
+                            .collect(Collectors.toList())
+                    );
+                }
+                else {
+                    if(!possibleCycle.contains(edgeTarget)) {
+                        List<Integer> newPossibleCycle = new ArrayList<>(possibleCycle);
+                        newPossibleCycle.add(edgeTarget);
+                        possibleCycles.push(newPossibleCycle);
+                    }
+                }
+            });
+        }
+
+        return verticesOfCycles;
     }
 
     private void adjustAllAffectedClusters(
@@ -135,7 +190,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         }
     }
 
-    private void mergeNetworks(List<DynamicNetwork> networks) {
+    private DynamicNetwork mergeNetworks(List<DynamicNetwork> networks) {
         DynamicNetwork network = networks.remove(0);
 
         networks.forEach(networkToMerge -> {
@@ -186,6 +241,9 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
 
             this.clusters.removeVertex(networkToMerge);
         });
+        this.clusters.removeVertex(network);
+
+        return network;
     }
 
     private void extractMaxFlow(DynamicNetwork to, Integer source, double maxFlow) {

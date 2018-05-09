@@ -22,12 +22,11 @@ public class Main {
         network.addEdge(2, 4);
 //        network.addEdge(3, 2);
         network.addEdge(3, 5);
-        network.addEdge(4, 3);
+//        network.addEdge(4, 3);
         network.addEdge(4, 5);
-        network.addEdge(6, 1);
-        network.addEdge(0, 7);
-        network.addEdge(7, 6);
-        network.addEdge(6, 7);
+//        network.addEdge(6, 1);
+//        network.addEdge(7, 6);
+//        network.addEdge(6, 7);
         network.addEdge(0, 7);
         network.setEdgeWeight(network.getEdge(0,1), 16);
         network.setEdgeWeight(network.getEdge(0,2), 13);
@@ -37,7 +36,7 @@ public class Main {
         network.setEdgeWeight(network.getEdge(2,4), 14);
 //        network.setEdgeWeight(network.getEdge(3,2), 9);
         network.setEdgeWeight(network.getEdge(3,5), 20);
-        network.setEdgeWeight(network.getEdge(4,3), 7);
+//        network.setEdgeWeight(network.getEdge(4,3), 7);
         network.setEdgeWeight(network.getEdge(4,5), 4);
 //        network.addEdge(0, 1);
 //        network.addEdge(1, 2);
@@ -56,7 +55,7 @@ public class Main {
 //        finder.removeVertex(1);
 //        finder.removeVertex(2);
 //        finder.changeWeight(1, 3, 13);
-        finder.addEdge(1, 7, 11.0);
+        finder.addEdge(4, 3, 11.0);
         System.out.println(finder.getCurrentMaxFlow());
 //        new GUI("network", network).display(900, 900);
 //        FordFulkerson fulkerson = new FordFulkerson(new BFS());

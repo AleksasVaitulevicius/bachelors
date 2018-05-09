@@ -128,11 +128,14 @@ public class DividerToClusters {
         Map<List<Integer>, List<List<Integer>>> branches = new HashMap<>();
         List<Integer> vertex = List.of(source);
 
+        if(!warps.containsVertex(vertex)) {
+            return;
+        }
+
         Stack<List<Integer>> path = new Stack<>();
         path.push(vertex);
 
         while(!path.isEmpty()) {
-
             List<List<Integer>> branchesFromVertex = (!branches.containsKey(vertex)) ?
                     getAllOutgoingVertices(warps, vertex) : branches.get(vertex);
 
