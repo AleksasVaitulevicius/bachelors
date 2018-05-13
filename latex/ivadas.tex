@@ -1,1 +1,38 @@
-ivadas
+Paskutiniuose dviejuose dešimtmečiuose yra plačiai domimasi dinaminiais grafais. Ši sritis suteikia daug teorinių žinių, kurios gali būti pritaikytos optimizuojant tokias sritis kaip: komunikacijos tinklus, VLSI kūrimą, kompiuterinę grafiką  \cite{DynamicGraphs}.
+
+Dinaminis grafas - tai grafas, kuriam yra galima atlikti bent vieną iš šių operacijų:
+\begin{itemize}
+	\item Pridėjimo
+	\begin{itemize}
+		\item Pridėti briauną.
+		\item Pridėti viršūnę.
+	\end{itemize}
+	\item Atėmimo
+	\begin{itemize}
+		\item Atimti briauną.
+		\item Atimti viršūnę.
+	\end{itemize}
+	\item  Papildomos operacijos priklausomai nuo grafo savybių(pavyzdžiui jei grafas yra svorinis, tai jis galėtų turėti papildomą operaciją keisti svorį).
+\end{itemize}
+Pagal leidžiamas operacijas dinaminiai grafai yra skirstomi į:
+\begin{itemize}
+	\item dalinai dinaminius grafus, kurie yra skirstomi į:
+	\begin{itemize}
+		\item inkrementalus - vykdoma tik pridėjimo operacija
+		\item dekrementalus - Vykdoma tik atėmimas
+	\end{itemize}
+	\item  pilnai dinaminius grafus, kuriuose vykdomos visos operacijos.
+\end{itemize}
+Šiame darbe nagrinėjami pilnai dinaminiai grafai.
+
+Visa statinio grafo problemų aibė yra dinaminio grafo problemų poaibis. Tačiau dinaminiame grafo problemos sprendimas gali būti optimizuotas, nes yra daugiau informacijos apie grafą nei statiniame grafe (pavyzdžiui, jei buvo apskaičiuotas grafo maksimalus srautas ir prie grafo buvo pridėta briauna, tai bus žinomas grafo poaibio, kuriam nepriklauso naujai pridėta briauna, maksimalus srautas). Šiame darbe nagrinėjama maksimalaus srauto problema, kuri priklauso šiai aibei.
+
+Maksimalus srautas - tai didžiausias galimas srautas tinkle iš viršūnių $s_i$ (šaltinių) iki viršūnių $t_i$ (tikslų). Tinklas - tai orientuotas grafas $G= {V, E, u}$, kur V yra viršūnių aibė, E - briaunų aibė, o u - briaunų pralaidumų aibė$ ( u : E \rightarrow R )$. Pagal šaltinių ir tikslų skaičių ši problema yra skirstoma į:
+\begin{itemize}
+	\item Vienšaltinę daugtikslinę - tai srautas, kuriame yra vienas šaltinis ir daugiau nei vienas tikslas.
+	\item Daugiašaltinę vientikslinę - tai srautas, kuriame yra vienas tikslas ir daugiau nei vienas šaltinis.
+	\item Daugiašaltinę daugtikslinę - tai srautas, kuriame yra daugiau nei vienas šaltinis ir daugiau nei vienas tikslas.
+	\item Vienšaltinę vientikslinę - tai srautas, kuriame yra vienas šaltinis ir vienas tikslas.
+\end{itemize}
+
+Šiame darbe nagrinėjama tik vienšaltinė vientikslinė problema. Tačiau tarpinėms reikšmėms gauti yra naudojama ir likusių problemų sprendimo būdai. Metodas
