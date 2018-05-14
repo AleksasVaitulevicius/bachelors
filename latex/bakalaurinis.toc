@@ -10,27 +10,31 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Įvadas}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.}Pagrindinė tiriamoji dalis}{8}
+\contentsline {section}{\numberline {1.}Pagrindinė tiriamoji dalis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.}Poskyris}{8}
+\contentsline {subsection}{\numberline {1.1.}Poskyris}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.1.1.}Skirsnis}{8}
+\contentsline {subsubsection}{\numberline {1.1.1.}Skirsnis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {1.1.1.1.}Straipsnis}{8}
+\contentsline {paragraph}{\numberline {1.1.1.1.}Straipsnis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.1.2.}Skirsnis}{8}
+\contentsline {subsubsection}{\numberline {1.1.2.}Skirsnis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Skyrius}{9}
+\contentsline {section}{\numberline {2.}Skyrius}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.}Poskyris}{9}
+\contentsline {subsection}{\numberline {2.1.}Poskyris}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.}Poskyris}{9}
+\contentsline {subsection}{\numberline {2.2.}Poskyris}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{10}
+\contentsline {section}{Išvados}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{11}
+\contentsline {section}{Conclusions}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{12}
+\contentsline {section}{Literatūra}{13}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

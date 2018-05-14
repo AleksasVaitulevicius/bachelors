@@ -50,9 +50,34 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.diku.dk/PATH05/CRC-book1.pdf}}
       \field{langid}{english}
-      \field{note}{45 KB, accessed 2018-05-13.}
+      \field{note}{accessed 2018-05-13.}
       \field{title}{Dynamic graphs}
       \field{year}{2001}
+    \endentry
+    \entry{DSfUoMST}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d6b9787d4ee21a034099f7c983cce5ae}{%
+           family={Frederickson},
+           familyi={F\bibinitperiod},
+           given={G.\bibnamedelimi N.},
+           giveni={G\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \strng{fullhash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \strng{bibnamehash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \strng{authorbibnamehash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \strng{authornamehash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \strng{authorfullhash}{d6b9787d4ee21a034099f7c983cce5ae}
+      \field{labelalpha}{Fre85}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://epubs.siam.org/doi/abs/10.1137/0214055}}
+      \field{langid}{english}
+      \field{note}{accessed 2018-05-14.}
+      \field{title}{Data structures for on-line updating of minimum spanning trees}
+      \field{year}{1985}
     \endentry
     \entry{PvzMagistrLt}{thesis}{}
       \name{author}{1}{}{%
