@@ -1,0 +1,12 @@
+Šiame darbe tiriamas algoritmas yra paremtas Frederiksono suformuluotu grupavimo metodu \cite{DSfUoMST}. Grupavimo metodas - tai metodas, kuris yra pagrįstas grafo dalinimu į subgrafus vadinamus grupėmis. Grafas yra padalinamas taip, kad kiekviena atlikta operacija turėtų įtakos tik daliai grupių, bet ne visoms. Todėl tiriamas algoritmas veikia pagal grupavimo metodą tik tada kai yra patenkinta sąlyga: jei tinkle egzistuoja subgrafas, kuriame yra Eulerio ciklas, tai visos viršūnės priklausančios tam subgrafui yra vienoje grupėje. Šitai sąlygai patenkinti yra naudojama grupavimo funkcija, kuri naudoja šias pagalbines funkcijas:
+
+Sąlygos tenkinimo funkcija - tinklo V, kurio viršūnės yra grupių, tenkinančių pateiktą sąlygą, viršūnių masyvai, kūrimo funkcija.
+\begin{enumerate}
+	\item Iš apskaičiuojamo tinklo sukuriamas tinklas V, kurio viršūnės būtų apskaičiuojamo tinklo viršūnės patalpintos masyvuose, o briaunos atitiktų apskaičiuojamo tinklo briaunas.
+	\item Iš apskaičiuojamo tinklo sukuriamas tinklas V, kurio viršūnės būtų apskaičiuojamo tinklo viršūnės patalpintos masyvuose, o briaunos atitiktų apskaičiuojamo tinklo briaunas.
+\end{enumerate}
+
+Pati grupavimo funkcija:
+\begin{enumerate}
+	\item Kviečiama Sąlygos tenkinimo funkcija.
+\end{enumerate}

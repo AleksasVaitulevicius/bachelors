@@ -1976,9 +1976,9 @@
   <bcf:section number="0">
     <bcf:citekey order="1">DynamicGraphs</bcf:citekey>
     <bcf:citekey order="1">DGA</bcf:citekey>
-    <bcf:citekey order="2">DSfUoMST</bcf:citekey>
-    <bcf:citekey order="3">BFS</bcf:citekey>
-    <bcf:citekey order="4">FiN</bcf:citekey>
+    <bcf:citekey order="2">BFS</bcf:citekey>
+    <bcf:citekey order="3">FiN</bcf:citekey>
+    <bcf:citekey order="4">DSfUoMST</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

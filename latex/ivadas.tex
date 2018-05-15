@@ -34,9 +34,7 @@ Maksimalus srautas - tai didžiausias galimas srautas tinkle iš viršūnių $s_
 	\item Daugiašaltinę daugtikslinę - tai srautas, kuriame yra daugiau nei vienas šaltinis ir daugiau nei vienas tikslas.
 	\item Vienšaltinę vientikslinę - tai srautas, kuriame yra vienas šaltinis ir vienas tikslas.
 \end{itemize}
-Algoritmas, tiriamas šiame darbe, sprendžia tik vienšaltinę vientikslinę problemą. Tačiau tarpinėms reikšmėms gauti yra naudojama ir likusių problemų sprendimo būdas, Fordo Fulkersono algoritmas pritaikytas spręsti daugiašaltinę daugtikslinę problemą.
-
-Šiame darbe tiriamas algoritmas yra paremtas Frederiksono suformuluotu grupavimo metodu \cite{DSfUoMST}. Grupavimo metodas - tai metodas, kuris yra pagrįstas grafo dalinimu į subgrafus vadinamus grupėmis. Grafas yra padalinamas taip, kad kiekviena atlikta operacija turėtų įtakos tik daliai grupių, bet ne visoms. Šių grupių maksimaliems srautams rasti yra naudojamas Fordo Fulkersono algoritmas pritaikytas spręsti daugiašaltinę daugtikslinę problemą.
+Algoritmas, tiriamas šiame darbe, sprendžia tik vienšaltinę vientikslinę problemą. Tačiau tarpinėms reikšmėms gauti yra naudojama ir likusių problemų sprendimo būdas, Fordo Fulkersono algoritmas pritaikytas spręsti daugiašaltinę daugtikslinę problemą. Tiriamo algoritmo veikimo principas yra pagrįstas grupavimo metodu. Tai reiškia, kad tinklas yra padalinamas į grupes. Šių grupių maksimaliams srautams rasti ir yra naudojamas modifikuotas Fordo Fulkersono algoritmas.
 
 Šiame darbe tiriamo algoritmo korektiškumas nėra įrodytas. Jo veikimo korektiškumą gali pagrįsti tik matematinis įrodymas. Tačiau matematinis įrodymas yra sudėtingas procesas. Tad reikia atlikti empirinius tyrimus su algoritmu, kurie parodytų ar verta tirti algoritmą. Taip pat nėra nustatyta ar tiriamas algoritmas yra efektyvesnis už algoritmą randantį maksimalų srautą statiniame tinkle. Jei tiriamas algoritmas nėra efektyvesnis, tai jo įrodyta neapsimoka, nes algoritmai skirti statiniams grafams, gali būti pritaikyti ir dinaminiams. Tad algoritmai, skirti dinaminiams grafams, yra naudojami tik tuo atveju jei jie yra efektyvesni už algoritmus, skirtus statiniams grafams.
 
