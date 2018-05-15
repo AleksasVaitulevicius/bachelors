@@ -1,4 +1,4 @@
-Paskutiniuose dviejuose dešimtmečiuose yra plačiai domimasi dinaminiais grafais. Ši sritis suteikia daug teorinių žinių, kurios gali būti pritaikytos optimizuojant tokias sritis kaip: komunikacijos tinklus, VLSI kūrimą, kompiuterinę grafiką, kaip yra teigiama publikacijoje Dynamic graphs  \cite{DynamicGraphs}. Šiame darbe bus tiriamas algoritmas skirtas maksimaliam srautui rasti dinaminiuose tinkluose.
+Paskutiniuose dviejuose dešimtmečiuose yra plačiai domimasi dinaminiais grafais. Ši sritis suteikia daug teorinių žinių, kurios gali būti pritaikytos optimizuojant tokias sritis kaip: komunikacijos tinklus, VLSI kūrimą, kompiuterinę grafiką, kaip yra teigiama publikacijose \cite{DynamicGraphs, DGA}. Šiame darbe bus tiriamas algoritmas skirtas maksimaliam srautui rasti dinaminiuose tinkluose.
 
 Dinaminis grafas - tai grafas, kuriam yra galima atlikti bent vieną iš šių operacijų:
 \begin{itemize}
@@ -27,7 +27,7 @@ Pagal leidžiamas operacijas dinaminiai grafai yra skirstomi į:
 
 Visa statinio grafo problemų aibė yra dinaminio grafo problemų poaibis. Tačiau dinaminiame grafo problemos sprendimas gali būti optimizuotas, nes yra daugiau informacijos apie grafą nei statiniame grafe (pavyzdžiui, jei buvo apskaičiuotas grafo maksimalus srautas ir prie grafo buvo pridėta briauna, tai bus žinomas grafo poaibio, kuriam nepriklauso naujai pridėta briauna, maksimalus srautas). Šiame darbe tiriamas algoritmas sprendžia maksimalaus srauto problemą, kuri priklauso šiai aibei.
 
-Maksimalus srautas - tai didžiausias galimas srautas tinkle iš viršūnių $s_i$ (šaltinių) iki viršūnių $t_i$ (tikslų). Tinklas - tai orientuotas grafas $G= {V, E, u}$, kur V yra viršūnių aibė, E - briaunų aibė, o u - briaunų pralaidumų aibė$ ( u : E \rightarrow R )$. Dinaminio tinklo apibrėžimas yra analogiškas dinaminio grafo apibrėžimui. Pagal šaltinių ir tikslų skaičių ši problema yra skirstoma į:
+Maksimalus srautas - tai didžiausias galimas srautas tinkle iš viršūnių $s_i$ (šaltinių) iki viršūnių $t_i$ (tikslų). Tinklas - tai orientuotas grafas $G= \{V, E, u\}$, kur V yra viršūnių aibė, E - briaunų aibė, o u - briaunų pralaidumų aibė $( u : E \rightarrow R )$. Dinaminio tinklo apibrėžimas yra analogiškas dinaminio grafo apibrėžimui. Pagal šaltinių ir tikslų skaičių ši problema yra skirstoma į:
 \begin{itemize}
 	\item Vienšaltinę daugtikslinę - tai srautas, kuriame yra vienas šaltinis ir daugiau nei vienas tikslas.
 	\item Daugiašaltinę vientikslinę - tai srautas, kuriame yra vienas tikslas ir daugiau nei vienas šaltinis.
@@ -39,6 +39,8 @@ Algoritmas, tiriamas šiame darbe, sprendžia tik vienšaltinę vientikslinę pr
 Šiame darbe tiriamas algoritmas yra paremtas Frederiksono suformuluotu grupavimo metodu \cite{DSfUoMST}. Grupavimo metodas - tai metodas, kuris yra pagrįstas grafo dalinimu į subgrafus vadinamus grupėmis. Grafas yra padalinamas taip, kad kiekviena atlikta operacija turėtų įtakos tik daliai grupių, bet ne visoms. Šių grupių maksimaliems srautams rasti yra naudojamas Fordo Fulkersono algoritmas pritaikytas spręsti daugiašaltinę daugtikslinę problemą.
 
 Šiame darbe tiriamo algoritmo korektiškumas nėra įrodytas. Jo veikimo korektiškumą gali pagrįsti tik matematinis įrodymas. Tačiau matematinis įrodymas yra sudėtingas procesas. Tad reikia atlikti empirinius tyrimus su algoritmu, kurie parodytų ar verta tirti algoritmą. Taip pat nėra nustatyta ar tiriamas algoritmas yra efektyvesnis už algoritmą randantį maksimalų srautą statiniame tinkle. Jei tiriamas algoritmas nėra efektyvesnis, tai jo įrodyta neapsimoka, nes algoritmai skirti statiniams grafams, gali būti pritaikyti ir dinaminiams. Tad algoritmai, skirti dinaminiams grafams, yra naudojami tik tuo atveju jei jie yra efektyvesni už algoritmus, skirtus statiniams grafams.
+
+\newpage
 
 Tad šio darbo \textbf{TIKSLAS} yra įgyvendinti empirinį tyrimą, kuris įrodytų, kad šiame darbe tiriamą algoritmą yra verta matematiškai ištirti. Šiam tikslui pasiekti reikia atlikti šiuos uždavinius:
 \begin{enumerate}

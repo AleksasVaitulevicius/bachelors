@@ -1975,16 +1975,10 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">DynamicGraphs</bcf:citekey>
+    <bcf:citekey order="1">DGA</bcf:citekey>
     <bcf:citekey order="2">DSfUoMST</bcf:citekey>
-    <bcf:citekey order="3">PvzStraipsnLt</bcf:citekey>
-    <bcf:citekey order="4">PvzStraipsnEn</bcf:citekey>
-    <bcf:citekey order="4">PvzKonfLt</bcf:citekey>
-    <bcf:citekey order="4">PvzKonfEn</bcf:citekey>
-    <bcf:citekey order="4">PvzKnygLt</bcf:citekey>
-    <bcf:citekey order="4">PvzKnygEn</bcf:citekey>
-    <bcf:citekey order="4">PvzElPubLt</bcf:citekey>
-    <bcf:citekey order="4">PvzMagistrLt</bcf:citekey>
-    <bcf:citekey order="4">PvzPhdEn</bcf:citekey>
+    <bcf:citekey order="3">BFS</bcf:citekey>
+    <bcf:citekey order="4">FiN</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

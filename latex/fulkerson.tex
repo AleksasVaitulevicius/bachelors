@@ -1,0 +1,38 @@
+Maksimaliems srautams grupėse rasti algoritmas naudoja modifikuotą Fordo Fulkersono algoritmą, kuris naudojasi BFS galimam srautui rasti. Originalus Fordo Fulkersono algoritmas yra skirtas rasti vienšaltinį vientikslinį maksimalų srautą, tačiau tiriamo algoritmo atveju gali susidaryti grupės, kurios turi kelis tikslus ir arba kelis šaltinius. Tad modifikuotas Fordo Fulkersono algoritmas yra skirtas rasti daugšaltinį daugtikslinį maksimalų srautą.
+
+BFS algoritmas, aprašytas publikacijoje \cite{BFS} :
+\begin{enumerate}
+	\item Inicializuojami masyvai V, Q ir FLOW, į V ir Q patalpinamas tinklo šaltinis.
+	\item Jei Q yra tuščias, tai einama į žingsnį 9
+	\item Išimamas paskutinis masyvo Q elementas y.
+	\item Jei $\nexists$ viršūnė $x : y \rightarrow x, x \notin V$, tai einama į žingsnį 2. 
+	\item Briauna $y  \rightarrow x$ patalpinama į masyvą FLOW. 
+	\item Viršūnė x patalpinama į masyvą V
+	\item Viršūnė x patalpinama į Q masyvo pradžią. 
+	\item Einama į žingsnį 4. 
+	\item Baigiamas algoritmas.
+\end{enumerate}
+
+Klasikinis Fordo Fulkersono algoritmas, kuris yra aprašytas publikacijoje \cite{FiN} bei naudojantis BFS:
+\begin{enumerate}
+	\item Maksimaliam srautui priskiriama reikšmė nulis.Sukuriama tinklo kopija G ir inicializuojama tinklo MAX reikšmė {V=\{\}, E=\{\},u=\{\}}.
+	\item Naudojant BFS randamas srautas nuo šaltinio iki tikslo.
+	\item Jei nė vieno srauto nėra randama einama į žingsnį 8.
+	\item Sumažinama visų briaunų, kurie priklauso rastam srautui, pralaidumus per rasto srauto dydį tinkle G.
+	\item Rastas srautas pridedamas prie tinklo MAX.
+	\item Maksimalaus srauto reikšmė yra padidinama per rasto srauto dydį.
+	\item Einama į žingsnį 2.
+	\item Baigiamas algoritmas.
+\end{enumerate}
+
+Modifikuotas Fordo Fulkersono algoritmas, naudojantis BFS:
+\begin{enumerate}
+	\item Masyvo maksimalaus srauto dydžiai, kurio dydis yra lygus tikslų skaičiui, reikšmės nustatomos į nulį.Sukuriama tinklo kopija G ir inicializuojama tinklo MAX reikšmė {V=\{\}, E=\{\},u=\{\}}.
+	\item Naudojant BFS randami srautai nuo visų šaltinių iki visų tikslų.
+	\item Jei nė vieno srauto nėra randama einama į žingsnį 8.
+	\item Sumažinama visų briaunų, kurie priklauso rastiems srautams, pralaidumus per rasto srauto dydį tinkle G.
+	\item Rasti srautai pridedamas prie tinklo MAX.
+	\item Masyvo maksimalaus srauto dydžiai elementų, kurie atitinka pasiektus tikslus, reikšmės padidinamos per rastų srautų dydžius.
+	\item Einama į žingsnį 2.
+	\item Baigiamas algoritmas.
+\end{enumerate}
