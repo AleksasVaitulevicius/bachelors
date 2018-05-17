@@ -1,6 +1,6 @@
-Maksimaliems srautams grupėse rasti algoritmas naudoja modifikuotą Fordo Fulkersono algoritmą, kuris naudojasi BFS galimam srautui rasti. Originalus Fordo Fulkersono algoritmas yra skirtas rasti vienšaltinį vientikslinį maksimalų srautą, tačiau tiriamo algoritmo atveju gali susidaryti grupės, kurios turi kelis tikslus ir arba kelis šaltinius. Tad modifikuotas Fordo Fulkersono algoritmas yra skirtas rasti daugšaltinį daugtikslinį maksimalų srautą.
+Maksimaliems srautams grupėse rasti algoritmas naudoja modifikuotą Fordo Fulkersono algoritmą, kuris naudojasi BFS \cite{BFS} galimam srautui rasti. Originalus Fordo Fulkersono algoritmas \cite{FiN} yra skirtas rasti vieno šaltinio ir vieno tikslo maksimalų srautą, tačiau sukurto algoritmo atveju gali susidaryti grupės, kurios turi kelis tikslus ir arba kelis šaltinius. Tad modifikuotas Fordo Fulkersono algoritmas yra skirtas rasti kelių šaltinių ir kelių tikslų maksimalų srautą.
 
-BFS algoritmas, aprašytas publikacijoje \cite{BFS} :
+BFS algoritmas, aprašytas publikacijoje :
 \begin{enumerate}
 	\item Inicializuojami masyvai V, Q ir FLOW, į V ir Q patalpinamas tinklo šaltinis.
 	\item Jei Q yra tuščias, tai einama į žingsnį 9
@@ -13,7 +13,7 @@ BFS algoritmas, aprašytas publikacijoje \cite{BFS} :
 	\item Baigiamas algoritmas.
 \end{enumerate}
 
-Klasikinis Fordo Fulkersono algoritmas, kuris yra aprašytas publikacijoje \cite{FiN} bei naudojantis BFS:
+Klasikinis Fordo Fulkersono algoritmas, kuris yra aprašytas publikacijoje bei naudojantis BFS:
 \begin{enumerate}
 	\item Maksimaliam srautui priskiriama reikšmė nulis.Sukuriama tinklo kopija G ir inicializuojama tinklo MAX reikšmė {V=\{\}, E=\{\},u=\{\}}.
 	\item Naudojant BFS randamas srautas nuo šaltinio iki tikslo.

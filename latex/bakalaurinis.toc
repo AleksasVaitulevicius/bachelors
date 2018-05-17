@@ -10,19 +10,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Įvadas}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.}Tiriamas Algoritmas Maksimaliam Srautui Dinaminiuose Tinkluose rasti}{10}
+\contentsline {section}{\numberline {1.}Algoritmas maksimaliam srautui dinaminiuose tinkluose rasti}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.}Grupės Apibrėžimas}{10}
+\contentsline {subsection}{\numberline {1.1.}Grupės apibrėžimas}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.}Fordo Fulkersono algoritmas pritaikytas tiriamam algoritmui}{10}
+\contentsline {subsection}{\numberline {1.2.}Fordo Fulkersono algoritmas}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.}Grupavimo funkcija}{12}
+\contentsline {subsection}{\numberline {1.3.}Grupavimo funkcija}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{13}
+\contentsline {section}{Išvados}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{14}
+\contentsline {section}{Conclusions}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{15}
+\contentsline {section}{Literatūra}{13}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
