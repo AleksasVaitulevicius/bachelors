@@ -59,6 +59,8 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%7
 	\item Tinklas G patalpinamas į tinklą R
 	%8
+	\item Jei $\exists$ viršūnė.
+	%8
 	\item Naudojantis apibrėžimu sukuriamos tinklo R briaunos $G \rightarrow Q$, kur Q yra menamos viršūnės.
 	%9
 	\item Tinklui G inicializuojama naujos grupės reikšmė.
@@ -67,13 +69,13 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%11
 	\item Iš steko B išimamas viršutinis elementas, kurio reikšmė priskiriama iteratoriui x.
 	%12
-	\item Jei $\exists y : x \rightarrow y$ ir y dydis > 1, tai y talpinamas į steką NC.
+	\item Jei $\exists y : x \rightarrow y$, y dydis > 1, $y \notin NC$ ir y nėra NC viršūnė, tai y talpinamas į steką NC ir einama į žingsnį 12.
 	%13
-	\item Jei $\exists y : x \rightarrow y$ ir y dydis = 1, tai y elemento reikšmė patalpinama į steką B ir to elemento reikšmė pridedama į grupę G kaip viršūnė.
+	\item Jei $\exists y : x \rightarrow y$, y dydis = 1, $y \notin NC$ ir y nėra NC viršūnė, tai y elemento reikšmė patalpinama į steką B, to elemento reikšmė pridedama į grupę G kaip viršūnė ir einama į žingsnį 12.
 	%14
-	\item Į VR įdedama iteratoriaus x reikšmė.
+	\item Į steką VR įdedama iteratoriaus x reikšmė.
 	%15 
-	\item Iš PATH išimamas elementas z.
+	\item .
 	\item Jei elementas z = y, tai enama į žingsnį 15 ir y = n.
 	\item  Tinklo EG viršūnės z ir n yra pakeičiamos x ir n konkatenacija (toliau n yra z ir n konkatenacija).
 	\item  Einama į žingsnį 11.
