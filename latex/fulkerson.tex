@@ -18,7 +18,7 @@ Klasikinis Fordo Fulkersono algoritmas, kuris yra aprašytas publikacijoje bei n
 	\item Maksimaliam srautui priskiriama reikšmė nulis.Sukuriama tinklo kopija G ir inicializuojama tinklo MAX reikšmė {V=\{\}, E=\{\},u=\{\}}.
 	\item Naudojant BFS randamas srautas nuo šaltinio iki tikslo.
 	\item Jei nė vieno srauto nėra randama einama į žingsnį 8.
-	\item Sumažinama visų briaunų, kurie priklauso rastam srautui, pralaidumus per rasto srauto dydį tinkle G.
+	\item Sumažinama visų briaunų, kurie priklauso rastam srautui, talpas per rasto srauto dydį tinkle G.
 	\item Rastas srautas pridedamas prie tinklo MAX.
 	\item Maksimalaus srauto reikšmė yra padidinama per rasto srauto dydį.
 	\item Einama į žingsnį 2.
@@ -30,7 +30,7 @@ Modifikuotas Fordo Fulkersono algoritmas, naudojantis BFS:
 	\item Masyvo maksimalaus srauto dydžiai, kurio dydis yra lygus tikslų skaičiui, reikšmės nustatomos į nulį.Sukuriama tinklo kopija G ir inicializuojama tinklo MAX reikšmė {V=\{\}, E=\{\},u=\{\}}.
 	\item Naudojant BFS randami srautai nuo visų šaltinių iki visų tikslų.
 	\item Jei nė vieno srauto nėra randama einama į žingsnį 8.
-	\item Sumažinama visų briaunų, kurie priklauso rastiems srautams, pralaidumus per rasto srauto dydį tinkle G.
+	\item Sumažinama visų briaunų, kurie priklauso rastiems srautams, talpas per rasto srauto dydį tinkle G.
 	\item Rasti srautai pridedamas prie tinklo MAX.
 	\item Masyvo maksimalaus srauto dydžiai elementų, kurie atitinka pasiektus tikslus, reikšmės padidinamos per rastų srautų dydžius.
 	\item Einama į žingsnį 2.

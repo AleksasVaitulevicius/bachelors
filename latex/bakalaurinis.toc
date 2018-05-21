@@ -18,11 +18,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.3.}Grupavimo funkcija}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{14}
+\contentsline {subsection}{\numberline {1.4.}Pagrindinė funkcija}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{15}
+\contentsline {subsubsection}{\numberline {1.4.1.}Inicializavimo fazė}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{16}
+\contentsline {subsubsection}{\numberline {1.4.2.}Po kiekvieno pokyčio fazė}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Išvados}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Conclusions}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{17}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

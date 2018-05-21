@@ -7,7 +7,7 @@ Subgrafų su Eulerio ciklais radimo funkcija - tinklo EG, kurio viršūnės yra 
 	%2
 	\item Sukuriamas masyvas B, kuriame talpinamos briaunos, su kuriomis reikia daryti skaičiavimus, stekas PATH, kuriame talpinamos aplankytos viršūnės, ir viršūnių iteratorius x, jam suteikiama C šaltinio reikšmė ir patalpinamas į steką PATH.
 	%3
-	\item Jei PATH yra tuščias, einamana į žingsnį 19.
+	\item Jei PATH yra tuščias, einama į žingsnį 19.
 	%4
 	\item Jei masyve B $\exists x \rightarrow y : y \in V_C$, tai sukuriamas masyvas B', į kurį yra sudedamos visos viršūnės y iš B masyvo.
 	%5
@@ -19,13 +19,13 @@ Subgrafų su Eulerio ciklais radimo funkcija - tinklo EG, kurio viršūnės yra 
 	%8
 	\item Jei $\nexists y \in V_C$, tai surandama viršūnė z, kuri turi visus y elementus (toliau y := z).
 	%9
-	\item Jei PATH neturi elemento y, tai elementas y įdedamas į PATH ir einamana į žingsnį 15.
+	\item Jei PATH neturi elemento y, tai elementas y įdedamas į PATH ir einama į žingsnį 15.
 	%10
 	\item Inicializuojama nauja viršūnė n su visais y elementais.
 	%11
 	\item Iš PATH išimamas elementas z.
 	%12
-	\item Jei elementas z = y, tai enama į žingsnį 15 ir y = n.
+	\item Jei elementas z = y, tai einama į žingsnį 15 ir y = n.
 	%13
 	\item  Tinklo EG viršūnės z ir n yra pakeičiamos x ir n konkatenacija (toliau n yra z ir n konkatenacija).
 	%14
@@ -49,7 +49,7 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%2
 	\item Inicializuojama nauja grupė G.
 	%3
-	\item Jei NC yra tuščias, einamana į žingsnį 21.
+	\item Jei NC yra tuščias, einama į žingsnį 21.
 	%4
 	\item Viršutinis NC elementas yra perkeliamas į B ir iteratoriui x yra suteikiama to elemento reikšmė.
 	%5

@@ -1,1 +1,45 @@
+Sukurtas algoritmas turi dvi fazes: inicializavimo ir skaičiavimo po kiekvieno pokyčio. Inicializavimo fazėje yra  išskaidomas pateiktas tinklas į grupes, apskaičiuojami maksimalūs srautai kiekvienoje grupėje, kuri priklauso maksimaliam pateikto tinklo srautui, ir iš rastų srautų yra gaunamas maksimalus pateikto tinklo srautas. Tada  skaičiavimo po kiekvieno pokyčio fazėje yra laukiama pokyčio. Kai jis įvyksta, yra kviečiama funkcija priklausomai nuo to koks pokytis įvyko.
 
+\subsubsection{Inicializavimo fazė}
+
+Inicializavimo fazė (maksimalus apskaičiuojamo tinklo srautas yra grupėje su apskaičiuojamo tinklo tikslu):
+\begin{enumerate}
+	\item Apskaičiuojamam tinklui $C=\{V_C, E_C, u_C\}$ yra kviečiama grupavimo funkcija, kuri grąžina grupių tinklą $R\{V_R, E_R, u_R\}$.
+	\item Inicializuojamas sąrašas MF, kuriame  laikoma kokiam tikslui koks maksimalus srautas buvo apskaičiuotas, ir masyvas CAL, kuriame laikomos visos grupės, kurios jau buvo apskaičiuotos.
+	\item Apskaičiuojama grupės, kurioje yra tinklo C šaltinis, maksimalus srautas, kviečiant modifikuotą Fordo Fulkersono algoritmą. Rezultatas įsimenamas sąraše MF ir pačioje grupėje.
+	\item Grupė G patalpinama į masyvą CAL.
+	\item Jei masyve CAL yra grupė, kurioje yra tinklo C tikslas tai einama į žingsnį 11.
+	\item Jei $\nexists$ grupė $G : Y \rightarrow G, \forall Y \in CAL, G \in V_R, G \notin CAL$, tai einama į žingsnį 11.
+	\item Kiekvienam grupės $G : Y \rightarrow G, \forall Y \in CAL, G \in V_R, G \notin CAL$ briaunai $m \rightarrow s$, kur m yra menama viršūnė, kuri yra grupės G šaltinis, yra suteikiama talpa iš sąrašo MF elemento, kuris atitinka tikslą s.
+	 \item Grupei G apskaičiuojamas maksimalus srautas naudojant modifikuotą Fordo Fulkersono algoritmą.  Rezultatas įsimenamas sąraše MF ir pačioje grupėje.
+	 \item Grupė G patalpinama į masyvą CAL.
+	 \item Einama į žingsnį 5. 
+	 \item Algoritmo pabaiga. 
+\end{enumerate}
+
+\subsubsection{Po kiekvieno pokyčio fazė}
+
+Dalis funkcijų, kurios yra kviečiamos po konkretaus pakeitimo, naudoja šias pagalbines funkcijas:
+
+
+\begin{enumerate}
+	\item 
+\end{enumerate}
+
+Jei įvyksta viršūnės x pridėjimas, tai tada yra įvykdoma funkcija:
+\begin{enumerate}
+	\item Jei $\exists$ grupė G, kuri neturi šaltinių ir tikslų (iki grupės nėra kelio nuo apskaičiuojamo tinklo šaltinio), tai grupei G yra pridedama viršūnė x ir einama į žingsnį 5.
+	\item Sukuriama grupė N.
+	\item Grupei N  yra pridedama viršūnė x.
+	\item Grupė N  yra pridedama į grupių tinklą.
+	\item Algoritmo pabaiga. 
+\end{enumerate}
+
+Jei įvyksta viršūnės x atėmimas, tai tada yra įvykdoma funkcija:
+\begin{enumerate}
+\item Jei $\exists$ grupė G, kuri neturi šaltinių ir tikslų (iki grupės nėra kelio nuo apskaičiuojamo tinklo šaltinio), tai grupei G yra pridedama viršūnė x ir einama į žingsnį 5.
+\item Sukuriama grupė N.
+\item Grupei N  yra pridedama viršūnė x.
+\item Grupė N  yra pridedama į grupių tinklą.
+\item Algoritmo pabaiga. 
+\end{enumerate}
