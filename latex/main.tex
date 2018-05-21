@@ -21,10 +21,35 @@ Inicializavimo fazė (maksimalus apskaičiuojamo tinklo srautas yra grupėje su 
 
 Dalis funkcijų, kurios yra kviečiamos po konkretaus pakeitimo, naudoja šias pagalbines funkcijas:
 
-
+Perskaičiuoti pokyčio paveiktas grupes funkcija. Šios funkcijos parametrai yra grupių , kuriuose įvyko pokytis masyvas AFFECTED ir trinama viršūnė  DELETE(jei viršūnė nėra nurodoma, tai jokia viršūnė neištrinama):
 \begin{enumerate}
-	\item 
+	\item Inicializuojamas sąrašas CHANGES(t, change) elementų, kuriuose yra tikslų ir maksimalių srautų iki jų pokyčių poros.
+	\item Jei AFFECTED yra tuščias, tai einama į žingsnį 7.
+	\item Kiekvienai grupei $G=\{V_G, E_G, u_G\}$ iš masyvo AFFECTED:
+	\begin{enumerate}
+		\item Apskaičiuojamas naujas maksimalus srautas naudojantis Fordo Fulkersono algoritmu. Rezultatas patalpinamas sąraše RESULTS.
+		\item Kiekvienam grupės G tikslui t, iki kurio maksimalus srautas pakito:
+		\begin{enumerate}
+			\item Iš grupės G gaunama sena maksimalaus srauto iki t reikšmė OLD.
+			\item Iš sąrašo RESULTS gaunama nauja maksimalaus srauto iki t reikšmė NEW.
+			\item Į sąrašą CHANGES patalpinama pora t ir NEW - OLD.
+			\item Jei $NEW \neq 0$, tai Grupėje G išsaugomas nauja srauto reikšmė iki t, NEW.
+			\item Jei $NEW = 0$, tai iš grupės G ištrinamas tikslas t.
+		\end{enumerate}
+	\end{enumerate}
+	\item Išimami visi elementai iš sąrašo AFFECTED.
+	\item Kiekvienai grupei $NG=\{V_{NG}, E_{NG}, u_{NG}\}$, kurios šaltinis s yra yra sąraše CHANGES(s, change):
+	\begin{enumerate}
+		\item Jei briaunos $s \rightarrow x$, kur $x \in V_{NG}$, talpa $z : z + change  \neq 0$ , tai briaunai $s \rightarrow x$ suteikiama reikšmė $z + change$, einama į 5.a su kita grupe NG.
+		\item Iš grupės NG ištrinamas šaltinis s.
+		\item Jei $DELETE  = x$, kur $x : s \rightarrow x$, tai viršūnė x yra ištrinama iš grupės NG.
+		\item Jei grupės NG nėra masyve AFFECTED, tai grupė NG įdedama į masyvą AFFECTED.
+	\end{enumerate}
+	\item Einama į žingsnį  2.
+	\item Algoritmo pabaiga. 
 \end{enumerate}
+
+Pačios funkcijos:
 
 Jei įvyksta viršūnės x pridėjimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
@@ -37,9 +62,40 @@ Jei įvyksta viršūnės x pridėjimas, tai tada yra įvykdoma funkcija:
 
 Jei įvyksta viršūnės x atėmimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-\item Jei $\exists$ grupė G, kuri neturi šaltinių ir tikslų (iki grupės nėra kelio nuo apskaičiuojamo tinklo šaltinio), tai grupei G yra pridedama viršūnė x ir einama į žingsnį 5.
-\item Sukuriama grupė N.
-\item Grupei N  yra pridedama viršūnė x.
-\item Grupė N  yra pridedama į grupių tinklą.
+\item Jei $\nexists s \rightarrow x$, kur s yra grupės SG, kuri yra grupių tinklo viršūnė, šaltinis, tai randama grupė $G=\{V_G, E_G, u_G\} : x \in V_G$, grupė G patalpinama į masyvą AFFECTED ir ištrinamas x iš grupės G.
+\item Jei $\exists s \rightarrow x$, kur s yra grupės G šaltinis ir grupės PG tikslas, tai iš PG ištrinama viršūnė x ir  į AFFECTED įdedama grupė PG.
+\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentais AFFECTED ir viršūnę x.
+\item Algoritmo pabaiga. 
+\end{enumerate}
+
+Jei įvyksta briaunos $x \rightarrow y$ pridėjimas, tai tada yra įvykdoma funkcija:
+\begin{enumerate}
+	\item Kviečiama Eulerio ciklo aptikimo funkcija. 
+	\item Jei Eulerio ciklas yra aptinkamas:
+		\begin{enumerate}
+			\item asd
+		\end{enumerate} 
+	\item Jei Eulerio ciklas nėra aptinkamas:
+\begin{enumerate}
+\item asd
+\end{enumerate} 
+	\item Algoritmo pabaiga. 
+\end{enumerate}
+
+Jei įvyksta briaunos $x \rightarrow y$ atėmimas, tai tada yra įvykdoma funkcija:
+\begin{enumerate}
+\item Randama grupė G su briauna $x \rightarrow y$
+\item Grupės G briauna $x \rightarrow y$ .
+\item  Grupė G patalpinama į masyvą AFFECTED.
+\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu AFFECTED.
+\item Algoritmo pabaiga. 
+\end{enumerate}
+
+Jei įvyksta briaunos $x \rightarrow y$ talpos pakeitimas į u, tai tada yra įvykdoma funkcija:
+\begin{enumerate}
+\item Randama grupė G su briauna $x \rightarrow y$.
+\item Grupės G briaunos $x \rightarrow y$ talpa pakeičiama į u.
+\item  Grupė G patalpinama į masyvą AFFECTED.
+\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu AFFECTED.
 \item Algoritmo pabaiga. 
 \end{enumerate}

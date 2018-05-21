@@ -3,11 +3,11 @@ Maksimaliems srautams grupėse rasti algoritmas naudoja modifikuotą Fordo Fulke
 BFS algoritmas, aprašytas publikacijoje :
 \begin{enumerate}
 	\item Inicializuojami masyvai V, Q ir FLOW, į V ir Q patalpinamas tinklo šaltinis.
-	\item Jei Q yra tuščias, tai einama į žingsnį 9
+	\item Jei Q yra tuščias, tai einama į žingsnį 9.
 	\item Išimamas paskutinis masyvo Q elementas y.
 	\item Jei $\nexists$ viršūnė $x : y \rightarrow x, x \notin V$, tai einama į žingsnį 2. 
 	\item Briauna $y  \rightarrow x$ patalpinama į masyvą FLOW. 
-	\item Viršūnė x patalpinama į masyvą V
+	\item Viršūnė x patalpinama į masyvą V.
 	\item Viršūnė x patalpinama į Q masyvo pradžią. 
 	\item Einama į žingsnį 4. 
 	\item Baigiamas algoritmas.
