@@ -49,7 +49,7 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%2
 	\item Inicializuojama nauja grupė G.
 	%3
-	\item Jei NC yra tuščias, einamana į žingsnį .
+	\item Jei NC yra tuščias, einamana į žingsnį 21.
 	%4
 	\item Viršutinis NC elementas yra perkeliamas į B ir iteratoriui x yra suteikiama to elemento reikšmė.
 	%5
@@ -57,15 +57,13 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%6
 	\item Tinklui G priskiriama reikšmė $G=\{x, Y, Y_u\}$, kur Y yra tinklo C briaunos tarp x viršūnių, o $Y_u$ - tai tų briaunų svoriai. 
 	%7
-	\item Tinklas G patalpinamas į tinklą R
+	\item Naudojantis apibrėžimu sukuriamos tinklo R briaunos $G \rightarrow Q$, kur Q yra menamos viršūnės, nustatomi grupės G šaltiniai ir tikslai.
 	%8
-	\item Jei $\exists$ viršūnė.
-	%8
-	\item Naudojantis apibrėžimu sukuriamos tinklo R briaunos $G \rightarrow Q$, kur Q yra menamos viršūnės.
+	\item Tinklas G patalpinamas į tinklą R.
 	%9
 	\item Tinklui G inicializuojama naujos grupės reikšmė.
 	%10
-	\item Jei B yra tuščias einama į žingsnį 15.
+	\item Jei B yra tuščias einama į žingsnį 16.
 	%11
 	\item Iš steko B išimamas viršutinis elementas, kurio reikšmė priskiriama iteratoriui x.
 	%12
@@ -75,14 +73,20 @@ Srautui priklausančių grupių sukūrimo funkcija - iš pateikto tinklo $EG=\{V
 	%14
 	\item Į steką VR įdedama iteratoriaus x reikšmė.
 	%15 
-	\item .
-	\item Jei elementas z = y, tai enama į žingsnį 15 ir y = n.
-	\item  Tinklo EG viršūnės z ir n yra pakeičiamos x ir n konkatenacija (toliau n yra z ir n konkatenacija).
-	\item  Einama į žingsnį 11.
-	\item  Visi masyvo B' elementai įdedami į masyvą B ir viršūnių iteratoriui x suteikiama y reikšmė.
-	\item  Einama į žingsnį .
-	\item  Iš steko PATH išimamas elementas, iteratoriui x suteikiama PATH viršutinio elemento reikšmė.
-	\item  Einama į žingsnį .
+	\item Einama į žingsnį 10.
+	%16
+	\item Tinklui G priskiriamos briaunos tinklo C briaunos, kurių viršūnės atitinka G viršūnes. 
+	%17
+	\item Naudojantis apibrėžimu sukuriamos tinklo R briaunos $G \rightarrow Q$, kur Q yra menamos viršūnės, nustatomi grupės G šaltiniai ir tikslai.
+	%18
+	\item Tinklas G patalpinamas į tinklą R.
+	%19
+	\item Tinklui G inicializuojama naujos grupės reikšmė.
+	%20
+	\item  Einama į žingsnį 3.
+	%21
+	\item  Iš tinklo EG ištrinamos visos viršūnės, kurios yra VR masyve.
+	%22
 	\item  Pabaiga.
 \end{enumerate}
 
@@ -90,6 +94,9 @@ Pati grupavimo funkcija:
 \begin{enumerate}
 	\item Kviečiama subgrafų su Eulerio ciklais radimo funkcija (rezultatas tinklas EG).
 	\item Kviečiama srautui priklausančių grupių sukūrimo funkcija su tinklu EG.
-	\item Kviečiama srautui nepriklausančios grupės sukūrimo funkcija.
+	\item Likusios tinklo EG viršūnės konkatenuojamos į masyvą X.
+	\item Sukuriamas tinklas $G=\{X, Y, Y_u\}$, kur Y yra tinklo C briaunos tarp X viršūnių, o $Y_u$ - tai tų briaunų svoriai. 
+	\item Naudojantis apibrėžimu sukuriamos tinklo R briaunos $G \rightarrow Q$, kur Q yra menamos viršūnės, nustatomi grupės G šaltiniai ir tikslai.
+	\item Tinklas G patalpinamas į tinklą R.
 	\item Pabaiga.
 \end{enumerate}
