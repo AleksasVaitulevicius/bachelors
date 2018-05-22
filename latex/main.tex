@@ -1,23 +1,23 @@
-Sukurtas algoritmas turi dvi fazes: inicializavimo ir skaičiavimo po kiekvieno pokyčio. Inicializavimo fazėje yra  išskaidomas pateiktas tinklas į grupes, apskaičiuojami maksimalūs srautai kiekvienoje grupėje, kuri priklauso maksimaliam pateikto tinklo srautui, ir iš rastų srautų yra gaunamas maksimalus pateikto tinklo srautas. Tada  skaičiavimo po kiekvieno pokyčio fazėje yra laukiama pokyčio. Kai jis įvyksta, yra kviečiama funkcija priklausomai nuo to koks pokytis įvyko.
+Sukurtas algoritmas turi dvi fazes: inicializavimo ir skaičiavimo po kiekvieno pokyčio. Inicializavimo fazėje yra  išskaidomas pateiktas tinklas į grupes, apskaičiuojami maksimalūs srautai kiekvienoje grupėje, kuri priklauso maksimaliam pateikto tinklo srautui, ir iš rastų srautų yra gaunamas maksimalus pateikto tinklo srautas. Tada  skaičiavimo po kiekvieno pokyčio fazėje yra laukiama pokyčio. Kai jis įvyksta, yra kviečiama funkcija priklausomai nuo to koks pokytis įvyko. Visos funkcijos gali pasiekti ir keisti grupių tinklą $CLUSTERS=\{V_{CLUSTERS}, E_{CLUSTERS}, u_{CLUSTERS}\}$, apskaičiuojmą tinklą $NETWORK=\{V_{NETWORK}, E_{NETWORK}, u_{NETWORK}\}$.
 
 \subsubsection{Inicializavimo fazė}
 
-Inicializavimo fazė (maksimalus apskaičiuojamo tinklo srautas yra grupėje su apskaičiuojamo tinklo tikslu):
+Inicializavimo fazė (maksimalus NETWORK tinklo srautas yra grupėje su apskaičiuojamo tinklo tikslu):
 \begin{enumerate}
-	\item Apskaičiuojamam tinklui $C=\{V_C, E_C, u_C\}$ yra kviečiama grupavimo funkcija, kuri grąžina grupių tinklą $R\{V_R, E_R, u_R\}$.
+	\item Tinklui NETWORK yra kviečiama grupavimo funkcija, kuri grąžina grupių tinklą, kuris patalpinmas į tinklą CLUSTERS.
 	\item Inicializuojamas sąrašas MF, kuriame  laikoma kokiam tikslui koks maksimalus srautas buvo apskaičiuotas, ir masyvas CAL, kuriame laikomos visos grupės, kurios jau buvo apskaičiuotos.
-	\item Apskaičiuojama grupės, kurioje yra tinklo C šaltinis, maksimalus srautas, kviečiant modifikuotą Fordo Fulkersono algoritmą. Rezultatas įsimenamas sąraše MF ir pačioje grupėje.
+	\item Apskaičiuojama grupės, kurioje yra tinklo NETWORK šaltinis, maksimalus srautas, kviečiant modifikuotą Fordo Fulkersono algoritmą. Rezultatas įsimenamas sąraše MF ir pačioje grupėje.
 	\item Grupė G patalpinama į masyvą CAL.
-	\item Jei masyve CAL yra grupė, kurioje yra tinklo C tikslas tai einama į žingsnį 11.
-	\item Jei $\nexists$ grupė $G : Y \rightarrow G, \forall Y \in CAL, G \in V_R, G \notin CAL$, tai einama į žingsnį 11.
-	\item Kiekvienam grupės $G : Y \rightarrow G, \forall Y \in CAL, G \in V_R, G \notin CAL$ briaunai $m \rightarrow s$, kur m yra menama viršūnė, kuri yra grupės G šaltinis, yra suteikiama talpa iš sąrašo MF elemento, kuris atitinka tikslą s.
+	\item Jei masyve CAL yra grupė, kurioje yra tinklo NETWORK tikslas tai einama į žingsnį 11.
+	\item Jei $\nexists$ grupė $G : Y \rightarrow G, \forall Y \in CAL, G \in V_{CLUSTERS}, G \notin CAL$, tai einama į žingsnį 11.
+	\item Kiekvienam grupės $G : Y \rightarrow G, \forall Y \in CAL, G \in V_{CLUSTERS}, G \notin CAL$ briaunai $m \rightarrow s$, kur m yra menama viršūnė, kuri yra grupės G šaltinis, yra suteikiama talpa iš sąrašo MF elemento, kuris atitinka tikslą s.
 	 \item Grupei G apskaičiuojamas maksimalus srautas naudojant modifikuotą Fordo Fulkersono algoritmą.  Rezultatas įsimenamas sąraše MF ir pačioje grupėje.
 	 \item Grupė G patalpinama į masyvą CAL.
 	 \item Einama į žingsnį 5. 
 	 \item Algoritmo pabaiga. 
 \end{enumerate}
 
-\subsubsection{Po kiekvieno pokyčio fazė}
+\subsubsection{Po kiekvieno pokyčio fazės pagalbinės funkcijos}
 
 Dalis funkcijų, kurios yra kviečiamos po konkretaus pakeitimo, naudoja šias pagalbines funkcijas:
 
@@ -38,7 +38,7 @@ Perskaičiuoti pokyčio paveiktas grupes funkcija. Šios funkcijos parametrai yr
 		\end{enumerate}
 	\end{enumerate}
 	\item Išimami visi elementai iš sąrašo AFFECTED.
-	\item Kiekvienai grupei $NG=\{V_{NG}, E_{NG}, u_{NG}\}$, kurios šaltinis s yra yra sąraše CHANGES(s, change):
+	\item Kiekvienai grupei $NG=\{V_{NG}, E_{NG}, u_{NG}\} : NG \in V_{CLUSTERS}$, kurios šaltinis s yra yra sąraše CHANGES(s, change):
 	\begin{enumerate}
 		\item Jei briaunos $s \rightarrow x$, kur $x \in V_{NG}$, talpa $z : z + change  \neq 0$ , tai briaunai $s \rightarrow x$ suteikiama reikšmė $z + change$, einama į 5.a su kita grupe NG.
 		\item Iš grupės NG ištrinamas šaltinis s.
@@ -49,42 +49,60 @@ Perskaičiuoti pokyčio paveiktas grupes funkcija. Šios funkcijos parametrai yr
 	\item Algoritmo pabaiga. 
 \end{enumerate}
 
-Pačios funkcijos:
+Eulerio ciklo aptikimo funkcija. Ši funkcija nustato ar pridėta briauna $x \rightarrow y$ sukuria naują subgrafą, kuriame yra Eulerio ciklas. Funkcijos parametrai yra briauna $x \rightarrow y$. Funkcija grąžina masyvą EULER, kuriame yra visos viršūnės priklausančios Eulerio ciklams:
+\begin{enumerate}
+	\item Inicializuojamas stekas POSSIBLE, kuriame talpinami viršūnių masyvai, kurie gali sudaryti Eulerio ciklą.
+	\item Į steką POSSIBLE patalpinamas masyvas, kurio elementai yra viršūnės x ir y.
+	\item Inicializuojamas masyvas EULER.
+	\item Jei POSSIBLE yra tuščias, tai einama į žingsnį 10.
+	\item Sukuriamas masyvas CYCLE, jam suteikiama iš POSSIBLE steko išimto elemento reikšmė.
+	\item Jei $\nexists a \rightarrow b$, kur a yra paskutinė CYCLE masyvo elemento reikšmė, o $b \in V_{NETWORK}$, tai einama į žingsnį 4. Kitu atveju pasirenkamas bet kuris b.
+	\item Jei $x = b$, tai visos viršūnės $z : z \in CYCLE, z \notin EULER$ yra pridedamos į masyvą EULER.
+	\item Jei $x \neq b$, tai sukuriama CYCLE kopija CYCLE', į CYCLE' patalpinama viršūnė b ir CYCLE' patalpinamas į steką POSSIBLE.
+	\item Einama į žingsnį 6.
+	\item Algoritmo pabaiga. 
+\end{enumerate}
+
+\subsubsection{Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}
 
 Jei įvyksta viršūnės x pridėjimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-	\item Jei $\exists$ grupė G, kuri neturi šaltinių ir tikslų (iki grupės nėra kelio nuo apskaičiuojamo tinklo šaltinio), tai grupei G yra pridedama viršūnė x ir einama į žingsnį 5.
+	\item Jei $\exists$ grupė $G : G \in CLUSTERS$, kuri neturi šaltinių ir tikslų (iki grupės nėra kelio nuo NETWORK tinklo šaltinio), tai grupei G yra pridedama viršūnė x ir einama į žingsnį 5.
 	\item Sukuriama grupė N.
 	\item Grupei N  yra pridedama viršūnė x.
-	\item Grupė N  yra pridedama į grupių tinklą.
+	\item Grupė N  yra pridedama į tinklą CLUSTERS.
 	\item Algoritmo pabaiga. 
 \end{enumerate}
 
 Jei įvyksta viršūnės x atėmimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-\item Jei $\nexists s \rightarrow x$, kur s yra grupės SG, kuri yra grupių tinklo viršūnė, šaltinis, tai randama grupė $G=\{V_G, E_G, u_G\} : x \in V_G$, grupė G patalpinama į masyvą AFFECTED ir ištrinamas x iš grupės G.
-\item Jei $\exists s \rightarrow x$, kur s yra grupės G šaltinis ir grupės PG tikslas, tai iš PG ištrinama viršūnė x ir  į AFFECTED įdedama grupė PG.
+\item Jei $\nexists s \rightarrow x$, kur s yra grupės $SG \in CLUSTERS$, šaltinis, tai randama grupė $G=\{V_G, E_G, u_G\} : x \in V_G, G \in CLUSTERS$, grupė G patalpinama į masyvą AFFECTED ir ištrinamas x iš grupės G.
+\item Jei $\exists s \rightarrow x$, kur s yra grupės $G : G \in CLUSTERS$ šaltinis ir grupės $PG : PG \in CLUSTERS$ tikslas, tai iš PG ištrinama viršūnė x ir į AFFECTED įdedama grupė PG.
 \item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentais AFFECTED ir viršūnę x.
 \item Algoritmo pabaiga. 
 \end{enumerate}
 
 Jei įvyksta briaunos $x \rightarrow y$ pridėjimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-	\item Kviečiama Eulerio ciklo aptikimo funkcija. 
-	\item Jei Eulerio ciklas yra aptinkamas:
+	\item Kviečiama Eulerio ciklo aptikimo funkcija. Rezultatas patalpinamas į viršūnių masyvą EULER.
+	\item Jei EULER nėra tuščias:
 		\begin{enumerate}
-			\item asd
+			\item Sukuriamas masyvas AFFECTED, į masyvą AFFECTED sudedamos visos grupės, kurios turi bent vieną viršūnę, kuri yra EULER masyve.
+			\item Kviečiama grupių sujungimo funkcija su argumentu AFFECTED. Rezultato reikšmė priskiriama grupei G ir pridedama tinklui CLUSTERS kaip viršūnė.
+			\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu masyvu, į kurį patalpinta grupė G.
 		\end{enumerate} 
-	\item Jei Eulerio ciklas nėra aptinkamas:
-\begin{enumerate}
-\item asd
-\end{enumerate} 
+	\item Jei EULER yra tuščias:
+		\begin{enumerate}
+			\item Sukuriamas masyvas AFFECTED.
+			\item Į AFFECTED masyvą įdedamos visos grupės, kurios turi viršūnę x ir priklauso tinklui CLUSTERS.
+			\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu AFFECTED.
+		\end{enumerate} 
 	\item Algoritmo pabaiga. 
 \end{enumerate}
 
 Jei įvyksta briaunos $x \rightarrow y$ atėmimas, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-\item Randama grupė G su briauna $x \rightarrow y$
+\item Randama grupė $G : G \in V_{CLUSTERS}$ su briauna $x \rightarrow y$
 \item Grupės G briauna $x \rightarrow y$ .
 \item  Grupė G patalpinama į masyvą AFFECTED.
 \item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu AFFECTED.
@@ -93,7 +111,7 @@ Jei įvyksta briaunos $x \rightarrow y$ atėmimas, tai tada yra įvykdoma funkci
 
 Jei įvyksta briaunos $x \rightarrow y$ talpos pakeitimas į u, tai tada yra įvykdoma funkcija:
 \begin{enumerate}
-\item Randama grupė G su briauna $x \rightarrow y$.
+\item Randama grupė $G : G \in V_{CLUSTERS}$ su briauna $x \rightarrow y$.
 \item Grupės G briaunos $x \rightarrow y$ talpa pakeičiama į u.
 \item  Grupė G patalpinama į masyvą AFFECTED.
 \item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu AFFECTED.
