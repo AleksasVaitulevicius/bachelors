@@ -24,7 +24,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.4.2.}Po kiekvieno pokyčio fazės pagalbinės funkcijos}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.3.}Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}{16}
+\contentsline {subsubsection}{\numberline {1.4.3.}Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}{15}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Išvados}{18}
 \defcounter {refsection}{0}\relax 

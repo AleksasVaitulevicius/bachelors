@@ -63,24 +63,6 @@ Eulerio ciklo aptikimo funkcija. Ši funkcija nustato ar pridėta briauna $x \ri
 	\item Algoritmo pabaiga. 
 \end{enumerate}
 
-Grupių sujungimo funkcija su argumentu grupių masyvu AFFECTED. Funkcija ištrina sujungiamas grupes ir grąžina naują grupę NGROUP:
-\begin{enumerate}
-	\item Inicializuojama grupė NGROUP su išimto pirmo elemento iš masyvo AFFECTED reikšme.
-	\item Kiekvienai grupei G iš masyvo AFFECTED:
-	\begin{enumerate}
-		\item Į NGROUP įdedamos visos G viršūnės.
-		\item .
-	\end{enumerate}
-	\item Inicializuojamas masyvas EULER.
-	\item Jei POSSIBLE yra tuščias, tai einama į žingsnį 10.
-	\item Sukuriamas masyvas CYCLE, jam suteikiama iš POSSIBLE steko išimto elemento reikšmė.
-	\item Jei $\nexists a \rightarrow b$, kur a yra paskutinė CYCLE masyvo elemento reikšmė, o $b \in V_{NETWORK}$, tai einama į žingsnį 4. Kitu atveju pasirenkamas bet kuris b.
-	\item Jei $x = b$, tai visos viršūnės $z : z \in CYCLE, z \notin EULER$ yra pridedamos į masyvą EULER.
-	\item Jei $x \neq b$, tai sukuriama CYCLE kopija CYCLE', į CYCLE' patalpinama viršūnė b ir CYCLE' patalpinamas į steką POSSIBLE.
-	\item Einama į žingsnį 6.
-	\item Algoritmo pabaiga. 
-\end{enumerate}
-
 \subsubsection{Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}
 
 Jei įvyksta viršūnės x pridėjimas, tai tada yra įvykdoma funkcija:
@@ -106,7 +88,9 @@ Jei įvyksta briaunos $x \rightarrow y$ pridėjimas, tai tada yra įvykdoma funk
 	\item Jei EULER nėra tuščias:
 		\begin{enumerate}
 			\item Sukuriamas masyvas AFFECTED, į masyvą AFFECTED sudedamos visos grupės, kurios turi bent vieną viršūnę, kuri yra EULER masyve.
-			\item Kviečiama grupių sujungimo funkcija su argumentu AFFECTED. Rezultato reikšmė priskiriama grupei G ir pridedama tinklui CLUSTERS kaip viršūnė.
+			\item Grupės masyve AFFECTED yra sujungiamos į vieną grupę G.
+			\item Ištrinamos grupės iš tinklo CLUSTERS, kurios yra masyve AFFECTED.
+			\item Grupė G patalpinama į tinklą CLUSTERS.
 			\item Kviečiama perskaičiuoti pokyčio paveiktas grupes funkcija su argumentu masyvu, į kurį patalpinta grupė G.
 		\end{enumerate} 
 	\item Jei EULER yra tuščias:
