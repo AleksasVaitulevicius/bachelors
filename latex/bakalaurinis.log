@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  21 MAY 2018 21:43
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  22 MAY 2018 16:30
 entering extended mode
 **./bakalaurinis.tex
 (bakalaurinis.tex
@@ -1270,9 +1270,9 @@ Overfull \hbox (12.99799pt too wide) in paragraph at lines 14--21
 ) (fulkerson.tex [8
 
 ] [9]) (clustering.tex [10] [11] [12]) (main.tex [13]
-[14] [15]) [16] [17
+[14] [15] [16]) [17] [18
 
-] [18
+] [19
 
 ]
 
@@ -1295,14 +1295,14 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[19
+[20
 
 ]
 File: img/MLP.png Graphic file (type bmp)
 <img/MLP.png>
- [20
+ [21
 
-] [21
+] [22
 
 ] (bakalaurinis.aux)
 Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
@@ -1312,10 +1312,10 @@ Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
 Here is how much of TeX's memory you used:
  24059 strings out of 427836
  465316 string characters out of 3156071
- 961819 words of memory out of 3000000
+ 962819 words of memory out of 3000000
  27738 multiletter control sequences out of 15000+200000
  542294 words of font info for 85 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 67i,12n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 67i,11n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bakalaurinis.pdf (22 pages).
+Output written on bakalaurinis.pdf (23 pages).
