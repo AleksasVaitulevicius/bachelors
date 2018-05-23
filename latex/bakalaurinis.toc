@@ -30,11 +30,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.}Empiriniai bandymai}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{20}
+\contentsline {subsection}{\numberline {3.1.}Tinklus generuojantis modulis}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{21}
+\contentsline {subsection}{\numberline {3.2.}Bandymus atliekantis modulis}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{22}
+\contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Išvados}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Conclusions}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{23}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

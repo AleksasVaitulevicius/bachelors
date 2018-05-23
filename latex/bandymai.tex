@@ -1,3 +1,37 @@
-Tam, kad nustatyti ar verta formaliai įrodyti sukurtą algoritmą buvo atlikti empiriniai bandymai, kurie skirti ištirti algoritmo korektišką veikimą ir efektyvumą. Šiems bandymams atlikti buvo įgyvendintas sukurtas algoritmas, modulis, generuojanti tinklus, ir modulis, kuris atlieka bandymus. 
+Tam, kad nustatyti ar verta formaliai įrodyti sukurtą algoritmą buvo atlikti empiriniai bandymai, kurie skirti ištirti algoritmo korektišką veikimą ir efektyvumą. Šiems bandymams atlikti buvo įgyvendintas sukurtas algoritmas, modulis, generuojanti tinklus, ir modulis, kuris atlieka bandymus su tinklus generuojančio modulio rezultatais. Su bandymus atliekančio modulio rezultatais yra atliekami statistiniai skaičiavimai.
 
-Modulis, generuojantis tinklus, buvo panaudotas sugeneruoti tinklų $N_i = \{V_{N_i}, E_{N_i}, u{N_i}\}$ aibę A. Aibėje A yra 10 poaibių $A'_j$, kurių tinklų viršūnių aibių $V_{N_i}$ dydžiai $SV_i$ yra lygūs. Tad kiekvienas poaibis  $A'_j$ turi skirtingą dydį  $SV_j$. Modulis sugeneruoja poaibius $A'_j$ su šiais $SV_j = 10 \times j : j = 1 .. 10$. Kiekviename poaibyje $A'_j$ yra po 3 poaibius $A''_j$, kuriuose yra po 10 tinklų $N_i$, kurių briaunų aibių $E_{N_i}$ dydžiai yra lygūs. Tad kiekvienas poaibis  $A''_j$ turi skirtingą dydį  $SE_j$. Modulis sugeneruoja poaibius $A''_j$ su šiais  $SE_j : SE_1 = \frac{SV_i^2 + 2 \times SV_i - 3}{4}, SE_2 = \frac{SV_i^2 - 1}{2}, SE_3 = \frac{3 \times SV_i^2 - 2 \times SV_i - 1}{4}$
+\subsection{Tinklus generuojantis modulis}
+
+Šiame darbe reikia ištirti kuo įvairesnius tinklus, iš kurių parametrų būtų paprasta sukonstruoti regresinius modelius. Tad tinklus generuojantis modulis turi generuoti tinklus $N_i = \{V_{N_i}, E_{N_i}, u{N_i}\}$, kurių parametrai tenkintų šias sąlygas:
+\begin{itemize}
+	\item Viršūnių aibių  $V_{N_i}$ dydžių aibės $SV$ augimo greitis būtų linijinis ir $SV$ turi būti baigtinė.
+	\item Kiekvieną kartą generuojant tinklą $N_i$ yra tikimybė sugeneruoti jungų tinklą.
+	\item Sugeneruotų tinklų aibėje egzistuoja tinklai su skirtingais dydžiais ir jungiu tinklu su  yra vidutiniu galimų briaunų skaičiumi. Vidutinis galimų briaunų skaičius yra apskaičiuojamas $SE_a = \frac{SE_{max} + SE_{min}}{2}$, kur  $SE_{max}$ yra maksimalus galimų briaunų skaičius, o $SE_{min}$ - minimalus galimų briaunų skaičius.
+	\item Sugeneruotų tinklų aibėje egzistuoja tinklai su skirtingais dydžiais ir vidutiniškai silpnai jungiu tinklu. Tinklas yra laikomas vidutiniškai silpnai jungiu, jei tenkinama sąlyga: $SE_{a_{min}} = \frac{SE_a + SE_{min}}{2}$, kur $SE_a$ yra vidutinis galimų briaunų skaičius, o $SE_{min}$ - minimalus galimų briaunų skaičius.
+	\item Sugeneruotų tinklų aibėje egzistuoja tinklai su skirtingais dydžiais ir vidutiniškai stipriai jungiu tinklu. Tinklas yra laikomas vidutiniškai stipriai jungiu, jei tenkinama sąlyga: $SE_{a_{max}} = \frac{SE_a + SE_{max}}{2}$, kur $SE_a$ yra vidutinis galimų briaunų skaičius, o $SE_{max}$ - maksimalus galimų briaunų skaičius.
+\end{itemize}
+Žinant, kad minimalus galimų briaunų skaičius tinkle yra $SE_{min}(SV_i)  = SV_i - 1$, o maksimalus galimų briaunų skaičius tinkle yra $SE_{max}(SV_i) = SV_i \times (SV_i - 1)$, kur $SV_i$ yra tinko viršūnių skaičius, tai gauname, kad  $SE_{a}(SV_i) =\frac{SV_i^2 - 1}{2}$, $SE_{a_{min}}(SV_i)  = \frac{SV_i^2 + 2 \times SV_i - 3}{4}$ ir $SE_{a_{max}}(SV_i) = \frac{3 \times SV_i^2 - 2 \times SV_i - 1}{4}$.
+
+Tad tinklus generuojantis modulis sugeneruoja tinklų $N_i = \{V_{N_i}, E_{N_i}, u{N_i}\}$ aibę A. Aibėje A yra 10 poaibių $A'_j$, kurių tinklų viršūnių aibių $V_{N_i}$ dydžiai $SV_i$ yra lygūs. Tad kiekvienas poaibis  $A'_j$ turi skirtingą dydį  $SV_j$. Modulis sugeneruoja poaibius $A'_j$ su šiais $SV_j = 10 \times j : j = 1 .. 10$. Kiekviename poaibyje $A'_j$ yra po 3 poaibius $A''_j$, kuriuose yra po 10 tinklų $N_i$, kurių briaunų aibių $E_{N_i}$ dydžiai yra lygūs. Tad kiekvienas poaibis  $A''_j$ turi skirtingą dydį  $SE_j$. Modulis sugeneruoja poaibius $A''_j$ su šiais  $SE_j : SE_{a}(SV_i), SE_{a_{min}}(SV_i) , SE_{a_{max}}(SV_i)$.
+
+\subsection{Bandymus atliekantis modulis}
+
+Šiame darbe buvo sukurtas modulis ,kuris atlieka bandymus su kiekvienu tinklu, kurį sugeneravo tinklus generuojantis modulis. Šių bandymų metu yra skaičiuojamas briaunų panaudotų skaičiavimuose skaičius. Šio bandymo rezultatai yra masyvai INCORRECT, ACTION, $Algorithm_{\{T\}}$ ir $Test_{\{T\}}$, kur T yra kiekvieno dinaminio tinklo operacijos tipas. Šio bandymo eiga su tinklu NETWORK:
+
+\begin{enumerate}
+	\item Apskaičiuojamas tinklo NETWORK maksimalus srautas ACTUAL, naudojant sukurto algoritmo įgyvendinimą.
+	\item Apskaičiuojamas tinklo NETWORK maksimalus srautas EXPECTED, naudojant modifikuotą Fordo Fulkersono algoritmą.
+	\item Jei $ACTUAL \neq EXPECTED$, tai į masyvą INCORRECT įdedama grupė G, o į masyvą ACTION reikšmė \textit{INIT}.
+	\item Su kiekvienu dinaminio tinklo operacijos tipu TYPE yra atliekami šie veiksmai:
+	\begin{enumerate}
+		\item Tinklui NETWORK atliekama operacija TYPE.
+		\item Apskaičiuojamas tinklo NETWORK maksimalus srautas ACTUAL, naudojant sukurto algoritmo įgyvendinimą. Į $Algorithm_{TYPE}$ įdedamas skaičiavime panaudotų briaunų skaičius.
+		\item Apskaičiuojamas tinklo NETWORK maksimalus srautas EXPECTED, naudojant modifikuotą Fordo Fulkersono algoritmą. Į $Test_{TYPE}$ įdedamas skaičiavime panaudotų briaunų skaičius.
+		\item Jei $ACTUAL \neq EXPECTED$, tai į masyvą INCORRECT įdedamas tinklas NETWORK, o į masyvą ACTION įdedamas TYPE.
+	\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Statistiniai skaičiavimai ir jų rezultatai}
+
+
