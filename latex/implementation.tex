@@ -1,0 +1,20 @@
+Tam, kad pasiekti šio darbo tikslą buvo įgyvendintas sukurtas algoritmas. Įgyvendinimas buvo parašytas JAVA kalba versija 9, visos naudojamos bibliotekos yra įdiegiamos į algoritmo įgyvendinimą naudojantis įrankiu MAVEN versija 3. Šis įgyvendinimas naudojasi šių bibliotekų funkcionalumu: 
+\begin{enumerate}
+	\item Jgrapht - ši biblioteka yra naudojama grafų saugojimui, generavimui ir skaičiavimams.
+	\item Jgraphx - ši biblioteka yra naudojama grafų atspausdinimui vartotojo grafinėje sąsajoje.
+	\item lombok - naudojama kodo generavimui, kuris yra skirtas pasiekti ir modifikuoti privačius laukus.
+	\item junit - naudojamas kodo modulių testavimui.
+\end{enumerate}
+
+Įgyvendinto algoritmo architektūra pavaizduota \ref{fig:architecture}. Šioje architektūroje kiekviena klasė atlieka šias funkcijas:
+\begin{enumerate}
+	\item DynamicNetworkWithMaxFlowAlgorithm - šioje klasėje yra laikomas apskaičiuojamas dinaminis algoritmas NETWORK, yra atliekami pokyčiai tinklui NETWORK ir yra atliekama pagrindinės sukurto algoritmo funkcijos.
+	\item FordFulkerson - ši klasė atlieka modifikuoto Fordo Fulkersono algoritmo funkciją.
+	\item BFS - ši klasė atlieka paieška platyn algoritmo funkciją.
+	\item DividerToClusters - ši klasė atlieka grupavimo funkciją.
+	\item Network - ši klasė yra tinklas.
+	\item DynamicNetwork - ši klasė yra dinaminis tinklas.
+	\item EulerCycleWarps - ši klasė yra tinklas, kurio viršūnės yra grupių, tenkinančių sąlygą subgrafai su Eulerio ciklais, viršūnių masyvai.
+	\item ClustersNetwork - ši klasė yra grupių tinklas.
+\end{enumerate}
+Klasės SimpleDirectedGraph<List<int>, DefaultEdge> ir SimpleDirectedWeightedGraph<int, WeightedEdge> yra klasės iš jgrapht bibliotekos.
