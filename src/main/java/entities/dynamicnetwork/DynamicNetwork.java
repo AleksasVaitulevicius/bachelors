@@ -44,17 +44,6 @@ public class DynamicNetwork extends Network {
         return sinks.remove(sink);
     }
 
-    public void removeVertexSafely(Integer vertex) {
-        this.removeVertex(vertex);
-        if(this.getSources().contains(vertex)) {
-            this.removeSource(vertex);
-            this.removeVertex(-1 * vertex);
-        }
-        if(this.getSinks().contains(vertex)) {
-            this.removeSink(vertex);
-        }
-    }
-
     @Override
     public String toString() {
         return super.toString() + "sources=" + sources + "sinks=" + sinks + "flows=" + maxFlows;
