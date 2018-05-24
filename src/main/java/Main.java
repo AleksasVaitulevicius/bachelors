@@ -1,4 +1,9 @@
+import algorithm.DynamicNetworkWithMaxFlowAlgorithm;
+import algorithm.clustering.DividerToClusters;
+import algorithm.fulkerson.BFS;
+import algorithm.fulkerson.FordFulkerson;
 import entities.dynamicnetwork.DynamicNetwork;
+import experiments.EmpiricalExperiment;
 import generator.RandomNetworkGenerator;
 import generator.RandomNetworkListGenerator;
 
@@ -8,14 +13,23 @@ public class Main {
 
         RandomNetworkGenerator gen = new RandomNetworkGenerator();
         RandomNetworkListGenerator generator = new RandomNetworkListGenerator(gen);
+        FordFulkerson fulkerson = new FordFulkerson(new BFS());
+        DynamicNetworkWithMaxFlowAlgorithm algorithm =  new DynamicNetworkWithMaxFlowAlgorithm(
+            new DividerToClusters(), fulkerson
+        );
+        EmpiricalExperiment experiment = new EmpiricalExperiment(
+            fulkerson, algorithm, generator
+        );
 
-        int no = 0;
-
-        for (DynamicNetwork network : generator.generate()) {
-            System.out.println("network nr:" + no++);
-            System.out.println("    number of vertices:" + network.vertexSet().size());
-            System.out.println("    number of edges:" + network.edgeSet().size());
-        }
+        experiment.perform();
+//
+//        int no = 0;
+//
+//        for (DynamicNetwork network : generator.generate()) {
+//            System.out.println("network nr:" + no++);
+//            System.out.println("    number of vertices:" + network.vertexSet().size());
+//            System.out.println("    number of edges:" + network.edgeSet().size());
+//        }
 
 //        DynamicNetwork network = new DynamicNetwork();
 ////        network.putVertices(List.of(0, 1, 2, 3, 4, 5));
