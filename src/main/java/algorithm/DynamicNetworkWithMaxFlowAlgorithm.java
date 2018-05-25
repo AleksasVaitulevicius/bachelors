@@ -6,6 +6,7 @@ import entities.dynamicnetwork.ClustersNetwork;
 import entities.dynamicnetwork.DynamicNetwork;
 import entities.network.WeightedEdge;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -16,6 +17,8 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     private final DividerToClusters divider;
     private final FordFulkerson fulkerson;
 
+    @Getter @Setter
+    private int usedEdges = 0;
     @Getter
     private ClustersNetwork clusters;
     @Getter
@@ -283,11 +286,13 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     }
 
     private Map<Integer, Double> calculate(DynamicNetwork cluster) {
+        Map<Integer, Double> result;
+
         if (cluster.source) {
-            return fulkerson.maxFlow(cluster, cluster.getSources(), cluster.getSinks());
+            result = fulkerson.maxFlow(cluster, cluster.getSources(), cluster.getSinks());
         }
         else {
-            return fulkerson.maxFlow(
+            result = fulkerson.maxFlow(
                 cluster,
                 cluster.getSources().stream()
                     .filter(source -> cluster.containsVertex(-source))
@@ -296,6 +301,10 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
                 cluster.getSinks()
             );
         }
+
+        this.usedEdges += fulkerson.getUsedEdges();
+        fulkerson.reset();
+        return result;
     }
 
     private void setNewMaxFlow() {
