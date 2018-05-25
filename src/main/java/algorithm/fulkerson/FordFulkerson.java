@@ -16,6 +16,8 @@ public class FordFulkerson {
     private final Map<Integer, Double> maxFlowValues = new HashMap<>();
     @Getter
     private Network maxFlow;
+    @Getter
+    private int usedEdges = 0;
 
     public FordFulkerson(BFS bfs) {
         this.bfs = bfs;
@@ -29,6 +31,7 @@ public class FordFulkerson {
     public void reset() {
         this.maxFlow = new Network();
         getMaxFlowValues().clear();
+        this.usedEdges = 0;
     }
 
     public Map<Integer, Double> maxFlow(Network network, List<Integer> sources, List<Integer> sinks) {
@@ -39,7 +42,9 @@ public class FordFulkerson {
         Map<Integer, Integer> parents;
 
         while(containsSink) {
+            bfs.setVisitedEdges(0);
             parents = bfs.bfs(residual, sources, sinks);
+            usedEdges += bfs.getVisitedEdges();
             containsSink = false;
 
             for (Integer sink : sinks) {

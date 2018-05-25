@@ -9,7 +9,7 @@ import generator.RandomNetworkListGenerator;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         RandomNetworkGenerator gen = new RandomNetworkGenerator();
         RandomNetworkListGenerator generator = new RandomNetworkListGenerator(gen);
@@ -21,7 +21,7 @@ public class Main {
             fulkerson, algorithm, generator
         );
 
-        experiment.perform();
+//        experiment.perform();
 //
 //        int no = 0;
 //
