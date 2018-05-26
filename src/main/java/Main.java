@@ -2,14 +2,15 @@ import algorithm.DynamicNetworkWithMaxFlowAlgorithm;
 import algorithm.clustering.DividerToClusters;
 import algorithm.fulkerson.BFS;
 import algorithm.fulkerson.FordFulkerson;
-import entities.dynamicnetwork.DynamicNetwork;
 import experiments.EmpiricalExperiment;
 import generator.RandomNetworkGenerator;
 import generator.RandomNetworkListGenerator;
 
+import java.util.Random;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         RandomNetworkGenerator gen = new RandomNetworkGenerator();
         RandomNetworkListGenerator generator = new RandomNetworkListGenerator(gen);
@@ -18,11 +19,11 @@ public class Main {
             new DividerToClusters(), fulkerson
         );
         EmpiricalExperiment experiment = new EmpiricalExperiment(
-            fulkerson, algorithm, generator
+            fulkerson, algorithm, generator, new Random()
         );
 
-//        experiment.perform();
-//
+        experiment.perform();
+
 //        int no = 0;
 //
 //        for (DynamicNetwork network : generator.generate()) {

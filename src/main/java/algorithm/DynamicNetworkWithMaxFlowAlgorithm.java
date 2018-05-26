@@ -45,7 +45,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
 
                 cluster.getSinks().forEach(sink -> cluster.addMaxFlow(sink, flows.get(sink)));
                 putValues(localMaxFlows, flows);
-                fulkerson.reset();
+                fulkerson.setUsedEdges(0);
                 flows.clear();
             });
 
@@ -288,6 +288,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     private Map<Integer, Double> calculate(DynamicNetwork cluster) {
         Map<Integer, Double> result;
 
+        fulkerson.setUsedEdges(0);
         if (cluster.source) {
             result = fulkerson.maxFlow(cluster, cluster.getSources(), cluster.getSinks());
         }
@@ -303,7 +304,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         }
 
         this.usedEdges += fulkerson.getUsedEdges();
-        fulkerson.reset();
+        fulkerson.setUsedEdges(0);
         return result;
     }
 
@@ -334,7 +335,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
         Integer source, Integer target, double weight
     ) {
         return clusters.vertexSet().stream()
-            .filter(cluster -> cluster.containsVertex(source) && cluster.containsVertex(target))
+            .filter(cluster -> cluster.containsEdge(source, target))
             .peek(cluster -> cluster.setEdgeWeight(cluster.getEdge(source, target), weight))
             .collect(Collectors.toList());
     }

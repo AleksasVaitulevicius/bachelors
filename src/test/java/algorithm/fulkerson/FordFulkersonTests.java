@@ -18,7 +18,7 @@ public class FordFulkersonTests {
 
         Map<Integer, Double> maxFlow = fulkerson.maxFlow(network, List.of(0), List.of(5));
 
-        assertEquals(fulkerson.getUsedEdges(), 32);
+        assertEquals(fulkerson.getUsedEdges(), 29);
 
         assertEquals(Map.of(5, 23.0), maxFlow);
         assertEquals(
