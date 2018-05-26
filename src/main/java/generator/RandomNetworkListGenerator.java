@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RandomNetworkListGenerator {
 
-    private RandomNetworkGenerator networkGenerator;
+    private final RandomNetworkGenerator networkGenerator;
 
     public RandomNetworkListGenerator(RandomNetworkGenerator networkGenerator) {
         this.networkGenerator = networkGenerator;

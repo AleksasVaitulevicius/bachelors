@@ -12,19 +12,19 @@ import java.util.*;
 
 public class EmpiricalExperiment {
 
-    private FordFulkerson fulkerson;
-    private DynamicNetworkWithMaxFlowAlgorithm algorithm;
-    private RandomNetworkListGenerator generator;
-    private Random rng;
+    private final FordFulkerson fulkerson;
+    private final DynamicNetworkWithMaxFlowAlgorithm algorithm;
+    private final RandomNetworkListGenerator generator;
+    private final Random rng;
 
     @Getter
-    private List<DynamicNetwork> incorrectNetwork = new ArrayList<>();
+    private final List<DynamicNetwork> incorrectNetwork = new ArrayList<>();
     @Getter
-    private List<UpdateType> incorrectAction = new ArrayList<>();
+    private final List<UpdateType> incorrectAction = new ArrayList<>();
     @Getter
-    private Map<UpdateType, List<Integer>> algorithmUsedEdges = new HashMap<>();
+    private final Map<UpdateType, List<Integer>> algorithmUsedEdges = new HashMap<>();
     @Getter
-    private Map<UpdateType, List<Integer>> fulkersonUsedEdges = new HashMap<>();
+    private final Map<UpdateType, List<Integer>> fulkersonUsedEdges = new HashMap<>();
 
     public EmpiricalExperiment(
         FordFulkerson fulkerson,

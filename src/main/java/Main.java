@@ -3,10 +3,11 @@ import algorithm.clustering.DividerToClusters;
 import algorithm.fulkerson.BFS;
 import algorithm.fulkerson.FordFulkerson;
 import experiments.EmpiricalExperiment;
+import experiments.ExperimentData;
 import generator.RandomNetworkGenerator;
 import generator.RandomNetworkListGenerator;
 
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -23,6 +24,11 @@ public class Main {
         );
 
         experiment.perform();
+
+        ExperimentData data = new ExperimentData();
+        data.saveNetworks(experiment.getIncorrectNetwork(), experiment.getIncorrectAction());
+        data.saveUsedEdges(experiment.getAlgorithmUsedEdges(), "algorithm");
+        data.saveUsedEdges(experiment.getFulkersonUsedEdges(), "fulkerson");
 
 //        int no = 0;
 //
@@ -59,6 +65,10 @@ public class Main {
 //        network.setEdgeWeight(network.getEdge(3,5), 20);
 ////        network.setEdgeWeight(network.getEdge(4,3), 7);
 //        network.setEdgeWeight(network.getEdge(4,5), 4);
+//
+//        ExperimentData data = new ExperimentData();
+//        data.saveNetworks(List.of(network), List.of(UpdateType.UPDATE_WEIGHT));
+//        data.loadAndDisplayNetwork("incorrect/ADD_VERTEX/network0.ser");
 ////        network.addEdge(0, 1);
 ////        network.addEdge(1, 2);
 ////        network.addEdge(1, 5);
@@ -98,6 +108,26 @@ public class Main {
 //
 //        System.out.println("maxFlow:" + algorithm.fulkerson.maxFlow(network, sources, sinks));
 //        algorithm.fulkerson.printMaxFlow(900, 900);
+
+//        ExperimentData data = new ExperimentData();
+//
+//        Map<UpdateType, List<Integer>> usedEdges = new HashMap<>();
+//
+//        List<Integer> array = new ArrayList<>();
+//
+//        for(int it = 0; it != 300; it++) {
+//            array.add(it);
+//        }
+//
+//        usedEdges.put(UpdateType.ADD_VERTEX,array);
+//        usedEdges.put(UpdateType.ADD_EDGE, array);
+//        usedEdges.put(UpdateType.REMOVE_VERTEX, array);
+//        usedEdges.put(UpdateType.REMOVE_EDGE, array);
+//        usedEdges.put(UpdateType.UPDATE_WEIGHT, array);
+//
+//        data.saveUsedEdges(usedEdges, "test");
+
+
     }
 
 }
