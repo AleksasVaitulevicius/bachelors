@@ -48,29 +48,41 @@ public class EmpiricalExperiment {
         }
         initUsedEdges();
 
-        networks.forEach(network -> {
-            Map<Integer, Double> actual = calculateActual(network);
-            algorithm.init(network);
-            isEqualResult(network, actual, UpdateType.INIT);
+        int it = 1;
+        for (DynamicNetwork network : networks) {
+            System.out.println("progress:" + it + "/300");
+            it++;
+            try {
+                Map<Integer, Double> actual = calculateActual(network);
+                algorithm.init(network);
+                isEqualResult(network, actual, UpdateType.INIT);
 
-            this.algorithm.setUsedEdges(0);
-            algorithm.addVertex(getNewVertex(network));
-            gatherResults(network, UpdateType.ADD_VERTEX);
+                this.algorithm.setUsedEdges(0);
+                algorithm.addVertex(getNewVertex(network));
+                gatherResults(network, UpdateType.ADD_VERTEX);
 
-            this.algorithm.setUsedEdges(0);
-            int vertex = this.rng.nextInt(network.vertexSet().size());
-            algorithm.removeVertex(vertex);
-            gatherResults(network, UpdateType.REMOVE_VERTEX);
+                this.algorithm.setUsedEdges(0);
+                int vertex;
+                do {
+                    vertex = this.rng.nextInt(network.vertexSet().size());
+                } while (network.getSinks().contains(vertex) || network.getSources().contains(vertex));
+                algorithm.removeVertex(vertex);
+                gatherResults(network, UpdateType.REMOVE_VERTEX);
 
-            addRandomEdge(network);
-            gatherResults(network, UpdateType.ADD_EDGE);
+                addRandomEdge(network);
+                gatherResults(network, UpdateType.ADD_EDGE);
 
-            removeUpdateRandomEdge(network, null);
-            gatherResults(network, UpdateType.REMOVE_EDGE);
+                removeUpdateRandomEdge(network, null);
+                gatherResults(network, UpdateType.REMOVE_EDGE);
 
-            removeUpdateRandomEdge(network, 0.0);
-            gatherResults(network, UpdateType.UPDATE_WEIGHT);
-        });
+                removeUpdateRandomEdge(network, 0.0);
+                gatherResults(network, UpdateType.UPDATE_WEIGHT);
+            } catch (Exception ex) {
+                incorrectNetwork.add(network);
+                incorrectAction.add(UpdateType.ERROR);
+                ex.printStackTrace();
+            }
+        }
     }
 
     private void addRandomEdge(DynamicNetwork network) {
@@ -79,10 +91,14 @@ public class EmpiricalExperiment {
         int source;
         do {
             source = this.rng.nextInt(network.vertexSet().size());
-        } while (network.outDegreeOf(source) == network.vertexSet().size() - 1);
+        } while (
+            !network.containsVertex(source) || network.outDegreeOf(source) == network.vertexSet().size() - 1
+        );
         do {
             target = this.rng.nextInt(network.vertexSet().size());
-        } while (target == source || network.containsEdge(source, target));
+        } while (
+            !network.containsVertex(target) || target == source || network.containsEdge(source, target)
+        );
         this.algorithm.setUsedEdges(0);
         algorithm.addEdge(source, target, rng.nextDouble() % 25);
     }
