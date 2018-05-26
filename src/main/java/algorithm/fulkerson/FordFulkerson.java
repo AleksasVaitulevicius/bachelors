@@ -110,6 +110,15 @@ public class FordFulkerson {
 
         for(int next; !sources.contains(vertex); vertex = next) {
             next = flow.get(vertex);
+            if(!network.containsVertex(vertex)) {
+                System.out.println("no vertex " + vertex);
+            }
+            if(!network.containsVertex(next)) {
+                System.out.println("no next vertex " + next);
+            }
+            if(!network.containsEdge(next, vertex)) {
+                System.out.println("no edge: (" + next + ", " + vertex + ")");
+            }
             pathFlow = Double.min(pathFlow, network.getEdgeWeight(network.getEdge(next, vertex)));
         }
 

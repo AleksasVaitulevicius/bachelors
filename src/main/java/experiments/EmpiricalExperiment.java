@@ -51,6 +51,9 @@ public class EmpiricalExperiment {
         int it = 1;
         for (DynamicNetwork network : networks) {
             System.out.println("progress:" + it + "/300");
+            if(it == 31){
+                System.out.println("DB");
+            }
             it++;
             try {
                 Map<Integer, Double> actual = calculateActual(network);
@@ -62,11 +65,25 @@ public class EmpiricalExperiment {
                 gatherResults(network, UpdateType.ADD_VERTEX);
 
                 this.algorithm.setUsedEdges(0);
-                int vertex;
-                do {
-                    vertex = this.rng.nextInt(network.vertexSet().size());
-                } while (network.getSinks().contains(vertex) || network.getSources().contains(vertex));
-                algorithm.removeVertex(vertex);
+                int max = network.vertexSet().stream().mapToInt(value -> value).max().orElse(0);
+                int vertex = this.rng.nextInt(max);
+                int start = vertex;
+                while (
+                    !network.vertexSet().contains(vertex) ||
+                    network.getSinks().contains(vertex) ||
+                    network.getSources().contains(vertex)
+                ) {
+                    vertex = (vertex + 1) % max;
+                    if(vertex == start) {
+                        throw new Exception("cannot pick vertex to remove");
+                    }
+                }
+                try{
+                    algorithm.removeVertex(vertex);
+                }
+                catch (Exception e) {
+                    throw new Exception( "Failed to remove vertex: " + vertex, e);
+                }
                 gatherResults(network, UpdateType.REMOVE_VERTEX);
 
                 addRandomEdge(network);
@@ -75,56 +92,82 @@ public class EmpiricalExperiment {
                 removeUpdateRandomEdge(network, null);
                 gatherResults(network, UpdateType.REMOVE_EDGE);
 
-                removeUpdateRandomEdge(network, 0.0);
+                removeUpdateRandomEdge(network, rng.nextDouble() % 25);
                 gatherResults(network, UpdateType.UPDATE_WEIGHT);
             } catch (Exception ex) {
                 incorrectNetwork.add(network);
                 incorrectAction.add(UpdateType.ERROR);
+                System.out.println(network);
                 ex.printStackTrace();
             }
         }
     }
 
-    private void addRandomEdge(DynamicNetwork network) {
+    private void addRandomEdge(DynamicNetwork network) throws Exception {
 
-        int target;
-        int source;
-        do {
-            source = this.rng.nextInt(network.vertexSet().size());
-        } while (
-            !network.containsVertex(source) || network.outDegreeOf(source) == network.vertexSet().size() - 1
-        );
-        do {
-            target = this.rng.nextInt(network.vertexSet().size());
-        } while (
+        int max = network.vertexSet().stream().mapToInt(value -> value).max().orElse(0);
+        int target = this.rng.nextInt(max);
+        int source = this.rng.nextInt(max);
+        int start = source;
+        while (
+            !network.containsVertex(source) || network.outDegreeOf(source) >= network.vertexSet().size() - 1
+        ) {
+            source = (source + 1) % max;
+            if(source == start) {
+                throw new Exception("cannot pick source");
+            }
+        }
+        start = target;
+        while (
             !network.containsVertex(target) || target == source || network.containsEdge(source, target)
-        );
+        ) {
+            target = (target + 1) % max;
+            if(target == start) {
+                throw new Exception("cannot pick target");
+            }
+        }
         this.algorithm.setUsedEdges(0);
-        algorithm.addEdge(source, target, rng.nextDouble() % 25);
+        double weight = rng.nextDouble() % 25;
+        try {
+            algorithm.addEdge(source, target, weight);
+        }
+        catch (Exception e) {
+            throw new Exception(
+                "Failed to add edge: (" + source + ", " + target + "," + weight + ")", e
+            );
+        }
     }
 
-    private void removeUpdateRandomEdge(DynamicNetwork network, Double weight) {
-
-        if(weight != null) {
-            weight = rng.nextDouble() % 25;
-        }
+    private void removeUpdateRandomEdge(DynamicNetwork network, Double weight) throws Exception {
 
         int source = 0, target = 0;
-        int it = rng.nextInt(network.edgeSet().size());
+        int it = rng.nextInt(network.edgeSet().size()) - 1;
         for (WeightedEdge edge : network.edgeSet()) {
+            source = network.getEdgeSource(edge);
+            target = network.getEdgeTarget(edge);
             it--;
-            if(it == 0) {
-                source = network.getEdgeSource(edge);
-                target = network.getEdgeTarget(edge);
+            if (it == 0) {
                 break;
             }
         }
         this.algorithm.setUsedEdges(0);
         if(weight != null) {
-            algorithm.changeWeight(source, target, weight);
+            try{
+                algorithm.changeWeight(source, target, weight);
+            }
+            catch (Exception e) {
+                throw new Exception(
+                    "Failed to set weight: (" + source + ", " + target + "," + weight + ")", e
+                );
+            }
         }
         else {
-            algorithm.removeEdge(source, target);
+            try {
+                algorithm.removeEdge(source, target);
+            }
+            catch (Exception e) {
+                throw new Exception("Failed to remove edge: (" + source + ", " + target + ")", e);
+            }
         }
     }
 

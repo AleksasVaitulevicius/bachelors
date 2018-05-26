@@ -50,7 +50,7 @@ public class DynamicNetworkWithMaxFlowAlgorithmTests {
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.ADD_VERTEX).get(0)
         );
-        expectedValue = 15;
+        expectedValue = 11;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.REMOVE_VERTEX).get(0)
         );
@@ -58,19 +58,19 @@ public class DynamicNetworkWithMaxFlowAlgorithmTests {
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.REMOVE_VERTEX).get(0)
         );
-        expectedValue = 6;
+        expectedValue = 11;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.ADD_EDGE).get(0)
         );
-        expectedValue = 18;
+        expectedValue = 11;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.ADD_EDGE).get(0)
         );
-        expectedValue = 11;
+        expectedValue = 7;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.REMOVE_EDGE).get(0)
         );
-        expectedValue = 15;
+        expectedValue = 7;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.REMOVE_EDGE).get(0)
         );
