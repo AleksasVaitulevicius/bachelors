@@ -3,6 +3,7 @@ package experiments;
 import entities.UpdateType;
 import entities.dynamicnetwork.DynamicNetwork;
 import gui.GUI;
+import lombok.Getter;
 
 import java.io.*;
 import java.util.List;
@@ -10,6 +11,9 @@ import java.util.Map;
 import java.util.Objects;
 
 public class ExperimentData {
+
+    @Getter
+    private DynamicNetwork network;
 
     public void saveUsedEdges(
         Map<UpdateType, List<Integer>> algorithm, Map<UpdateType, List<Integer>> fulkerson
@@ -120,6 +124,8 @@ public class ExperimentData {
             System.out.println("vertices: " + network.vertexSet().size());
             System.out.println("edges: " + network.edgeSet().size());
             System.out.println();
+
+            this.network = network;
 
             new GUI(filename, network).display(900, 900);
             fileStream.close();

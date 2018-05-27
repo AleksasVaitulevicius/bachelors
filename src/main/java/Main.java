@@ -2,6 +2,7 @@ import algorithm.DynamicNetworkWithMaxFlowAlgorithm;
 import algorithm.clustering.DividerToClusters;
 import algorithm.fulkerson.BFS;
 import algorithm.fulkerson.FordFulkerson;
+import entities.dynamicnetwork.DynamicNetwork;
 import experiments.EmpiricalExperiment;
 import experiments.ExperimentData;
 import generator.RandomNetworkGenerator;
@@ -49,6 +50,17 @@ public class Main {
         EmpiricalExperiment experiment = new EmpiricalExperiment(
             fulkerson, algorithm, generator, new Random()
         );
+
+//        data.loadAndDisplayNetwork("incorrect/INIT/network0.ser");
+//        DynamicNetwork network = data.getNetwork();
+//
+//        algorithm.init(network);
+//
+//        fulkerson.reset();
+//        Map<Integer, Double> expected = fulkerson.maxFlow(network, network.getSources(), network.getSinks());
+//
+//        System.out.println("expected: " + expected);
+//        System.out.println("actual: " + algorithm.getCurrentMaxFlow());
 
         experiment.perform();
 

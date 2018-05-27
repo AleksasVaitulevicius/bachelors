@@ -32,7 +32,7 @@ public class RandomNetworkGenerator {
         List<Integer> verticesFrom = new ArrayList<>();
         List<Integer> verticesTo = new ArrayList<>();
 
-        for(int row = 1; row <= vertices; row++) {
+        for(int row = 1; row < vertices; row++) {
             for(int column = 1; column <= vertices; column++) {
                 if(row != column) {
                     verticesFrom.add(row);

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  27 MAY 2018 17:14
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  27 MAY 2018 22:25
 entering extended mode
 **./bakalaurinis.tex
 (bakalaurinis.tex
@@ -1265,25 +1265,39 @@ Overfull \hbox (12.99799pt too wide) in paragraph at lines 14--21
 ) (fulkerson.tex [6
 
 ] [7]) (clustering.tex [8] [9] [10]) (main.tex [11] [12]
-[13] [14]) (trukumai.tex) [15] (implementation.tex)
+[13] [14]) (trukumai.tex
+File: img/trukumas.png Graphic file (type bmp)
+<img/trukumas.png>
+File: img/trukumoGrupes.png Graphic file (type bmp)
+<img/trukumoGrupes.png>
+
+Underfull \hbox (badness 2486) in paragraph at lines 11--18
+[]\TU/texgyretermes(0)/m/n/12 Grupavimo funkcija sugrupuoja tinklą $\OML/cmm/m/
+it/12 N$ \TU/texgyretermes(0)/m/n/12 į grupes $\OML/cmm/m/it/12 G[] \OT1/cmr/m/
+n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 
+f\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; \OT1/c
+mr/m/n/12 4\OMS/cmsy/m/n/12 g\OML/cmm/m/it/12 ; E \OT1/cmr/m/n/12 =
+ []
+
+) [15] [16] (implementation.tex)
 Underfull \hbox (badness 2237) in paragraph at lines 20--66
 \TU/texgyretermes(0)/m/n/12 Klasės SimpleDirectedGraph<List<int>, DefaultEdge> 
 ir SimpleDirectedWeightedGraph<int,
  []
 
-[16
+[17
 
-] (bandymai.tex [17
+] (bandymai.tex [18
 
-] [18]
-Underfull \hbox (badness 2744) in paragraph at lines 41--42
+] [19]
+Underfull \hbox (badness 2744) in paragraph at lines 39--40
 []\TU/texgyretermes(0)/m/n/12 Naudojantis atliktų bandymų rezultatu, masyvais $
 \OML/cmm/m/it/12 Algorithm[]$ \TU/texgyretermes(0)/m/n/12 ir $\OML/cmm/m/it/12 
 Test[]$\TU/texgyretermes(0)/m/n/12 , sukurtam
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 41--42
+Underfull \hbox (badness 5036) in paragraph at lines 39--40
 \TU/texgyretermes(0)/m/n/12 algoritmui ir Fordo Fulkersono algoritmui buvo suko
 nstruoti paprasti linijiniai modeliai
  []
@@ -1292,7 +1306,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 4713) in paragraph at lines 44--45
+Underfull \hbox (badness 4713) in paragraph at lines 42--43
 []\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]DG
 ES \OT1/cmr/m/n/12 = 5905\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 VI
 RNS \OT1/cmr/m/n/12 + 16253\OML/cmm/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
@@ -1302,7 +1316,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 6396) in paragraph at lines 45--46
+Underfull \hbox (badness 6396) in paragraph at lines 43--44
 []\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]DGES
  \OT1/cmr/m/n/12 = 5911\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 VIRN
 S \OT1/cmr/m/n/12 + 15370\OML/cmm/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
@@ -1315,7 +1329,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 5417) in paragraph at lines 47--48
+Underfull \hbox (badness 5417) in paragraph at lines 45--46
 []\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]DGES
  \OT1/cmr/m/n/12 = 5912\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 VIRN
 S \OT1/cmr/m/n/12 + 16059\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 DA
@@ -1326,7 +1340,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 3148) in paragraph at lines 51--52
+Underfull \hbox (badness 3148) in paragraph at lines 49--50
 []\TU/texgyretermes(0)/m/n/12 Po viršūnės pridėjimo: $\OML/cmm/m/it/12 USED[]DG
 ES \OT1/cmr/m/n/12 = 6103\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 VI
 RNS \OT1/cmr/m/n/12 + 14124\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 
@@ -1337,7 +1351,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 2875) in paragraph at lines 52--53
+Underfull \hbox (badness 2875) in paragraph at lines 50--51
 []\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]DG
 ES \OT1/cmr/m/n/12 = 5924\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 9\OML/cmm/m/it/12 VI
 RNS \OT1/cmr/m/n/12 + 14406\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 
@@ -1348,7 +1362,7 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 4108) in paragraph at lines 53--54
+Underfull \hbox (badness 4108) in paragraph at lines 51--52
 []\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]DGES
  \OT1/cmr/m/n/12 = 5923\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 9\OML/cmm/m/it/12 VIRN
 S \OT1/cmr/m/n/12 + 14405\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 7\OML/cmm/m/it/12 DA
@@ -1359,28 +1373,27 @@ Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 3780) in paragraph at lines 54--55
+Underfull \hbox (badness 3780) in paragraph at lines 52--53
 []\TU/texgyretermes(0)/m/n/12 Po briaunos atėmimo: $\OML/cmm/m/it/12 USED[]DGES
  \OT1/cmr/m/n/12 = 5923\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 7\OML/cmm/m/it/12 VIRN
 S \OT1/cmr/m/n/12 + 14359\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 DA
 UG \OMS/cmsy/m/n/12 ^^@
  []
 
-[19]
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 5417) in paragraph at lines 55--56
+Underfull \hbox (badness 5417) in paragraph at lines 53--54
 []\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]DGES
  \OT1/cmr/m/n/12 = 5925\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 VIRN
 S \OT1/cmr/m/n/12 + 14430\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 DA
 UG \OMS/cmsy/m/n/12 ^^@
  []
 
-) [20] [21
+[20]) [21] (isvadaLT.tex) [22
 
-] [22
+] (isvadaEN.tex) [23
 
 ]
 
@@ -1403,7 +1416,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[23
+[24
 
 ]
 File: img/architecture.png Graphic file (type bmp)
@@ -1412,7 +1425,7 @@ File: img/architecture0.png Graphic file (type bmp)
 <img/architecture0.png>
 
 
-LaTeX Warning: Float too large for page by 25.92882pt on input line 104.
+LaTeX Warning: Float too large for page by 25.92882pt on input line 103.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1420,7 +1433,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: img/architecture1.png Graphic file (type bmp)
 <img/architecture1.png>
 
-LaTeX Warning: Float too large for page by 25.9498pt on input line 111.
+LaTeX Warning: Float too large for page by 25.9498pt on input line 110.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1430,23 +1443,23 @@ File: img/architecture2.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24
+[25
 
-] [25] [26] [27] (tyrimuRezultatai.tex [28
+] [26] [27] [28] (tyrimuRezultatai.tex [29
 
-] [29] [30]) [31] [32]
+] [30] [31]) [32] [33]
 (bakalaurinis.aux)
 Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
 \openout1 = `bakalaurinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24083 strings out of 427836
- 465995 string characters out of 3156071
+ 24099 strings out of 427836
+ 466258 string characters out of 3156071
  965787 words of memory out of 3000000
- 27755 multiletter control sequences out of 15000+200000
+ 27763 multiletter control sequences out of 15000+200000
  542302 words of font info for 86 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  67i,14n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bakalaurinis.pdf (33 pages).
+Output written on bakalaurinis.pdf (34 pages).

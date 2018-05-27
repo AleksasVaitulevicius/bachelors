@@ -447,7 +447,7 @@ public class DynamicNetworkWithMaxFlowAlgorithm {
     }
     private List<DynamicNetwork> getAllIncomingVertices(ClustersNetwork clusters, DynamicNetwork vertex) {
         return clusters.vertexSet().stream()
-            .filter(cluster -> cluster.getSinks().stream()
+            .filter(cluster -> !cluster.equals(vertex) && cluster.getSinks().stream()
                     .anyMatch(sink -> vertex.getSources().contains(sink))
             )
             .collect(Collectors.toList());

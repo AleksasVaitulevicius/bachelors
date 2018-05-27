@@ -16,7 +16,7 @@ public class DividerToClusters {
 
         network.getSources().forEach(source -> warpEulerCycles(warps, source));
         ClustersNetwork clusters = new ClustersNetwork();
-        network.getSources().forEach(source -> divideToClusters(clusters, warps, source, network));
+        network.getSources().forEach(source -> divideToClusters(clusters, warps, source, network.getSinks().get(0), network));
         addRestOfVertices(clusters, warps, network);
 //        wireClusters(clusters);
 
@@ -40,6 +40,7 @@ public class DividerToClusters {
         vertices.forEach(vertex -> {
             if (networkToCluster.getSinks().contains(vertex)) {
                 network.sink = true;
+//                network.getSinks().clear();
                 network.addSink(vertex);
             }
             if (networkToCluster.getSources().contains(vertex)) {
@@ -67,7 +68,7 @@ public class DividerToClusters {
     }
 
     private void divideToClusters(
-        ClustersNetwork clusters, EulerCycleWarps warps, Integer source, DynamicNetwork networkToCluster
+        ClustersNetwork clusters, EulerCycleWarps warps, Integer source, Integer sink, DynamicNetwork networkToCluster
     ) {
 
         List<Integer> vertex = warps.vertexSet().stream()
@@ -83,14 +84,22 @@ public class DividerToClusters {
         while (!forNextCluster.isEmpty()) {
 
             vertex = forNextCluster.pop();
-            branches.push(vertex);
 
             if(vertex == null) {
                 continue;
             }
 
-            if (vertex.size() > 1) {
+            branches.push(vertex);
+            final List<Integer> sinkChecking = vertex;
+
+            if (vertex.size() > 1 &&
+                (
+                    getAllOutgoingVertices(warps, vertex).stream().noneMatch(warp -> warp.contains(sink)) ||
+                    clusters.vertexSet().stream().anyMatch(cluster -> cluster.vertexSet().containsAll(sinkChecking))
+                )
+            ) {
                 network.putVertices(vertex);
+
                 addEdges(network, networkToCluster);
                 clusters.addVertex(network);
                 network = new DynamicNetwork();

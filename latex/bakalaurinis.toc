@@ -24,21 +24,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.5.}Sukurto algoritmo trūkumai}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Sukurto algoritmo įgyvendinimas}{16}
+\contentsline {section}{\numberline {2.}Sukurto algoritmo įgyvendinimas}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.}Empiriniai bandymai}{17}
+\contentsline {section}{\numberline {3.}Empiriniai bandymai}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.}Tinklus generuojantis modulis}{17}
+\contentsline {subsection}{\numberline {3.1.}Tinklus generuojantis modulis}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.}Bandymus atliekantis modulis}{18}
+\contentsline {subsection}{\numberline {3.2.}Bandymus atliekantis modulis}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{18}
+\contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{21}
+\contentsline {section}{Išvados}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{22}
+\contentsline {section}{Conclusions}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{23}
+\contentsline {section}{Literatūra}{24}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

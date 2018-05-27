@@ -47,4 +47,5 @@ public class NetworkExamples {
         network.addSource(0);
         return network;
     }
+
 }
