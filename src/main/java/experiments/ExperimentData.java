@@ -11,37 +11,54 @@ import java.util.Objects;
 
 public class ExperimentData {
 
-    public void saveUsedEdges(Map<UpdateType, List<Integer>> usedEdges, String file) {
+    public void saveUsedEdges(
+        Map<UpdateType, List<Integer>> algorithm, Map<UpdateType, List<Integer>> fulkerson
+    ) {
 
-        usedEdges.forEach((action, actionUsedEdges) -> {
-            StringBuilder data = new StringBuilder("vertices_number,edges_number,used_edges_number\n");
-            for (int it = 0; it < actionUsedEdges.size(); it++) {
-                int usedEdgesNumber = actionUsedEdges.get(it);
-                int vertices = (it / 30 + 1) * 10;
-                String edges = "average";
-                if(it % 30 >= 10) {
-                    edges = "small";
-                }
-                if(it % 30 >= 20) {
-                    edges = "big";
-                }
-                data
-                    .append(vertices).append(",")
-                    .append(edges).append(",")
-                    .append(usedEdgesNumber).append("\n");
+        StringBuilder data = new StringBuilder("vertices_number,edges_number");
+        data.append(",algorithm_").append(UpdateType.ADD_VERTEX);
+        data.append(",algorithm_").append(UpdateType.ADD_EDGE);
+        data.append(",algorithm_").append(UpdateType.REMOVE_VERTEX);
+        data.append(",algorithm_").append(UpdateType.REMOVE_EDGE);
+        data.append(",algorithm_").append(UpdateType.UPDATE_WEIGHT);
+        data.append(",fulkerson_").append(UpdateType.ADD_VERTEX);
+        data.append(",fulkerson_").append(UpdateType.ADD_EDGE);
+        data.append(",fulkerson_").append(UpdateType.REMOVE_VERTEX);
+        data.append(",fulkerson_").append(UpdateType.REMOVE_EDGE);
+        data.append(",fulkerson_").append(UpdateType.UPDATE_WEIGHT);
+        data.append("\n");
+        for (int it = 0; it < algorithm.get(UpdateType.ADD_VERTEX).size(); it++) {
+            int vertices = (it / 30 + 1) * 10;
+            String edges = "average";
+            if(it % 30 >= 10) {
+                edges = "small";
             }
-            try {
-                FileWriter fileStream = new FileWriter(
-                    "used edges/" + file + "_" + action + ".csv"
-                );
-                fileStream.write(data.toString());
-                fileStream.close();
+            if(it % 30 >= 20) {
+                edges = "big";
             }
-            catch(IOException e){
-                System.out.print("Error: " + e);
-                System.exit(1);
-            }
-        });
+            data.append(vertices).append(",").append(edges).append(",");
+            data.append(algorithm.get(UpdateType.ADD_VERTEX).get(it)).append(",");
+            data.append(algorithm.get(UpdateType.ADD_EDGE).get(it)).append(",");
+            data.append(algorithm.get(UpdateType.REMOVE_VERTEX).get(it)).append(",");
+            data.append(algorithm.get(UpdateType.REMOVE_EDGE).get(it)).append(",");
+            data.append(algorithm.get(UpdateType.UPDATE_WEIGHT).get(it)).append(",");
+            data.append(fulkerson.get(UpdateType.ADD_VERTEX).get(it)).append(",");
+            data.append(fulkerson.get(UpdateType.ADD_EDGE).get(it)).append(",");
+            data.append(fulkerson.get(UpdateType.REMOVE_VERTEX).get(it)).append(",");
+            data.append(fulkerson.get(UpdateType.REMOVE_EDGE).get(it)).append(",");
+            data.append(fulkerson.get(UpdateType.UPDATE_WEIGHT).get(it)).append("\n");
+        }
+        try {
+            FileWriter fileStream = new FileWriter(
+                    "used edges/usedEdges.csv"
+            );
+            fileStream.write(data.toString());
+            fileStream.close();
+        }
+        catch(IOException e){
+            System.out.print("Error: " + e);
+            System.exit(1);
+        }
     }
 
     public void saveNetworks(List<DynamicNetwork> networks, List<UpdateType> actions) {
@@ -62,6 +79,20 @@ public class ExperimentData {
             System.exit(1);
         }
     }
+
+    public void clearNetworks() {
+        File folder = new File("incorrect");
+        File[] listOfFolders = folder.listFiles();
+
+        for (File listOfFolder : Objects.requireNonNull(listOfFolders)) {
+            File subFolder = new File("incorrect/" + listOfFolder.getName());
+            File[] listOfFiles = subFolder.listFiles();
+            for (File file : Objects.requireNonNull(listOfFiles)) {
+                file.delete();
+            }
+        }
+    }
+
 
     public void loadAndDisplayAll() {
         File folder = new File("incorrect");

@@ -39,7 +39,7 @@ public class Main {
             input = sc.nextLine();
         }
 
-
+        data.clearNetworks();
         RandomNetworkGenerator gen = new RandomNetworkGenerator();
         RandomNetworkListGenerator generator = new RandomNetworkListGenerator(gen);
         FordFulkerson fulkerson = new FordFulkerson(new BFS());
@@ -53,8 +53,7 @@ public class Main {
         experiment.perform();
 
         data.saveNetworks(experiment.getIncorrectNetwork(), experiment.getIncorrectAction());
-        data.saveUsedEdges(experiment.getAlgorithmUsedEdges(), "algorithm");
-        data.saveUsedEdges(experiment.getFulkersonUsedEdges(), "fulkerson");
+        data.saveUsedEdges(experiment.getAlgorithmUsedEdges(), experiment.getFulkersonUsedEdges());
 
 //        int no = 0;
 //
