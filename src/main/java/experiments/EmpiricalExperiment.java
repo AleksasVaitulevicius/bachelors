@@ -51,9 +51,6 @@ public class EmpiricalExperiment {
         int it = 1;
         for (DynamicNetwork network : networks) {
             System.out.println("progress:" + it + "/300");
-            if(it == 31){
-                System.out.println("DB");
-            }
             it++;
             try {
                 Map<Integer, Double> actual = calculateActual(network);
@@ -106,7 +103,7 @@ public class EmpiricalExperiment {
     private void addRandomEdge(DynamicNetwork network) throws Exception {
 
         int max = network.vertexSet().stream().mapToInt(value -> value).max().orElse(0);
-        int target = this.rng.nextInt(max);
+        int target = 0;
         int source = this.rng.nextInt(max);
         int start = source;
         while (
@@ -117,14 +114,14 @@ public class EmpiricalExperiment {
                 throw new Exception("cannot pick source");
             }
         }
-        start = target;
-        while (
-            !network.containsVertex(target) || target == source || network.containsEdge(source, target)
-        ) {
-            target = (target + 1) % max;
-            if(target == start) {
-                throw new Exception("cannot pick target");
+        for(Integer vertex: network.vertexSet()) {
+            if(vertex != source && !network.containsEdge(source, target)) {
+                target = vertex;
+                break;
             }
+        }
+        if(target == 0) {
+            throw new Exception("cannot pick target");
         }
         this.algorithm.setUsedEdges(0);
         double weight = rng.nextDouble() % 25;
