@@ -2,45 +2,41 @@
 \defcounter {refsection}{0}\relax 
 \select@language {lithuanian}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Santrauka}{1}
+\contentsline {section}{Sąvokų apibrėžimai}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Summary}{2}
+\contentsline {section}{Įvadas}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Sąvokų apibrėžimai}{4}
+\contentsline {section}{\numberline {1.}Algoritmas maksimaliam srautui dinaminiuose tinkluose rasti}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Įvadas}{6}
+\contentsline {subsection}{\numberline {1.1.}Grupės apibrėžimas}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.}Algoritmas maksimaliam srautui dinaminiuose tinkluose rasti}{8}
+\contentsline {subsection}{\numberline {1.2.}Fordo Fulkersono algoritmas}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.}Grupės apibrėžimas}{8}
+\contentsline {subsection}{\numberline {1.3.}Grupavimo funkcija}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.}Fordo Fulkersono algoritmas}{8}
+\contentsline {subsection}{\numberline {1.4.}Sukurtas algoritmas}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.}Grupavimo funkcija}{10}
+\contentsline {subsubsection}{\numberline {1.4.1.}Inicializavimo fazė}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4.}Sukurtas algoritmas}{13}
+\contentsline {subsubsection}{\numberline {1.4.2.}Po kiekvieno pokyčio fazės pagalbinės funkcijos}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.1.}Inicializavimo fazė}{13}
+\contentsline {subsubsection}{\numberline {1.4.3.}Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.2.}Po kiekvieno pokyčio fazės pagalbinės funkcijos}{14}
+\contentsline {section}{\numberline {2.}Sukurto algoritmo įgyvendinimas}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.3.}Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}{15}
+\contentsline {section}{\numberline {3.}Empiriniai bandymai}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Sukurto algoritmo įgyvendinimas}{18}
+\contentsline {subsection}{\numberline {3.1.}Tinklus generuojantis modulis}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.}Empiriniai bandymai}{19}
+\contentsline {subsection}{\numberline {3.2.}Bandymus atliekantis modulis}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.}Tinklus generuojantis modulis}{19}
+\contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.}Bandymus atliekantis modulis}{20}
+\contentsline {section}{Išvados}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{20}
+\contentsline {section}{Conclusions}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{21}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{22}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{23}
+\contentsline {section}{Literatūra}{21}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

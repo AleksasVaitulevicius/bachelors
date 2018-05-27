@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  26 MAY 2018 12:07
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  27 MAY 2018 13:29
 entering extended mode
 **./bakalaurinis.tex
 (bakalaurinis.tex
@@ -1236,24 +1236,19 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] (santraukaLT.tex) [1
-
-]
-(santraukaEN.tex) [2
-
 ] (bakalaurinis.toc)
 \tf@toc=\write5
 \openout5 = `bakalaurinis.toc'.
 
- [3
+ [1
 
-] (savokos.tex [4
+] (savokos.tex
+[2
 
-]) [5] (ivadas.tex
-[6
+]) [3] (ivadas.tex [4
 
-]) [7]
-Underfull \hbox (badness 1354) in paragraph at lines 56--56
+]) [5]
+Underfull \hbox (badness 1354) in paragraph at lines 48--48
 []\TU/texgyretermes(0)/bx/n/17.28 Algoritmas maksimaliam srautui dinaminiuose t
 inkluose
  []
@@ -1267,22 +1262,22 @@ Overfull \hbox (12.99799pt too wide) in paragraph at lines 14--21
  G \OT1/cmr/m/n/12 = []$\TU/texgyretermes(0)/m/n/12 ,
  []
 
-) (fulkerson.tex [8
+) (fulkerson.tex [6
 
-] [9]) (clustering.tex [10] [11] [12]) (main.tex [13]
-[14] [15] [16]) [17] (implementation.tex)
-Underfull \hbox (badness 2237) in paragraph at lines 20--71
+] [7]) (clustering.tex [8] [9] [10]) (main.tex [11] [12]
+[13] [14]) [15] (implementation.tex)
+Underfull \hbox (badness 2237) in paragraph at lines 20--63
 \TU/texgyretermes(0)/m/n/12 Klasės SimpleDirectedGraph<List<int>, DefaultEdge> 
 ir SimpleDirectedWeightedGraph<int,
  []
 
-[18
+[16
 
-] (bandymai.tex [19
+] (bandymai.tex [17
 
-]) [20] [21
+]) [18] [19
 
-] [22
+] [20
 
 ]
 
@@ -1305,7 +1300,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[23
+[21
 
 ]
 File: img/architecture.png Graphic file (type bmp)
@@ -1314,7 +1309,7 @@ File: img/architecture0.png Graphic file (type bmp)
 <img/architecture0.png>
 
 
-LaTeX Warning: Float too large for page by 25.92882pt on input line 109.
+LaTeX Warning: Float too large for page by 25.92882pt on input line 101.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1322,7 +1317,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: img/architecture1.png Graphic file (type bmp)
 <img/architecture1.png>
 
-LaTeX Warning: Float too large for page by 25.9498pt on input line 116.
+LaTeX Warning: Float too large for page by 25.9498pt on input line 108.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1332,22 +1327,23 @@ File: img/architecture2.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24
+[22
 
-] [25] [26] [27] [28
+] [23] [24] [25] (tyrimuRezultatai.tex [26
 
-] (bakalaurinis.aux)
+] [27] [28]) [29] [30]
+(bakalaurinis.aux)
 Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
 \openout1 = `bakalaurinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24079 strings out of 427836
- 465878 string characters out of 3156071
- 962787 words of memory out of 3000000
- 27751 multiletter control sequences out of 15000+200000
+ 24080 strings out of 427836
+ 465963 string characters out of 3156071
+ 965787 words of memory out of 3000000
+ 27755 multiletter control sequences out of 15000+200000
  542302 words of font info for 86 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 67i,11n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 67i,14n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bakalaurinis.pdf (29 pages).
+Output written on bakalaurinis.pdf (31 pages).
