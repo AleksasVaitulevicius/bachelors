@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  27 MAY 2018 22:25
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  27 MAY 2018 23:26
 entering extended mode
 **./bakalaurinis.tex
 (bakalaurinis.tex
@@ -1290,108 +1290,124 @@ ir SimpleDirectedWeightedGraph<int,
 ] (bandymai.tex [18
 
 ] [19]
-Underfull \hbox (badness 2744) in paragraph at lines 39--40
+Underfull \hbox (badness 7308) in paragraph at lines 39--40
 []\TU/texgyretermes(0)/m/n/12 Naudojantis atliktų bandymų rezultatu, masyvais $
 \OML/cmm/m/it/12 Algorithm[]$ \TU/texgyretermes(0)/m/n/12 ir $\OML/cmm/m/it/12 
-Test[]$\TU/texgyretermes(0)/m/n/12 , sukurtam
+Test[]$\TU/texgyretermes(0)/m/n/12 , sukur-
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 39--40
-\TU/texgyretermes(0)/m/n/12 algoritmui ir Fordo Fulkersono algoritmui buvo suko
-nstruoti paprasti linijiniai modeliai
+Underfull \hbox (badness 1924) in paragraph at lines 39--40
+\TU/texgyretermes(0)/m/n/12 tam algoritmui ir Fordo Fulkersono algoritmui buvo 
+sukonstruoti paprasti linijiniai mode-
  []
 
-Missing character: There is no Š in font cmmi12!
-Missing character: There is no Ū in font cmmi12!
-Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 4713) in paragraph at lines 42--43
-[]\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]DG
-ES \OT1/cmr/m/n/12 = 5905\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 VI
-RNS \OT1/cmr/m/n/12 + 16253\OML/cmm/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 3078) in paragraph at lines 39--40
+\TU/texgyretermes(0)/m/n/12 liai $\OML/cmm/m/it/12 USED[]EDGES []VIRSUNES \OT1/
+cmr/m/n/12 + \OML/cmm/m/it/12 BRIAUNOS$ \TU/texgyretermes(0)/m/n/12 su kiekvien
+u pokyčio tipu T, kur
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 6396) in paragraph at lines 43--44
-[]\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]DGES
- \OT1/cmr/m/n/12 = 5911\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 VIRN
-S \OT1/cmr/m/n/12 + 15370\OML/cmm/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
- []
-
-Missing character: There is no Š in font cmmi12!
-Missing character: There is no Ū in font cmmi12!
-Missing character: There is no Ė in font cmmi12!
-Missing character: There is no Š in font cmmi12!
-Missing character: There is no Ū in font cmmi12!
-Missing character: There is no Ė in font cmmi12!
-
-Underfull \hbox (badness 5417) in paragraph at lines 45--46
-[]\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]DGES
- \OT1/cmr/m/n/12 = 5912\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 VIRN
-S \OT1/cmr/m/n/12 + 16059\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 DA
-UG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 1655) in paragraph at lines 42--43
+[]\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]ED
+GES \OT1/cmr/m/n/12 = 5887\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 V
+IRNS \OT1/cmr/m/n/12 + 15967\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12
+ DAUG \OMS/cmsy/m/n/12 ^^@
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 3148) in paragraph at lines 49--50
-[]\TU/texgyretermes(0)/m/n/12 Po viršūnės pridėjimo: $\OML/cmm/m/it/12 USED[]DG
-ES \OT1/cmr/m/n/12 = 6103\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 VI
-RNS \OT1/cmr/m/n/12 + 14124\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 
-DAUG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 2538) in paragraph at lines 43--44
+[]\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5883\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OML/cmm/m/it/12 VIR
+NS \OT1/cmr/m/n/12 + 14875\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 D
+AUG \OMS/cmsy/m/n/12 ^^@
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 2875) in paragraph at lines 50--51
-[]\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]DG
-ES \OT1/cmr/m/n/12 = 5924\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 9\OML/cmm/m/it/12 VI
-RNS \OT1/cmr/m/n/12 + 14406\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 
-DAUG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 2302) in paragraph at lines 44--45
+[]\TU/texgyretermes(0)/m/n/12 Po briaunos atėmimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5878\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 VIR
+NS \OT1/cmr/m/n/12 + 14846\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 D
+AUG \OMS/cmsy/m/n/12 ^^@
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 4108) in paragraph at lines 51--52
-[]\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]DGES
- \OT1/cmr/m/n/12 = 5923\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 9\OML/cmm/m/it/12 VIRN
-S \OT1/cmr/m/n/12 + 14405\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 7\OML/cmm/m/it/12 DA
-UG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 3503) in paragraph at lines 45--46
+[]\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5884\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 8\OML/cmm/m/it/12 VIR
+NS \OT1/cmr/m/n/12 + 15084\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 7\OML/cmm/m/it/12 D
+AUG \OMS/cmsy/m/n/12 ^^@
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 3780) in paragraph at lines 52--53
-[]\TU/texgyretermes(0)/m/n/12 Po briaunos atėmimo: $\OML/cmm/m/it/12 USED[]DGES
- \OT1/cmr/m/n/12 = 5923\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 7\OML/cmm/m/it/12 VIRN
-S \OT1/cmr/m/n/12 + 14359\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 DA
-UG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 1845) in paragraph at lines 49--50
+[]\TU/texgyretermes(0)/m/n/12 Po viršūnės pridėjimo: $\OML/cmm/m/it/12 USED[]ED
+GES \OT1/cmr/m/n/12 = 6028\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 V
+IRNS \OT1/cmr/m/n/12 + 17498\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12
+ DAUG \OMS/cmsy/m/n/12 ^^@
  []
 
 Missing character: There is no Š in font cmmi12!
 Missing character: There is no Ū in font cmmi12!
 Missing character: There is no Ė in font cmmi12!
 
-Underfull \hbox (badness 5417) in paragraph at lines 53--54
-[]\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]DGES
- \OT1/cmr/m/n/12 = 5925\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 VIRN
-S \OT1/cmr/m/n/12 + 14430\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 DA
-UG \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 4846) in paragraph at lines 50--51
+[]\TU/texgyretermes(0)/m/n/12 Po briaunos pridėjimo: $\OML/cmm/m/it/12 USED[]ED
+GES \OT1/cmr/m/n/12 = 5870\OML/cmm/m/it/12 VIRNS \OT1/cmr/m/n/12 + 15070\OML/cm
+m/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
  []
 
-[20]) [21] (isvadaLT.tex) [22
+Missing character: There is no Š in font cmmi12!
+Missing character: There is no Ū in font cmmi12!
+Missing character: There is no Ė in font cmmi12!
+
+Underfull \hbox (badness 6575) in paragraph at lines 51--52
+[]\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5869\OML/cmm/m/it/12 VIRNS \OT1/cmr/m/n/12 + 15140\OML/cmm/
+m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
+ []
+
+Missing character: There is no Š in font cmmi12!
+Missing character: There is no Ū in font cmmi12!
+Missing character: There is no Ė in font cmmi12!
+
+Underfull \hbox (badness 2302) in paragraph at lines 52--53
+[]\TU/texgyretermes(0)/m/n/12 Po briaunos atėmimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5865\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 VIR
+NS \OT1/cmr/m/n/12 + 15166\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 D
+AUG \OMS/cmsy/m/n/12 ^^@
+ []
+
+[20]
+Missing character: There is no Š in font cmmi12!
+Missing character: There is no Ū in font cmmi12!
+Missing character: There is no Ė in font cmmi12!
+
+Underfull \hbox (badness 3503) in paragraph at lines 53--54
+[]\TU/texgyretermes(0)/m/n/12 Po talpos pakeitimo: $\OML/cmm/m/it/12 USED[]EDGE
+S \OT1/cmr/m/n/12 = 5871\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 VIR
+NS \OT1/cmr/m/n/12 + 15302\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 D
+AUG \OMS/cmsy/m/n/12 ^^@
+ []
+
+) [21] (isvadaLT.tex) [22
 
 ] (isvadaEN.tex) [23
 
@@ -1447,19 +1463,18 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ] [26] [27] [28] (tyrimuRezultatai.tex [29
 
-] [30] [31]) [32] [33]
-(bakalaurinis.aux)
+]) [30] [31] (bakalaurinis.aux)
 Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
 \openout1 = `bakalaurinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24099 strings out of 427836
- 466258 string characters out of 3156071
- 965787 words of memory out of 3000000
- 27763 multiletter control sequences out of 15000+200000
+ 24097 strings out of 427836
+ 466182 string characters out of 3156071
+ 974787 words of memory out of 3000000
+ 27761 multiletter control sequences out of 15000+200000
  542302 words of font info for 86 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  67i,14n,96p,10546b,7443s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bakalaurinis.pdf (34 pages).
+Output written on bakalaurinis.pdf (32 pages).
