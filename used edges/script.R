@@ -1,6 +1,25 @@
 
-usedEdgesAverage <- aggregate(
-    usedEdges[, 3:12], list(usedEdges$vertices_number, usedEdges$edges_number), mean
-  )
+usedEdgesAverage <- aggregate(usedEdges[, 3:12], list(usedEdges$vertices_number, usedEdges$edges_number), mean)
 write.csv(usedEdgesAverage, "usedEdgesAverage.csv")
-mod <- glm(ER ~ RT + isDots * cohFac + isLeft + blocknum,data=subj8, family=binomial(link="logit"))
+
+aav <- glm(algorithm_ADD_VERTEX ~ vertices_number + edges_number,data=usedEdges)
+summary(aav)
+aae <- glm(algorithm_ADD_EDGE ~ vertices_number + edges_number,data=usedEdges)
+summary(aae)
+arv <- glm(algorithm_REMOVE_VERTEX ~ vertices_number + edges_number,data=usedEdges)
+summary(arv)
+are <- glm(algorithm_REMOVE_EDGE ~ vertices_number + edges_number,data=usedEdges)
+summary(are)
+auw <- glm(algorithm_UPDATE_WEIGHT ~ vertices_number + edges_number,data=usedEdges)
+summary(auw)
+
+fav <- glm(fulkerson_ADD_VERTEX ~ vertices_number + edges_number,data=usedEdges)
+summary(fav)
+fae <- glm(fulkerson_ADD_EDGE ~ vertices_number + edges_number,data=usedEdges)
+summary(fae)
+frv <- glm(fulkerson_REMOVE_VERTEX ~ vertices_number + edges_number,data=usedEdges)
+summary(frv)
+fre <- glm(fulkerson_REMOVE_EDGE ~ vertices_number + edges_number,data=usedEdges)
+summary(fre)
+fuw <- glm(fulkerson_UPDATE_WEIGHT ~ vertices_number + edges_number,data=usedEdges)
+summary(fuw)
