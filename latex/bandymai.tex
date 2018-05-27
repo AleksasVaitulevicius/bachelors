@@ -34,4 +34,23 @@ Tad tinklus generuojantis modulis sugeneruoja tinklų $N_i = \{V_{N_i}, E_{N_i},
 
 \subsection{Statistiniai skaičiavimai ir jų rezultatai}
 
+Naudojantis atliktų bandymų rezultatu, INCORRECT ir ACTION masyvais, buvo nustatyta, kad iš 300 apskaičiuotų tinklų 3 tinklams $N_i$ buvo apskaičiuotas neteisingas maksimalus srautas. Visų 3 tinklų $N_i$ viršūnių aibių dydžiai yra 10. Dviejų tinklų iš tinklų $N_i$ briaunų skaičius yra vidutiniškai mažesnis už vidutinį galimų briaunų skaičių, likusio tinklo briaunų skaičius yra vidutinis galimų briaunų skaičius. Todėl taip pat buvo nekorektiškai apskaičiuoti šių tinklų maksimalūs srautai po kiekvieno pokyčio. Tačiau žinant, kad maksimalus srautas buvo nekorektiškai apskaičiuotas inicializavimo fazėje, tai galima teigti, kad yra nežinoma ar algoritmas po kiekvieno pokyčio apskaičiavo maksimalų srautą korektiškai.
 
+Taip pat naudojantis atliktų bandymų rezultatu, INCORRECT ir ACTION masyvais, buvo nustatyta, kad iš 300 apskaičiuotų tinklų tinklo $N$ maksimalus srautas buvo apskaičiuotas nekorektiškai po talpos pakeitimo pokyčio. Tinklo $N$ viršūnių skaičius yra 60, o briaunų skaičius yra vidutiniškai mažesnis nei vidutinis galimų briaunų skaičius.
+
+Naudojantis atliktų bandymų rezultatu, masyvais $Algorithm_{\{T\}}$ ir $Test_{\{T\}}$,  sukurtam algoritmui ir Fordo Fulkersono algoritmui buvo sukonstruoti paprasti linijiniai modeliai $USED_EDGES ~ VIRSUNES + BRIAUNOS$ su kiekvienu pokyčio tipu T, kur USED\_EDGES - tai panaudotų briaunų skaičius, VIRSUNES - apskaičiuoto tinklo viršūnių skaičius, BRIAUNOS - apskaičiuoto tinklo briaunų skaičius (gali įgyti reikšmes: VIDUTINIS - vidutinis galimų briaunų skaičius, MAZAI - vidutiniškai mažesnis negu vidutinis galimų briaunų skaičius, DAUG - vidutiniškai didesnis negu vidutinis galimų briaunų skaičius). Sukonstruoto algoritmo modeliai:
+\begin{enumerate}
+	\item Po viršūnės pridėjimo: $USED_EDGES = 0$
+	\item Po briaunos pridėjimo: $USED_EDGES = 5905.3VIRŠŪNĖS + 16253DAUG - 9611.2MAZAI + VIDUTINIS - 162425.5$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po viršūnės atėmimo: $USED_EDGES = 5911.6VIRŠŪNĖS + 15370DAUG - 10513.6MAZAI + VIDUTINIS - 161921.6$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po briaunos atėmimo: $USED_EDGES = 5906VIRŠŪNĖS + 15575DAUG -10436MAZAI + VIDUTINIS - 161921$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po talpos pakeitimo: $USED_EDGES = 5912.6VIRŠŪNĖS + 16059.5DAUG - 10430.8MAZAI + VIDUTINIS - 162265.2$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+\end{enumerate}
+Fordo Fulkersono algoritmo modeliai:
+\begin{enumerate}
+	\item Po viršūnės pridėjimo: $USED_EDGES = 6103.5VIRŠŪNĖS + 14124.5DAUG -9955.4MAZAI + VIDUTINIS - 166184.7$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po briaunos pridėjimo: $USED_EDGES = 5924.9VIRŠŪNĖS + 14406.2DAUG - 8848.7MAZAI + VIDUTINIS - 162945.9$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po viršūnės atėmimo: $USED_EDGES = 5923.9VIRŠŪNĖS + 14405.7DAUG - 8885.6MAZAI + VIDUTINIS - 162909.8$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po briaunos atėmimo: $USED_EDGES = 5923.7VIRŠŪNĖS + 14359.6DAUG - 8831.3MAZAI + VIDUTINIS - 162960.8$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+	\item Po talpos pakeitimo: $USED_EDGES =5925.3VIRŠŪNĖS + 14430.2DAUG -8774.7MAZAI + VIDUTINIS - 163061.4$, tik parametras USED\_EDGES ir konstanta turi dideles įtakas.
+\end{enumerate}

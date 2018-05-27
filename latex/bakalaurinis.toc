@@ -22,6 +22,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.4.3.}Po kiekvieno pokyčio fazės funkcijos kiekvinam pokyčio tipui}{13}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.5.}Sukurto algoritmo trūkumai}{15}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.}Sukurto algoritmo įgyvendinimas}{16}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.}Empiriniai bandymai}{17}
@@ -32,11 +34,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{19}
+\contentsline {section}{Išvados}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{20}
+\contentsline {section}{Conclusions}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{21}
+\contentsline {section}{Literatūra}{23}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

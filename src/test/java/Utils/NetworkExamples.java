@@ -26,9 +26,9 @@ public class NetworkExamples {
         network.setEdgeWeight(network.getEdge(3,2), 4);
         network.setEdgeWeight(network.getEdge(3,5), 14);
 //        network.setEdgeWeight(network.getEdge(3,2), 9);
-        network.setEdgeWeight(network.getEdge(4,6), 20);
+//        network.setEdgeWeight(network.getEdge(4,6), 20);
         network.setEdgeWeight(network.getEdge(5,4), 7);
-        network.setEdgeWeight(network.getEdge(5,6), 4);
+//        network.setEdgeWeight(network.getEdge(5,6), 4);
 
         network.addSource(0);
         network.addSink(6);

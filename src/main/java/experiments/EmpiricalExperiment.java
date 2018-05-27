@@ -207,8 +207,8 @@ public class EmpiricalExperiment {
         return result;
     }
 
-    private void isEqualResult(DynamicNetwork network, Map<Integer, Double> actual, UpdateType action) {
-        Map<Integer, Double> expected = algorithm.getCurrentMaxFlow();
+    private void isEqualResult(DynamicNetwork network, Map<Integer, Double> expected, UpdateType action) {
+        Map<Integer, Double> actual = algorithm.getCurrentMaxFlow();
         double actualValue = actual.get(network.getSinks().get(0));
         double expectedValue = expected.get(network.getSinks().get(0));
 
