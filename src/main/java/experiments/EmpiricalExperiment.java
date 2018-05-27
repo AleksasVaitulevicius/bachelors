@@ -213,6 +213,7 @@ public class EmpiricalExperiment {
         double expectedValue = expected.get(network.getSinks().get(0));
 
         if(actualValue != expectedValue) {
+            System.out.println("Failed to " + action);
             incorrectNetwork.add(network);
             incorrectAction.add(action);
         }

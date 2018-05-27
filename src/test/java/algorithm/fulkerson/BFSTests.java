@@ -17,13 +17,13 @@ public class BFSTests {
         BFS bfs = new BFS();
         Network network = new NetworkExamples().getNetwork0();
         Map<Integer, Integer> expected = new HashMap<>();
-        expected.put(1, 0);
-        expected.put(2, 0);
+        expected.put(2, 1);
         expected.put(3, 1);
         expected.put(4, 2);
         expected.put(5, 3);
+        expected.put(6, 4);
 
-        Map<Integer, Integer> result = bfs.bfs(network, List.of(0), List.of(5));
+        Map<Integer, Integer> result = bfs.bfs(network, List.of(1), List.of(6));
 
         assertEquals(expected, result);
     }

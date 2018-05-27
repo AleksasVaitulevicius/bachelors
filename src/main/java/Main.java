@@ -13,6 +13,33 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        String input;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("type help");
+        input = sc.nextLine();
+        ExperimentData data = new ExperimentData();
+        while(!input.equals("run")) {
+            switch(input) {
+                case "help":
+                    System.out.println("run - runs experiments");
+                    System.out.println("display <file> - displays network in <file>");
+                    System.out.println("display all - displays all");
+                    System.out.println("quit - exits");
+                    break;
+                case "display all":
+                    data.loadAndDisplayAll();
+                    break;
+                case "quit":
+                    return;
+            }
+            if(input.contains("display ") && !input.equals("display all")) {
+                data.loadAndDisplayNetwork(input.substring(8, input.length()));
+            }
+            input = sc.nextLine();
+        }
+
+
         RandomNetworkGenerator gen = new RandomNetworkGenerator();
         RandomNetworkListGenerator generator = new RandomNetworkListGenerator(gen);
         FordFulkerson fulkerson = new FordFulkerson(new BFS());
@@ -25,7 +52,6 @@ public class Main {
 
         experiment.perform();
 
-        ExperimentData data = new ExperimentData();
         data.saveNetworks(experiment.getIncorrectNetwork(), experiment.getIncorrectAction());
         data.saveUsedEdges(experiment.getAlgorithmUsedEdges(), "algorithm");
         data.saveUsedEdges(experiment.getFulkersonUsedEdges(), "fulkerson");

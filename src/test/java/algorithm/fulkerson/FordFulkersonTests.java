@@ -16,44 +16,44 @@ public class FordFulkersonTests {
         Network network = new NetworkExamples().getNetwork0();
         FordFulkerson fulkerson = new FordFulkerson(new BFS());
 
-        Map<Integer, Double> maxFlow = fulkerson.maxFlow(network, List.of(0), List.of(5));
+        Map<Integer, Double> maxFlow = fulkerson.maxFlow(network, List.of(1), List.of(6));
 
         assertEquals(fulkerson.getUsedEdges(), 29);
 
-        assertEquals(Map.of(5, 23.0), maxFlow);
+        assertEquals(Map.of(6, 23.0), maxFlow);
         assertEquals(
                 12.0,
-                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(0, 1)),
+                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(1, 2)),
                 0.5
         );
         assertEquals(
                 11.0,
-                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(0, 2)),
-                0.5
-        );
-        assertEquals(
-                12.0,
                 fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(1, 3)),
                 0.5
         );
         assertEquals(
-                11.0,
+                12.0,
                 fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(2, 4)),
                 0.5
         );
         assertEquals(
-                19.0,
+                11.0,
                 fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(3, 5)),
                 0.5
         );
         assertEquals(
+                19.0,
+                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(4, 6)),
+                0.5
+        );
+        assertEquals(
                 7.0,
-                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(4, 3)),
+                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(5, 4)),
                 0.5
         );
         assertEquals(
                 4.0,
-                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(4, 5)),
+                fulkerson.getMaxFlow().getEdgeWeight(fulkerson.getMaxFlow().getEdge(5, 6)),
                 0.5
         );
     }

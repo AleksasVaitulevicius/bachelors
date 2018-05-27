@@ -7,6 +7,7 @@ import gui.GUI;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ExperimentData {
 
@@ -62,11 +63,33 @@ public class ExperimentData {
         }
     }
 
+    public void loadAndDisplayAll() {
+        File folder = new File("incorrect");
+        File[] listOfFolders = folder.listFiles();
+
+        for (File listOfFolder : Objects.requireNonNull(listOfFolders)) {
+            File subFolder = new File("incorrect/" + listOfFolder.getName());
+            File[] listOfFiles = subFolder.listFiles();
+            for (File listOfFile : Objects.requireNonNull(listOfFiles)) {
+                loadAndDisplayNetwork(
+                        "incorrect/" + listOfFolder.getName() + "/" + listOfFile.getName()
+                );
+            }
+        }
+    }
+
     public void loadAndDisplayNetwork(String filename) {
         try {
             FileInputStream fileStream = new FileInputStream(filename);
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
             DynamicNetwork network = (DynamicNetwork) objectStream.readObject();
+
+            System.out.println(filename);
+            System.out.println(network);
+            System.out.println("vertices: " + network.vertexSet().size());
+            System.out.println("edges: " + network.edgeSet().size());
+            System.out.println();
+
             new GUI(filename, network).display(900, 900);
             fileStream.close();
             objectStream.close();

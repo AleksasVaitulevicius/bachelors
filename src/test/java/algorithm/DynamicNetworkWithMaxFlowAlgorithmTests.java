@@ -25,8 +25,8 @@ public class DynamicNetworkWithMaxFlowAlgorithmTests {
         RandomNetworkListGenerator generator = mock(RandomNetworkListGenerator.class);
         Random rng = mock(Random.class);
         when(generator.generate()).thenReturn(List.of(examples.getNetwork0()));
-        when(rng.nextInt(7)).thenReturn(3);
-        when(rng.nextInt(6)).thenReturn(0).thenReturn(4);
+        when(rng.nextInt(8)).thenReturn(4);
+        when(rng.nextInt(7)).thenReturn(1).thenReturn(5);
         when(rng.nextDouble()).thenReturn(28.0);
 
         FordFulkerson fulkerson = new FordFulkerson(new BFS());
@@ -46,31 +46,31 @@ public class DynamicNetworkWithMaxFlowAlgorithmTests {
         assertEquals(
             expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.ADD_VERTEX).get(0)
         );
-        expectedValue = 29;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.ADD_VERTEX).get(0)
         );
-        expectedValue = 11;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.REMOVE_VERTEX).get(0)
         );
-        expectedValue = 11;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.REMOVE_VERTEX).get(0)
         );
-        expectedValue = 11;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.ADD_EDGE).get(0)
         );
-        expectedValue = 11;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.ADD_EDGE).get(0)
         );
-        expectedValue = 7;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getAlgorithmUsedEdges().get(UpdateType.REMOVE_EDGE).get(0)
         );
-        expectedValue = 7;
+        expectedValue = 0;
         assertEquals(
                 expectedValue, experiment.getFulkersonUsedEdges().get(UpdateType.REMOVE_EDGE).get(0)
         );
