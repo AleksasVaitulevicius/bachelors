@@ -34,11 +34,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.}Statistiniai skaičiavimai ir jų rezultatai}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{22}
+\contentsline {section}{Išvados ir rezultatai}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Conclusions}{23}
+\contentsline {section}{Conclusions and results}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{24}
+\contentsline {section}{Literatūra}{29}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

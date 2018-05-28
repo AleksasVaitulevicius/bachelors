@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  28 MAY 2018 00:50
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.4.8)  28 MAY 2018 13:43
 entering extended mode
 **./bakalaurinis.tex
 (bakalaurinis.tex
@@ -1290,35 +1290,59 @@ ir SimpleDirectedWeightedGraph<int,
 ] (bandymai.tex [18
 
 ] [19]
-Underfull \hbox (badness 7308) in paragraph at lines 39--40
+File: img/vav.png Graphic file (type bmp)
+<img/vav.png>
+File: img/vae.png Graphic file (type bmp)
+<img/vae.png>
+File: img/vrv.png Graphic file (type bmp)
+<img/vrv.png>
+File: img/vre.png Graphic file (type bmp)
+<img/vre.png>
+ [20]
+File: img/vue.png Graphic file (type bmp)
+<img/vue.png>
+ [21]
+File: img/eav.png Graphic file (type bmp)
+<img/eav.png>
+File: img/eae.png Graphic file (type bmp)
+<img/eae.png>
+File: img/erv.png Graphic file (type bmp)
+<img/erv.png>
+ [22]
+File: img/ere.png Graphic file (type bmp)
+<img/ere.png>
+File: img/eue.png Graphic file (type bmp)
+<img/eue.png>
+ [23]
+Underfull \hbox (badness 7308) in paragraph at lines 103--104
 []\TU/texgyretermes(0)/m/n/12 Naudojantis atliktų bandymų rezultatu, masyvais $
 \OML/cmm/m/it/12 Algorithm[]$ \TU/texgyretermes(0)/m/n/12 ir $\OML/cmm/m/it/12 
 Test[]$\TU/texgyretermes(0)/m/n/12 , sukur-
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 39--40
+Underfull \hbox (badness 1924) in paragraph at lines 103--104
 \TU/texgyretermes(0)/m/n/12 tam algoritmui ir Fordo Fulkersono algoritmui buvo 
 sukonstruoti paprasti linijiniai mode-
  []
 
 
-Underfull \hbox (badness 3078) in paragraph at lines 39--40
+Underfull \hbox (badness 3078) in paragraph at lines 103--104
 \TU/texgyretermes(0)/m/n/12 liai $\OML/cmm/m/it/12 USED[]EDGES []VIRSUNES \OT1/
 cmr/m/n/12 + \OML/cmm/m/it/12 BRIAUNOS$ \TU/texgyretermes(0)/m/n/12 su kiekvien
 u pokyčio tipu T, kur
  []
 
-
-Underfull \hbox (badness 1454) in paragraph at lines 51--52
+[24]
+Underfull \hbox (badness 1454) in paragraph at lines 115--116
 []\TU/texgyretermes(0)/m/n/12 Po viršūnės atėmimo: $\OML/cmm/m/it/12 USED[]EDGE
 S \OT1/cmr/m/n/12 = 5869\OML/cmm/m/it/12 VIRSUNES \OT1/cmr/m/n/12 + 15140\OML/c
 mm/m/it/12 DAUG \OMS/cmsy/m/n/12 ^^@
  []
 
-[20]) [21] (isvadaLT.tex) [22
+) [25] [26] (isvadaLT.tex) [27
 
-] (isvadaEN.tex) [23
+] (isvadaEN.tex) [28
 
 ]
 
@@ -1341,7 +1365,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[24
+[29
 
 ]
 File: img/architecture.png Graphic file (type bmp)
@@ -1368,22 +1392,22 @@ File: img/architecture2.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25
+[30
 
-] [26] [27] [28] (tyrimuRezultatai.tex [29
+] [31] [32] [33] (tyrimuRezultatai.tex [34
 
-]) [30] [31] (bakalaurinis.aux)
+]) [35] [36] (bakalaurinis.aux)
 Package logreq Info: Writing requests to 'bakalaurinis.run.xml'.
 \openout1 = `bakalaurinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24097 strings out of 427836
- 466182 string characters out of 3156071
+ 24148 strings out of 427836
+ 466822 string characters out of 3156071
  974787 words of memory out of 3000000
- 27761 multiletter control sequences out of 15000+200000
+ 27802 multiletter control sequences out of 15000+200000
  542302 words of font info for 86 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  67i,14n,96p,10546b,7445s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bakalaurinis.pdf (32 pages).
+Output written on bakalaurinis.pdf (37 pages).

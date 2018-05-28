@@ -1,7 +1,169 @@
 
-usedEdgesAverage <- aggregate(usedEdges[, 3:12], list(usedEdges$vertices_number, usedEdges$edges_number), mean)
+usedEdgesAverage <- aggregate(
+  usedEdges[, 3:12], list(usedEdges$vertices_number, usedEdges$edges_number), mean
+)
 write.csv(usedEdgesAverage, "usedEdgesAverage.csv")
 
+usedEdgesByVertex <- aggregate(usedEdges[, 3:12], list(usedEdges$vertices_number), mean)
+#------------------------------------------------------------------------------------------------
+plot(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$fulkerson_ADD_VERTEX,
+  type="l", pch=22, col="blue", lty=3, 
+  main="Skaičiavime panaudotų briaunų skaičius po viršūnės pridėjimo tinklo viršūnių skaičiaus kontekste",
+  xlab="Viršūnių skaičius", ylab="panaudotų briaunų skaičius"
+)
+lines(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$algorithm_ADD_VERTEX,
+  type="l", pch=21, col="red"
+)
+legend(
+  5, 600000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$algorithm_ADD_EDGE,
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos pridėjimo tinklo viršūnių skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$fulkerson_ADD_EDGE,
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  5, 600000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$algorithm_REMOVE_VERTEX,
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po viršūnės atėmimo tinklo viršūnių skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$fulkerson_REMOVE_VERTEX,
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  5, 600000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$algorithm_REMOVE_EDGE,
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos atėmimo tinklo viršūnių skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$fulkerson_REMOVE_EDGE,
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  5, 600000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$algorithm_UPDATE_WEIGHT,
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos talpos pakeitimo tinklo viršūnių skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  usedEdgesByVertex$Group.1, usedEdgesByVertex$fulkerson_UPDATE_WEIGHT,
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  5, 600000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+usedEdgesByEdge <- aggregate(usedEdges[, 3:12], list(usedEdges$edges_number), mean)
+#------------------------------------------------------------------------------------------------
+plot(
+  seq(1, 3), usedEdgesByEdge$fulkerson_ADD_VERTEX[c(3, 1, 2)],
+  type="l", pch=22, col="blue", lty=3,
+  main="Skaičiavime panaudotų briaunų skaičius po viršūnės pridėjimo tinklo briaunų skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius", xlab="Viršūnių skaičius", 
+  ylim=c(0, 220000)
+)
+lines(
+  seq(1, 3), usedEdgesByEdge$algorithm_ADD_VERTEX[c(3, 1, 2)],
+  type="l", pch=21, col="red"
+)
+legend(
+  1, 220000, legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas")
+  , col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  seq(1, 3), usedEdgesByEdge$algorithm_ADD_EDGE[c(3, 1, 2)],
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos pridėjimo tinklo briaunų skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  seq(1, 3), usedEdgesByEdge$fulkerson_ADD_EDGE[c(3, 1, 2)],
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  1, max(usedEdgesByEdge$algorithm_ADD_EDGE), 
+  legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas"),
+  col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  seq(1, 3), usedEdgesByEdge$algorithm_REMOVE_VERTEX[c(3, 1, 2)],
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po viršūnės atėmimo tinklo briaunų skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  seq(1, 3), usedEdgesByEdge$fulkerson_REMOVE_VERTEX[c(3, 1, 2)],
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  1, max(usedEdgesByEdge$algorithm_REMOVE_VERTEX), 
+  legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas"),
+  col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  seq(1, 3), usedEdgesByEdge$algorithm_REMOVE_EDGE[c(3, 1, 2)],
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos atėmimo tinklo briaunų skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  seq(1, 3), usedEdgesByEdge$fulkerson_REMOVE_EDGE[c(3, 1, 2)],
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  1, max(usedEdgesByEdge$algorithm_REMOVE_EDGE), 
+  legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas"),
+  col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+plot(
+  seq(1, 3), usedEdgesByEdge$algorithm_UPDATE_WEIGHT[c(3, 1, 2)],
+  type="l", pch=21, col="red", xlab="Viršūnių skaičius",
+  main="Skaičiavime panaudotų briaunų skaičius po briaunos talpos pakeitimo tinklo briaunų skaičiaus kontekste",
+  ylab="panaudotų briaunų skaičius"
+)
+lines(
+  seq(1, 3), usedEdgesByEdge$fulkerson_UPDATE_WEIGHT[c(3, 1, 2)],
+  type="l", pch=22, col="blue", lty=3
+)
+legend(
+  1, max(usedEdgesByEdge$algorithm_UPDATE_WEIGHT), 
+  legend=c("Sukurtas algoritmas", "Fordo Fulkersono algoritmas"),
+  col=c("red", "blue"), lty=1:2, cex=0.8
+)
+#------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------
 aav <- glm(algorithm_ADD_VERTEX ~ vertices_number + edges_number,data=usedEdges)
 summary(aav)
 aae <- glm(algorithm_ADD_EDGE ~ vertices_number + edges_number,data=usedEdges)
@@ -12,7 +174,7 @@ are <- glm(algorithm_REMOVE_EDGE ~ vertices_number + edges_number,data=usedEdges
 summary(are)
 auw <- glm(algorithm_UPDATE_WEIGHT ~ vertices_number + edges_number,data=usedEdges)
 summary(auw)
-
+#------------------------------------------------------------------------------------------------
 fav <- glm(fulkerson_ADD_VERTEX ~ vertices_number + edges_number,data=usedEdges)
 summary(fav)
 fae <- glm(fulkerson_ADD_EDGE ~ vertices_number + edges_number,data=usedEdges)
